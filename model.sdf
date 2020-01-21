@@ -25,7 +25,7 @@
 <!-- red = y, green = z, blue = x -->
 
     <link name='left_rear_wheel'>
-      <pose>0.2 0.13 0.1 0 1.5707 1.5707</pose>
+      <pose>0.2 0.185 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -40,16 +40,16 @@
         <collision name='collision'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-              <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </collision>
         <visual name='visual'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-                <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </visual>
@@ -61,15 +61,14 @@
 	<child>left_rear_wheel</child>
 	<axis>
 	  <xyz>0 1 0</xyz>
-	  <limit>
-	    <lower>-10000000</lower>
-	    <upper>10000000</upper>
-	  </limit>
 	</axis>
+	<dynamics>
+	  <friction>0.8</friction>
+	</dynamics>
       </joint>
 
     <link name='right_rear_wheel'>
-      <pose>0.2 -0.13 0.1 0 1.5707 1.5707</pose>
+      <pose>0.2 -0.185 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -84,16 +83,16 @@
         <collision name='collision'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-                <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </collision>
         <visual name='visual'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-                <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </visual>
@@ -105,15 +104,14 @@
 	<child>right_rear_wheel</child>
 	<axis>
 	  <xyz>0 1 0</xyz>
-	  <limit>
-	    <lower>-10000000</lower>
-	    <upper>10000000</upper>
-	  </limit>
 	</axis>
+	<dynamics>
+	  <friction>0.8</friction>
+	</dynamics>
       </joint>
 
     <link name='left_front_wheel'>
-      <pose>-0.2 0.13 0.1 0 1.5707 1.5707</pose>
+      <pose>-0.2 0.185 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -128,16 +126,16 @@
         <collision name='collision'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-                <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </collision>
         <visual name='visual'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-                <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </visual>
@@ -149,15 +147,14 @@
 	<child>left_front_wheel</child>
 	<axis>
 	  <xyz>0 1 0</xyz>
-	  <limit>
-	    <lower>-10000000</lower>
-	    <upper>10000000</upper>
-	  </limit>
 	</axis>
+	<dynamics>
+	  <friction>0.8</friction>
+	</dynamics>
       </joint>
 
     <link name='right_front_wheel'>
-      <pose>-0.2 -0.13 0.1 0 1.5707 1.5707</pose>
+      <pose>-0.2 -0.185 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -172,16 +169,16 @@
         <collision name='collision'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-                <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </collision>
         <visual name='visual'>
           <geometry>
             <cylinder>
-              <radius>.1</radius>
-                <length>.05</length>
+              <radius>.1651</radius>
+                <length>.1524</length>
             </cylinder>
           </geometry>
         </visual>
@@ -193,11 +190,18 @@
 	<child>right_front_wheel</child>
 	<axis>
 	  <xyz>0 1 0</xyz>
-	  <limit>
-	    <lower>-10000000</lower>
-	    <upper>10000000</upper>
-	  </limit>
 	</axis>
+	<dynamics>
+	  <friction>0.8</friction>
+	</dynamics>
+      </joint>
+
+  </model>
+</sdf>    
+
+
+
+
       </joint>
 
   </model>
