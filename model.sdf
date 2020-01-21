@@ -1,0 +1,204 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="qev2">
+  <!--static>true</static-->
+    <link name='chassis'>
+      <pose>0 0 .1 0 0 0</pose>
+    
+      <collision name='collision'>
+        <geometry>
+	  <box>
+	    <size>.6 .2 .1</size>
+	  </box>
+	</geometry>
+      </collision>
+
+      <visual name='visual'>
+        <geometry>
+	  <box>
+	    <size>.6 .2 .1</size>
+	  </box>
+        </geometry>
+      </visual>
+    </link>
+
+<!-- red = y, green = z, blue = x -->
+
+    <link name='left_rear_wheel'>
+      <pose>0.2 0.13 0.1 0 1.5707 1.5707</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.0126209425</ixx>
+          <iyy>0.0126209425</iyy>
+          <izz>0.040887015</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+                <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+      <joint type="revolute" name="joint_lr">
+        <pose>0 0 0 0 1.5707 1.5707</pose>
+	<parent>chassis</parent>
+	<child>left_rear_wheel</child>
+	<axis>
+	  <xyz>0 1 0</xyz>
+	  <limit>
+	    <lower>-10000000</lower>
+	    <upper>10000000</upper>
+	  </limit>
+	</axis>
+      </joint>
+
+    <link name='right_rear_wheel'>
+      <pose>0.2 -0.13 0.1 0 1.5707 1.5707</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.0126209425</ixx>
+          <iyy>0.0126209425</iyy>
+          <izz>0.040887015</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+                <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+                <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+     </link>
+
+      <joint type="revolute" name="joint_rr">
+      <pose>0 0 0 0 1.5707 1.5707</pose>
+	<parent>chassis</parent>
+	<child>right_rear_wheel</child>
+	<axis>
+	  <xyz>0 1 0</xyz>
+	  <limit>
+	    <lower>-10000000</lower>
+	    <upper>10000000</upper>
+	  </limit>
+	</axis>
+      </joint>
+
+    <link name='left_front_wheel'>
+      <pose>-0.2 0.13 0.1 0 1.5707 1.5707</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.0126209425</ixx>
+          <iyy>0.0126209425</iyy>
+          <izz>0.040887015</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+                <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+                <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+     </link>
+
+      <joint type="revolute" name="joint_lf">
+      <pose>0 0 0 0 1.5707 1.5707</pose>
+	<parent>chassis</parent>
+	<child>left_front_wheel</child>
+	<axis>
+	  <xyz>0 1 0</xyz>
+	  <limit>
+	    <lower>-10000000</lower>
+	    <upper>10000000</upper>
+	  </limit>
+	</axis>
+      </joint>
+
+    <link name='right_front_wheel'>
+      <pose>-0.2 -0.13 0.1 0 1.5707 1.5707</pose>
+      <inertial>
+        <mass>3</mass>
+        <inertia>
+          <ixx>0.0126209425</ixx>
+          <iyy>0.0126209425</iyy>
+          <izz>0.040887015</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+                <length>.05</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+                <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+     </link>
+
+      <joint type="revolute" name="joint_rf">
+      <pose>0 0 0 0 1.5707 1.5707</pose>
+	<parent>chassis</parent>
+	<child>right_front_wheel</child>
+	<axis>
+	  <xyz>0 1 0</xyz>
+	  <limit>
+	    <lower>-10000000</lower>
+	    <upper>10000000</upper>
+	  </limit>
+	</axis>
+      </joint>
+
+  </model>
+</sdf>
