@@ -35,7 +35,7 @@
 <!-- red = y, green = z, blue = x -->
 
     <link name='left_rear_wheel'>
-      <pose>0.2 0.185 0.1 0 1.5707 1.5707</pose>
+      <pose>0.2 0.3 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -73,12 +73,12 @@
 	  <xyz>0 1 0</xyz>
 	</axis>
 	<dynamics>
-	  <friction>0.8</friction>
+	  <friction>100</friction>
 	</dynamics>
       </joint>
 
     <link name='right_rear_wheel'>
-      <pose>0.2 -0.185 0.1 0 1.5707 1.5707</pose>
+      <pose>0.2 -0.3 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -116,12 +116,12 @@
 	  <xyz>0 1 0</xyz>
 	</axis>
 	<dynamics>
-	  <friction>0.8</friction>
+	  <friction>100</friction>
 	</dynamics>
       </joint>
 
     <link name='left_front_wheel'>
-      <pose>-0.2 0.185 0.1 0 1.5707 1.5707</pose>
+      <pose>-0.2 0.3 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -159,12 +159,24 @@
 	  <xyz>0 1 0</xyz>
 	</axis>
 	<dynamics>
-	  <friction>0.8</friction>
+	  <friction>100</friction>
+	</dynamics>
+      </joint>
+
+      <joint type="revolute" name="joint_lf_ackerman_steering">
+      <pose>0 0 0 0 1.5707 1.5707</pose>
+	<parent>chassis</parent>
+	<child>left_front_wheel</child>
+	<axis>
+	  <xyz>0 0 1</xyz>
+	</axis>
+	<dynamics>
+	  <friction>100</friction>
 	</dynamics>
       </joint>
 
     <link name='right_front_wheel'>
-      <pose>-0.2 -0.185 0.1 0 1.5707 1.5707</pose>
+      <pose>-0.2 -0.3 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>3</mass>
         <inertia>
@@ -202,9 +214,22 @@
 	  <xyz>0 1 0</xyz>
 	</axis>
 	<dynamics>
-	  <friction>0.8</friction>
+	  <friction>100</friction>
 	</dynamics>
       </joint>
+
+<joint type="revolute" name="joint_rf_ackerman_steering">
+      <pose>0 0 0 0 1.5707 1.5707</pose>
+	<parent>chassis</parent>
+	<child>right_front_wheel</child>
+	<axis>
+	  <xyz>0 0 1</xyz>
+	</axis>
+	<dynamics>
+	  <friction>100</friction>
+	</dynamics>
+      </joint>
+
 
   </model>
 </sdf>    
