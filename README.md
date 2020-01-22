@@ -1,5 +1,12 @@
 ## Welcome to GitHub Pages
 
+### Inertia of Chassis
+Using ```https://www.omnicalculator.com/physics/mass-moment-of-inertia``` for quick calculation, the moment of inertia for chassis (cuboid) was computed.
+
+_Notes: This uses the defined model size in .sdf (made by Nick) instead of the real dimension we have for QEV2. Our model specifies the chassis size as 0.6, 0.2, and 0.1 (L*W*H); whereas the QEV2 dimensions were 2.165, 0.735 and 0.630 (L*W*H)._
+
+### Markdown Intro
+
 You can use the [editor on GitHub](https://github.com/QUT-Motorsport/QUTMS_Autonomous/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
