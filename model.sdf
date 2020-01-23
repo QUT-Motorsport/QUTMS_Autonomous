@@ -7,9 +7,9 @@
     <inertial>
         <mass>46</mass>
         <inertia>
-          <ixx>0.19167</ixx>
-          <iyy>1.4183</iyy>
-          <izz>1.5333</izz>
+          <ixx>3.5923125</ixx>
+          <iyy>19.4891458333</iyy>
+          <izz>20.0385583333</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
