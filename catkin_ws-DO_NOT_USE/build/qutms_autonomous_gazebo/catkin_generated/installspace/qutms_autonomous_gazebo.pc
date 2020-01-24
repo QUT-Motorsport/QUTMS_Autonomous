@@ -1,0 +1,8 @@
+prefix=/home/peter/catkin_ws/install
+
+Name: qutms_autonomous_gazebo
+Description: Description of qutms_autonomous_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

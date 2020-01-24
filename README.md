@@ -1,44 +1,79 @@
-## Welcome to GitHub Pages
+# QUT autonomous
 
-### Inertia of Chassis
-Using ```https://www.omnicalculator.com/physics/mass-moment-of-inertia``` for quick calculation, the moment of inertia for chassis (cuboid) was computed.
+## How to use
+### Catkin workspace
+Start by creating a catkin workspace:   
+```mkdir -p ~/catkin_ws/src```   
+```cd ~/catkin_ws/```   
+Here, to initialise from scratch do as official ROSwiki suggests:    
+```catkin_make```    
 
-_Notes: This uses the defined model size in .sdf (made by Nick) instead of the real dimension we have for QEV2. Our model specifies the chassis size as 0.6, 0.2, and 0.1 (L*W*H); whereas the QEV2 dimensions were 2.165, 0.735 and 0.630 (L*W*H)._
+Or just copy and replace with this repo's subdirectory `catkin_ws-DO_NOT_USE/`.
+_Notes: there will likely be pathing errors. Fix accordingly in CMakeCache.txt and Makefile by replacing the correct absolute path._ 
 
-### Markdown Intro
+The reason why the catkin_ws is appended with DO_NOT_USE, is because this is not an appropriate setup. 
+The setup of a catkin_ws should follow ROSwiki's explicit instructions.    
 
-You can use the [editor on GitHub](https://github.com/QUT-Motorsport/QUTMS_Autonomous/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+One may require to do `catkin_make` at `catkin_ws` directory anyway.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Using Gazebo
+Given a correct ROS installation, there should be a `.gazebo/` folder under root, i.e.:   
+```~/.gazebo/```
 
-### Markdown
+In which, there should be a `models/` folder that we can place our models in by doing:   
+```mkdir ~/.gazebo/models/QEV2```   
+_Notes: the folder name must be 'QEV2' to align with ROS system_
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Executing 
+Typically, the `.world` can be run by simply doing:    
+```gazebo _file_.world```
 
-# Header 1
-## Header 2
-### Header 3
+However, we eventually will end up using `roslaunch` and other ROS related commands. And that's what this README is trying to explain. 
 
-- Bulleted
-- List
+Given the Catkin workspace is set up correctly, and if you haven't already, do:   
+```cd ~/catkin_ws```   
+```source devel/setup.bash```   
 
-1. Numbered
-2. List
+This should allow ROS filesystem to work. 
+So now we do:  
+```roslaunch qutms_autonomous_gazebo test.launch```
 
-**Bold** and _Italic_ and `Code` text
+This should launch gazebo with a ground plane and our QEV2 model.
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/QUT-Motorsport/QUTMS_Autonomous/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

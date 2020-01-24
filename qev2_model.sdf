@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
-<sdf version="1.5">
-  <model name="qev2">
+<sdf version="1.6">
+  <model name="QEV2">
     <link name="chassis">
       <pose>0 0 0.3  0 0 0</pose>
       <inertial>
