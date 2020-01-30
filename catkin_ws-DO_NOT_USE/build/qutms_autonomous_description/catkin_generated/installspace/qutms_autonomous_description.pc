@@ -1,8 +1,0 @@
-prefix=/home/peter/catkin_ws/install
-
-Name: qutms_autonomous_description
-Description: Description of qutms_autonomous_description
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
