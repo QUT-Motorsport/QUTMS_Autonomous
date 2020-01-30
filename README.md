@@ -8,11 +8,8 @@ The top directory of this repe contains `model.sdf` and `model.config`.
 Given a properly installed ROS (melodic), these files are to be placed in `~/.gazebo/models/QEV2/`.    
 This allows Gazebo to find the model in its database.
 
-## catkin_ws-DO_NOT_USE
-This folder is now here for quick reference - despite its incapability to plug-and-play. 
+## QUTMS_catkin_ws
+This is a submodule of another repo. 
+It is added here for the time being to centralise our development process. 
 
-To run Gazebo with ROS, a catkin workspace is required in a separate location of your machine. 
-
-Another README is in `catkin_ws-DO_NOT_USE` folder.
-Please read carefully before using, otherwise things will likely break. 
-
+For more details, read QUTMS_catkin_ws's README. 
