@@ -781,7 +781,7 @@
         </ode>
       </physics>
     </joint>
-    <!-- Add lidar to QEV2 -->
+    <!-- Add lidar to QEV2
     <include>
       <uri>model://horizon_lidar</uri>
       <pose>1.1 0 0.67 0 0 0</pose>
@@ -790,7 +790,8 @@
       <child>horizon_lidar::base</child>
       <parent>chassis</parent>
     </joint>
-    <!-- Add (stereo) camera to QEV2 -->
+    -->
+    <!-- Add (stereo) camera to QEV2 
     <include>
       <uri>model://zed_camera</uri>
       <pose>-0.4 0 1.3 0 0 0</pose>
@@ -799,5 +800,6 @@
       <child>zed_camera::base</child>
       <parent>chassis</parent>
     </joint>
+    -->
   </model>
 </sdf>
