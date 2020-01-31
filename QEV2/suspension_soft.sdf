@@ -3,7 +3,7 @@
 <sdf version="1.6">
   <model name="QEV2-version2">
     <link name="chassis">
-      <pose>0 0 0.5 0 0 0</pose>
+      <pose>0 0 0.3 0 0 0</pose>
       <inertial>
         <mass>46</mass>
         <inertia>

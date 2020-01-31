@@ -45,9 +45,9 @@
       <inertial>
         <mass>0.135</mass>
         <inertia>
-          <ixx>0.00000110261</ixx>
-          <iyy>0.00003751945</iyy>
-          <izz>0.00003100781</izz>
+          <ixx>0.00022376</ixx>
+          <iyy>0.003568</iyy>
+          <izz>0.0035466</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
