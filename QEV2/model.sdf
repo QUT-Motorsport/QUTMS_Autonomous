@@ -697,7 +697,7 @@
       <pose>1.1 0 0.67 0 0 0</pose>
     </include>
     <joint name="horizon_lidar_joint" type="fixed">
-      <child>horizon_lidar::base</child>
+      <child>horizon_lidar::horizon_lidar_base</child>
       <parent>chassis</parent>
     </joint>
     <!-- Add (stereo) camera to QEV2 -->
@@ -706,7 +706,7 @@
       <pose>-0.4 0 1.3 0 0 0</pose>
     </include>
     <joint name="zed_camera_joint" type="fixed">
-      <child>zed_camera::base</child>
+      <child>zed_camera::zed_camera_base</child>
       <parent>chassis</parent>
     </joint>
   </model>

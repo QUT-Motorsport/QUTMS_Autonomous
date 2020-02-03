@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
   <model name="horizon_lidar">
-    <link name="base">
+    <link name="horizon_lidar_base">
       <sensor type="ray" name="sensor">
         <pose>0.057 0 0.020 0 0 0</pose>
         <!--Enable visualization here-->

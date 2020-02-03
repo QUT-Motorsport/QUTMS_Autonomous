@@ -2,7 +2,7 @@
 <sdf version="1.6">
   <model name="zed_camera">
     <!-- This is a stereo camera, so we define two cameras individually -->
-    <link name="base">
+    <link name="zed_camera_base">
       <sensor type="camera" name="cam_left">
         <pose>0.06 0 0 0 0 1.5707</pose>
         <always_on>1</always_on>
