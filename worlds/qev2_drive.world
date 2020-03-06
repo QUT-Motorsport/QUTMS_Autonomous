@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Specify the QEV2 model -->
+    <model name="QEV2">
+      <include>
+        <uri>model://QEV2</uri>
+	<pose>0 0 0 0 0 0</pose>
+      </include>
+
+      <!-- Attach the plugin to this model -->
+      <plugin name="qev2_drive_control" filename="/home/nick-pc-ubuntu/catkin_ws/src/qutms_autonomous/qutms_gazebo_plugins/build/libqev2_drive_plugin.so"/>
+        <!--velocity>15</velocity-->
+    </model>
+
+  </world>
+</sdf>
+
