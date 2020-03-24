@@ -15,9 +15,9 @@ sudo apt install ros-melodic-teleop-twist-keyboard
 ## Setting up your workspace
 Run the following in your catkin_ws to clean your devel and build directories
 ```
-catkin clean
+catkin clean --yes
 ```
 If all goes well then run
 ```
-catkin build
+catkin build qutms_autonomous
 ```
