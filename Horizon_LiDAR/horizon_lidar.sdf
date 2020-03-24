@@ -7,13 +7,14 @@
       <pose>0.057 0 0.020 0 0 0</pose>
       <!--Enable visualization here-->
 	<always_on>1</always_on>
-	<visualize>true</visualize>
+	<visualize>false</visualize>
 	<update_rate>30</update_rate>
-      <plugin name="qev2_lidar_plugin" filename="/home/nick-pc-ubuntu/catkin_ws/src/qutms_autonomous/libgazebo_plugins/libgazebo_ros_laser.so">
+      <plugin name="qev2_lidar_plugin" filename="libgazebo_ros_laser.so">
       <robotNamespace>QEV2_lidar</robotNamespace>
       <topicName>lidar_scan</topicName>
       <frameName>lidar_frame</frameName>
-	<pose>0.057 0 0.020 0 0 0</pose>
+	<!--pose>0.057 0 0.020 0 0 0</pose-->
+    </plugin>
     <ray>
       <!--Only need horizontal beams-->
       <scan>
@@ -40,7 +41,6 @@
 	<resolution>0.01</resolution>
       </range>
     </ray>
-    </plugin>
     </sensor>
     <pose>0 0 0 0 0 0</pose>
       <inertial>
