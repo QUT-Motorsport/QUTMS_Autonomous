@@ -77,4 +77,8 @@ ${GAZEBO_LIBRARIES}
 # add_executable(XML_to_Grid xml_to_grid.cpp)
 # target_link_libraries(XML_to_Grid ${catkin_LIBRARIES})
 
-# add_executable(
+add_executable(Joystick_to_Twist src/joy_handle.cpp)
+target_link_libraries(Joystick_to_Twist ${catkin_LIBRARIES})
+
+add_executable(AS_State_Machine src/state_machine.cpp)
+target_link_libraries(AS_State_Machine ${catkin_LIBRARIES})
