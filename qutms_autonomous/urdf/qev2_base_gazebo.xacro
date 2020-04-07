@@ -42,7 +42,7 @@
 	  </xacro:qev2_horizon_lidar>
   </xacro:if>
 
-  <!-- Add Horizon LIDAR using the Velodyne package -->
+  <!-- Add Cameras -->
   <xacro:if value="$(arg camera_enabled)">
     <xacro:qev2_zed_camera parent="base_link">
 	    <origin xyz="-0.4 0 1.3" rpy="0 0 0" />

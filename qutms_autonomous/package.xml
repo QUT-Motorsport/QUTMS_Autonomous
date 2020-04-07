@@ -16,17 +16,20 @@
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>tf</build_depend>
   <build_depend>libpcl-all-dev</build_depend>
   <build_depend>pcl_conversions</build_depend>
   <build_depend>pcl_ros</build_depend>
-  <build_depend>velodyne_gazebo_plugins</build_depend>
-  
+
   <!-- Packages needed during runtime -->
   <exec_depend>gazebo_plugins</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>tf</exec_depend>
   <exec_depend>xacro</exec_depend>
   <exec_depend>libpcl-all</exec_depend>
   <exec_depend>pcl_conversions</exec_depend>
@@ -34,10 +37,9 @@
   <exec_depend>controller_manager</exec_depend>
   <exec_depend>gazebo_ros_control</exec_depend>
   <exec_depend>hector_gazebo_plugins</exec_depend>
-  <exec_depend>velodyne_gazebo_plugins</exec_depend>
 
   <export>
-    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
+    <gazebo_ros plugin_path="${prefix}/../../lib" gazebo_media_path="${prefix}" />
   </export>
 
 </package>

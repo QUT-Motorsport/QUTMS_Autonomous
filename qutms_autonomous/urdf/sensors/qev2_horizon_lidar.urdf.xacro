@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="VLP-16">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="Horizon">
 
   <xacro:property name="M_PI" value="3.1415926535897931" />
 
@@ -10,10 +10,10 @@
     <joint name="${name}_base_mount_joint" type="fixed">
       <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
-      <child link="${name}"/>
+      <child link="${name}_base_link"/>
     </joint>
 
-    <link name="${name}">
+    <link name="${name}_base_link">
       <inertial>
         <mass value="1.18"/>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -32,22 +32,21 @@
       </collision>
     </link>
 
-    <!-- Gazebo requires the velodyne_gazebo_plugins package -->
-    <gazebo reference="${name}">
+    <gazebo reference="${name}_base_link">
       <sensor type="ray" name="${name}_sensor">
         <pose>0 0 0 0 0 0</pose>
+        <update_rate>30.0</update_rate>
         <visualize>false</visualize>
-        <update_rate>30</update_rate>
         <ray>
           <scan>
             <horizontal>
-              <samples>1000</samples>
+              <samples>100</samples>
               <resolution>1</resolution>
               <min_angle>-${(M_PI/180)*(81.7/2)}</min_angle>
               <max_angle>${(M_PI/180)*(81.7/2)}</max_angle>
             </horizontal>
             <vertical>
-              <samples>10</samples>
+              <samples>100</samples>
               <resolution>1</resolution>
               <min_angle>-${(M_PI/180)*(25.1/2)}</min_angle>
               <max_angle>${(M_PI/180)*(25.1/2)}</max_angle>
@@ -55,24 +54,23 @@
           </scan>
           <range>
             <min>1</min>
-            <max>260</max>
+            <max>50</max>
             <resolution>0.01</resolution>
           </range>
           <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.0</stddev>
-          </noise>
+  	  	    <type>gaussian</type>
+  	  	    <mean>0.0</mean>
+  	  	    <stddev>0.008</stddev>
+  	  	  </noise>
         </ray>
-        <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_laser.so">
-          <topicName>${name}/points</topicName>
-          <frameName>${name}</frameName>
-          <min_range>1</min_range>
-          <max_range>260</max_range>
-          <gaussianNoise>0.008</gaussianNoise>
+        <plugin name="qev2_lidar_plugin" filename="libhorizon_lidar_plugin.so">
+          <topicName>${name}/pointcloud</topicName>
+          <frameName>${name}_base_link</frameName>
         </plugin>
       </sensor>
     </gazebo>
 
   </xacro:macro>
 </robot>
+
+
