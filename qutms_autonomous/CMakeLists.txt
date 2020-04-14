@@ -44,7 +44,7 @@ catkin_package(
 )
 
 roslaunch_add_file_check(launch)
-
+ 
 link_directories(${GAZEBO_LIBRARY_DIRS})
 
 include_directories(
@@ -55,14 +55,6 @@ include_directories(
 )
 
 ##### Compile plugins and add to library
-
-# horizon lidar plugin
-add_library(horizon_lidar_plugin plugins/src/horizon_lidar_plugin.cpp)
-target_link_libraries(horizon_lidar_plugin 
-${catkin_LIBRARIES} 
-${GAZEBO_LIBRARIES} 
-RayPlugin
-)
 
 # qev2_drive_plugin
 #add_library(qev2_drive_plugin plugins/qev2_drive_plugin.cc)
@@ -78,13 +70,26 @@ RayPlugin
 #${GAZEBO_LIBRARIES} 
 #)
 
-##### Compile nodes
+# horizon lidar plugin
+add_library(horizon_lidar_plugin plugins/src/horizon_lidar_plugin.cpp)
+target_link_libraries(horizon_lidar_plugin 
+${catkin_LIBRARIES} 
+${GAZEBO_LIBRARIES} 
+RayPlugin
+)
 
-# add_executable(XML_to_Grid xml_to_grid.cpp)
-# target_link_libraries(XML_to_Grid ${catkin_LIBRARIES})
+# Program to get cone positions from a txt document
+add_executable(XML_to_Pose src/xml_to_pose.cpp)
+target_link_libraries(XML_to_Pose ${catkin_LIBRARIES})
 
+# Manual control node
 add_executable(Joystick_to_Twist src/joy_handle.cpp)
 target_link_libraries(Joystick_to_Twist ${catkin_LIBRARIES})
 
+# State tracker
 add_executable(AS_State_Machine src/state_machine.cpp)
 target_link_libraries(AS_State_Machine ${catkin_LIBRARIES})
+
+# For mapping
+add_executable(Curve_Fitting src/spline_fit.cpp)
+target_link_libraries(Curve_Fitting ${catkin_LIBRARIES})
