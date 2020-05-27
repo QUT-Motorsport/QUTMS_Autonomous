@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+<!-- Get the joy node to launch -->
+  <param name="AS_State" type="string" value="AS_Ready"/>
+  <node pkg="joy" type="joy_node" respawn="true" name="qev2_joy" >
+  <param name="dev" type="string" value="/dev/input/js0" />
+  <param name="deadzone" value="0.1" />
+  </node>
+
+  <!-- Parameter settings -->
+  <node pkg="qutms_autonomous" type="Joystick_to_Twist" name="qev2_joy_to_twist" >
+  <param name="vel_base_x" type="double" value="1"/>
+  <param name="vel_base_y" type="double" value="1"/>
+  <param name="turn_rate" type="double" value="1"/>
+  </node>
+
+  <node pkg="qutms_autonomous" type="AS_State_Machine" name="qev2_as_state_machine"/>
+
+  <!-- Add additional nodes later -->
+</launch>

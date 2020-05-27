@@ -4,10 +4,20 @@ This repo aims the explain and document our development of autonomus driverless 
 __WORK IN PROGRESS__ 
 
 ## How to use
-The top directory (root) of this repo is just under Gazebo's models folder.
-Given a properly installed ROS (melodic), these files are to be placed __in__ `~/.gazebo/models/`.
-This will allow Gazebo to find our models in its database.
+From the new_package branch grab the two folders qutms_autonomous and velodyne_gazebo_plugins. Place these into your catkin_ws/src directory.
+Run these commands to install dependencies
+```
+sudo apt install python-catkin-tools
+sudo apt install ros-melodic-hector-gazebo-plugins
+sudo apt install ros-melodic-teleop-twist-keyboard
+```
 
-## Catkin workspace
-A ROS catkin_ws is required to run the simulation. See our [QUTMS_catkin_ws](https://github.com/QUT-Motorsport/QUTMS_catkin_ws) repo for details.
-
+## Setting up your workspace
+Run the following in your catkin_ws to clean your devel and build directories
+```
+catkin clean --yes
+```
+If all goes well then run
+```
+catkin build qutms_autonomous
+```

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="robot_namespace" default="/"/>
+
+  <arg name="x"   default="0.0"/>
+  <arg name="y"   default="0.0"/>
+  <arg name="z"   default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+
+  <!-- Sensors for QEV2 -->
+  <arg name="imu_enabled"           default="false" />
+  <arg name="gps_enabled"           default="false" />
+  <arg name="lidar_enabled"         default="false" />
+  <arg name="camera_enabled"        default="false" />
+  
+  <group ns="$(arg robot_namespace)">
+
+    <!-- Load robot description -->
+    <!-- Load robot model -->
+    <arg name="urdf" default="$(find qutms_autonomous)/urdf/qev2_base_gazebo.xacro"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(arg urdf) 
+      robot_namespace:=$(arg robot_namespace)
+      imu_enabled:=$(arg imu_enabled) 
+      gps_enabled:=$(arg gps_enabled) 
+      lidar_enabled:=$(arg lidar_enabled)
+      camera_enabled:=$(arg camera_enabled)"/>
+
+    <!-- Load controller configuration -->
+    <rosparam command="load" file="$(find qutms_autonomous)/config/control.yaml" />
+
+    <!-- Spawn controllers -->
+    <node name="base_controller_spawner" pkg="controller_manager" type="spawner"
+          args="qev2_joint_publisher qev2_velocity_controller"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- Spawn robot in gazebo -->
+    <node name="spawn_qev2_model" pkg="gazebo_ros" type="spawn_model"
+        args="-x $(arg x)
+              -y $(arg y)
+              -z $(arg z)
+              -Y $(arg yaw)
+              -unpause
+              -urdf
+              -param robot_description
+              -model $(arg robot_namespace)" />
+
+  </group>
+
+</launch>

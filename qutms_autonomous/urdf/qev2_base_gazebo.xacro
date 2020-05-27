@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="qev2">
+
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+
+  <!-- Inlcudes essential macros -->
+  <!-- QEV2 description -->
+  <xacro:include filename="$(find qutms_autonomous)/urdf/qev2.urdf.xacro" />
+  <!-- GPS -->
+  <xacro:include filename="$(find qutms_autonomous)/urdf/sensors/qev2_gps.urdf.xacro" />
+  <!-- IMU -->
+  <xacro:include filename="$(find qutms_autonomous)/urdf/sensors/qev2_imu.urdf.xacro" />
+   <!-- LIDAR -->
+  <xacro:include filename="$(find qutms_autonomous)/urdf/sensors/qev2_horizon_lidar.urdf.xacro"/>
+    <!-- Camera -->
+  <xacro:include filename="$(find qutms_autonomous)/urdf/sensors/qev2_zed_camera.urdf.xacro" />
+
+  <!-- Call the macros defined above -->
+  <!-- QEV2 model -->
+  <xacro:qev2_body/>
+  
+  <!-- === Optional sensors - called by macros defined above === -->
+
+  <!-- Add simulated IMU-->
+  <xacro:if value="$(arg imu_enabled)">
+    <xacro:qev2_imu parent="base_link" >
+	    <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
+	  </xacro:qev2_imu>
+  </xacro:if>
+
+  <!-- Add simulated GPS -->
+  <xacro:if value="$(arg gps_enabled)">
+    <xacro:qev2_gps parent="base_link" >
+	    <origin xyz="0 0 0.71" rpy="0 0 0" />
+	  </xacro:qev2_gps>
+  </xacro:if>
+
+  <!-- Add Horizon LIDAR using the Velodyne package -->
+  <xacro:if value="$(arg lidar_enabled)">
+    <xacro:qev2_horizon_lidar parent="base_link">
+	    <origin xyz="1.1 0 0.1" rpy="0 0 0" />
+	  </xacro:qev2_horizon_lidar>
+  </xacro:if>
+
+  <!-- Add Cameras -->
+  <xacro:if value="$(arg camera_enabled)">
+    <xacro:qev2_zed_camera parent="base_link">
+	    <origin xyz="-0.4 0 1.3" rpy="0 0 0" />
+	  </xacro:qev2_zed_camera>
+  </xacro:if>
+
+</robot>
