@@ -58,11 +58,17 @@ target_link_libraries(lidar_clustering_node ${catkin_LIBRARIES})
 add_executable(XML_to_Pose src/xml_to_pose.cpp)
 target_link_libraries(XML_to_Pose ${catkin_LIBRARIES})
 
-add_executable(Joystick_to_Twist src/joy_handle.cpp)
-target_link_libraries(Joystick_to_Twist ${catkin_LIBRARIES})
-
 add_executable(AS_State_Machine src/state_machine.cpp)
 target_link_libraries(AS_State_Machine ${catkin_LIBRARIES})
 
 add_executable(Curve_Fitting src/spline_fit.cpp)
 target_link_libraries(Curve_Fitting ${catkin_LIBRARIES})
+
+add_executable(GPS_Publisher src/gps_pub.cpp)
+target_link_libraries(GPS_Publisher ${catkin_LIBRARIES})
+
+add_executable(IMU_Publisher src/imu_pub.cpp)
+target_link_libraries(IMU_Publisher ${catkin_LIBRARIES})
+
+add_executable(AKF_Node src/kalman_filter.cpp)
+target_link_libraries(AKF_Node ${catkin_LIBRARIES})
