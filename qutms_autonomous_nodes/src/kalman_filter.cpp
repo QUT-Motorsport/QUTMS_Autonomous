@@ -9,156 +9,208 @@
 #include <math.h>
 #include <Eigen/Dense>
 
-// Implements an Adaptive Kalman Filter to estimate position
+// Implements an Adaptive Kalman Filter to estimate the state of a platform
 // The state is [x y yaw x_vel y_vel yaw_vel]
 
 using namespace std;
 
 class Adaptive_Kalman_Filter {
+    // KF matrices 
+    Eigen::MatrixXd A, H, P, Q, R, C; // Process matrices and covariances
+
+    Eigen::VectorXd xk; // State vector
+
     public:
     // Constructor
     Adaptive_Kalman_Filter();
 
-    private:
-    // ROS variables
-    ros::NodeHandle na;
-    ros::Publisher state_pos_pub;
-    ros::Publisher state_vel_pub;
-    ros::Subscriber imu_sub;
-    ros::Subscriber gps_sub;
+    // KF functions to do work
+    void state_predict(void);
+    void state_update(void);
+    void cov_update(int);
 
-    geometry_msgs::PoseWithCovariance qev2_pose_msg;
-    geometry_msgs::TwistWithCovariance qev2_twist_msg;
-
-    void predict_step(Eigen::VectorXd xk_hatp, Eigen::MatrixXd Ak, Eigen::MatrixXd Pku, Eigen::MatrixXd Qk);
-    void update_step(Eigen::VectorXd xk_hatp, Eigen::MatrixXd Pku, Eigen::VectorXd y, Eigen::MatrixXd Hk, Eigen::MatrixXd R);
-    void get_meas(double ltm, double lnm, double pim, double ltdm, double lndm, double pidm);
+    void imu_meas(double, double, double, double);
+    void gps_meas(double, double);
 
     void imu_callback(const sensor_msgs::Imu::ConstPtr& imu_msg);
     void gps_callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg);
 
-    // Matrices for AKF
-    Eigen::MatrixXd Aa, H, Q, Pa, R; 
+    private:
+    // ROS declarations
+    ros::NodeHandle na;
+    ros::Publisher state_pose_pub;
+    ros::Publisher state_vel_pub;
+    ros::Subscriber imu_sub;
+    ros::Subscriber gps_sub;
 
-    Eigen::VectorXd xk, yk;
+    geometry_msgs::PoseWithCovariance state_pose_msg;
+    geometry_msgs::TwistWithCovariance state_vel_msg;
 
-    double dt;
+    // Measurement variables
+    double latm, lngm, psim, lat_dotm, lng_dotm, psi_dotm;
 
-    double lat, lng, psi, lat_dot, lng_dot, psi_dot, latm, lngm, psim, lat_dotm, lng_dotm, psi_dotm;
-
-    void set_filter(Eigen::MatrixXd Aa, Eigen::MatrixXd H, Eigen::MatrixXd Q, Eigen::MatrixXd Pa, Eigen::MatrixXd R);
-    void init_state(Eigen::VectorXd xf);
-
+    // KF measurement matrix
+    Eigen::VectorXd yk, ek;
+    Eigen::MatrixXd K;
 };
 
-Adaptive_Kalman_Filter::Adaptive_Kalman_Filter() {
-
-    // Publishers
-    state_pos_pub = na.advertise<geometry_msgs::PoseWithCovariance>("/qev2_state_pose", 10);
-    state_vel_pub = na.advertise<geometry_msgs::TwistWithCovariance>("/qev2_state_vel", 10);
-
-    // Subscribers
-    imu_sub = na.subscribe("/qev2/imu/data", 10, &Adaptive_Kalman_Filter::imu_callback, this);
-    gps_sub = na.subscribe("/qev2/gps/data", 10, &Adaptive_Kalman_Filter::gps_callback, this); 
-
-}
-
-void Adaptive_Kalman_Filter::imu_callback(const sensor_msgs::Imu::ConstPtr& imu_msg) {
-    // Grab the required IMU data
-    Adaptive_Kalman_Filter::psim = imu_msg->orientation.z;
-    Adaptive_Kalman_Filter::lat_dotm = imu_msg->linear_acceleration.x;
-    Adaptive_Kalman_Filter::lng_dotm = imu_msg->linear_acceleration.y;
-    Adaptive_Kalman_Filter::psi_dotm = imu_msg->angular_velocity.z;
-
-}
-
-void Adaptive_Kalman_Filter::gps_callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg) {
-    // Get the required GPS data
-    Adaptive_Kalman_Filter::latm = gps_msg->latitude;
-    Adaptive_Kalman_Filter::lngm = gps_msg->longitude;
-
-}
-
-void Adaptive_Kalman_Filter::predict_step(Eigen::VectorXd xk_hatp, Eigen::MatrixXd Ak, Eigen::MatrixXd Pku, Eigen::MatrixXd Qk) {
-    // Predict the next state
-    this->xk = Ak*xk_hatp; 
-
-    // Predict the next covariance
-    this->Pa = Ak*Pku*Ak.transpose() + Qk;
-}
-
-void Adaptive_Kalman_Filter::update_step(Eigen::VectorXd xk_hatp, Eigen::MatrixXd Pku, Eigen::VectorXd y, Eigen::MatrixXd Hk, Eigen::MatrixXd R) {
-    // Get the Kalman Gain
-    Eigen::MatrixXd residmat = Hk*Pku*Hk.transpose() + R;
-    Eigen::MatrixXd K = Pku*Hk.transpose()*residmat.inverse();
-
-    // State update
-    this->xk = xk_hatp + K*(y - Hk*xk_hatp);
-
-    // Covariance update
-    this->Pa = (Eigen::MatrixXd::Identity(6,6) - K*Hk)*Pku;
-}
-
-void Adaptive_Kalman_Filter::set_filter(Eigen::MatrixXd As, Eigen::MatrixXd Hs, Eigen::MatrixXd Qs, Eigen::MatrixXd Ps, Eigen::MatrixXd Rs) {
-    // Initialize KF matrices
-    this->Aa = As;
-    this->H = Hs;
-    this->Q = Qs;
-    this->Pa = Ps;
-    this->R = Rs;
-
-}
-
-void Adaptive_Kalman_Filter::init_state(Eigen::VectorXd xf) {
-    // Initializes the state 
-    this->xk = xf;
-
-}
-
-void Adaptive_Kalman_Filter::get_meas(double ltm, double lnm, double pim, double ltdm, double lndm, double pidm) {
-    // Get a measurement model
-    Eigen::VectorXd yu;
-    yu << ltm, lnm, pim, ltdm, lndm, pidm;
-
-    this->yk = yu;
-}
-
-int main(int argc, char **argv) {
-    // Init
-    ros::init(argc, argv, "QEV2_AKF");
-
-    // Setup
-    Adaptive_Kalman_Filter AKF;
-
-    // Setup for KF process
-    Eigen::MatrixXd Ai, Hi, Qi;
-    Eigen::VectorXd xi;
-
-    Ai <<  1, 0, 0, 0.1, 0, 0,
+Adaptive_Kalman_Filter::Adaptive_Kalman_Filter() : A(6,6), H(6,6), P(6,6), Q(6,6), R(6,6), C(6,6), xk(6,1){
+    // Setup all necessary variables
+    A <<  1, 0, 0, 0.1, 0, 0,
         0, 1, 0, 0, 0.1, 0,
         0, 0, 1, 0, 0, 0.1,
         0, 0, 0, 1, 0, 0,
         0, 0, 0, 0, 1, 0,
         0, 0, 0, 0, 0, 1;
 
-    Eigen::MatrixXd Pi = 400*Eigen::MatrixXd::Identity(6,6);
+    P = 400*Eigen::MatrixXd::Identity(6,6);
 
-    Hi << 1, 0, 0, 0, 0, 0,
+    H << 1, 0, 0, 0, 0, 0,
         0, 1, 0, 0, 0, 0,
         0, 0, 0.1, 0, 0, 0,
         0, 0, 0, 0.1, 0, 0,
         0, 0, 0, 0, 0.1, 0,
         0, 0, 0, 0, 0, 1;
 
-    Eigen::MatrixXd Ri = Eigen::MatrixXd::Identity(6,6);
+    R = 3*Eigen::MatrixXd::Identity(6,6);
 
-    Qi << 1.3479, 0, 0, 0, 0, 0,
+    Q << 1.3479, 0, 0, 0, 0, 0,
         0, 1.3479, 0, 0, 0, 0,
         0, 0, 2*M_PI/180, 0, 0, 0,
         0, 0, 0, 0.1214, 0, 0,
         0, 0, 0, 0, 0.1214, 0,
         0, 0, 0, 0, 0, 2*M_PI/180;
 
-    xi << 49.0086, 8.3981, 2.6006, 0.6984, -0.0183, -0.0062;
+    C = Eigen::MatrixXd::Ones(6,6);
 
+    xk << 49.0086, 8.3981, 2.6006, 0.6984, -0.0183, -0.0062;
+
+    // Initialise the sizes of the other important vectors
+    yk.resize(6,1);
+
+    // Publishers
+    state_pose_pub = na.advertise<geometry_msgs::PoseWithCovariance>("/qev2_state_pose", 10);
+    state_vel_pub = na.advertise<geometry_msgs::TwistWithCovariance>("/qev2_state_vel", 10);
+
+    // Subscribers
+    imu_sub = na.subscribe("/qev2/imu/data", 10, &Adaptive_Kalman_Filter::imu_callback, this);
+    gps_sub = na.subscribe("/qev2/gps/data", 10, &Adaptive_Kalman_Filter::gps_callback, this);     
+}
+
+void Adaptive_Kalman_Filter::state_predict(void) {
+    // Predict the next state
+    xk = A*xk; 
+
+    // Predict the next covariance
+    P = A*P*A.transpose() + Q;
+
+    // // DEBUG
+    // cout << "The new state is: " << xk << endl;
+}
+
+void Adaptive_Kalman_Filter::state_update(void) {
+    // Get the Kalman Gain
+    Eigen::MatrixXd residmat = H*P*H.transpose() + R;
+    Eigen::MatrixXd K = P*H.transpose()*residmat.inverse();
+
+    // State update, assuming we have measurements
+    if (yk.rows() != 0) {
+        // DEBUG
+        cout << "Got measurements: " << yk << endl;
+        xk = xk + K*(yk - H*xk);
+    } else {
+        ROS_ERROR("No measurements retrieved!!");
+    }
+
+    // DEBUG
+    cout << "The updated state is: " << xk << endl;
+
+    // Covariance update
+    P = (Eigen::MatrixXd::Identity(6,6) - K*H)*P;
+
+    // Get the error matrix
+    ek = xk - yk;
+}
+
+void Adaptive_Kalman_Filter::cov_update(int k) {
+    // Update the state and measurement covariance matrices
+    // Innovation covariance matrix
+    Eigen::MatrixXd Ck;
+    // Sanity check - the error matrix exists
+    if (ek.rows() != 0) {
+        Ck = ((k-1)/k)*C + (1/k)*ek*ek.transpose();
+    } else {
+        ROS_ERROR("Error matrix size is 0, defaulting to ones");
+        ek = Eigen::VectorXd::Ones(6,1);
+        Ck = ((k-1)/k)*C + (1/k)*ek*ek.transpose();
+    }
+
+    // Update measurement covariance
+    R = Ck + H*P*H.transpose();
+
+    // Update state covariance
+    Q = K*Ck*K.transpose();
+
+    // Save the new innovation covariance
+    C = Ck;
+}
+
+void Adaptive_Kalman_Filter::imu_meas(double psii, double lat_doti, double lng_doti, double psi_doti) {
+    // Update measurements from an IMU
+    psim = psii;
+    lat_dotm = lat_doti;
+    lng_dotm = lng_doti;
+    psi_dotm = psi_doti;
+}
+
+void Adaptive_Kalman_Filter::gps_meas(double lati, double lngi) {
+    // Update measurements from a GPS
+    latm = lati;
+    lngm = lngi; 
+}
+
+void Adaptive_Kalman_Filter::imu_callback(const sensor_msgs::Imu::ConstPtr& imu_msg) {
+    // Grab the required IMU data
+    double psi = imu_msg->orientation.z;
+    double lat_dot = imu_msg->linear_acceleration.x;
+    double lng_dot = imu_msg->linear_acceleration.y;
+    double psi_dot = imu_msg->angular_velocity.z;
+
+    // Update
+    imu_meas(psi, lat_dot, lng_dot, psi_dot);
+}
+
+void Adaptive_Kalman_Filter::gps_callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg) {
+    // Get the required GPS data
+    double lat = gps_msg->latitude;
+    double lng = gps_msg->longitude;
+
+    // Update
+    gps_meas(lat, lng);
+}
+
+int main(int argc, char **argv) {
+    // Init node
+    ros::init(argc, argv, "QEV2_AKF");
+
+    // Instantiate class
+    Adaptive_Kalman_Filter AKF;
+
+    // Get a counter
+    int f = 1;
+    while(ros::ok()) {
+
+        // State prediction
+        AKF.state_predict();
+
+        // Process any waiting callbacks
+        ros::spinOnce();
+
+        // State update
+        AKF.state_update();
+
+        // // Update our covariances
+        // AKF.cov_update(f);
+
+    }
 }
