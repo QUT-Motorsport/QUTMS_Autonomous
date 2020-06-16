@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch the publishers and KF node for testing -->
+    <node pkg="qutms_autonomous_nodes" type="IMU_Publisher" respawn="true" name="imu_pub"/>
+    <node pkg="qutms_autonomous_nodes" type="GPS_Publisher" respawn="true" name="gps_pub"/>
+    <node pkg="qutms_autonomous_nodes" type="AKF_Node" respawn="true" name="AKF" output="screen"/>
+</launch>
