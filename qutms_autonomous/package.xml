@@ -39,7 +39,7 @@
   <exec_depend>hector_gazebo_plugins</exec_depend>
 
   <export>
-    <gazebo_ros plugin_path="${prefix}/../../lib" gazebo_media_path="${prefix}" />
+    <gazebo_ros plugin_path="${prefix}/../../lib" gazebo_media_path="${prefix}" gazebo_model_path="${prefix}/.." />
   </export>
 
 </package>

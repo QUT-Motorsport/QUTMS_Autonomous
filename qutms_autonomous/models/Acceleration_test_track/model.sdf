@@ -6,14 +6,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -23,14 +23,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -40,14 +40,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -57,14 +57,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -74,14 +74,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -91,14 +91,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -108,14 +108,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -125,14 +125,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -142,14 +142,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -159,14 +159,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -176,14 +176,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -193,14 +193,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -210,14 +210,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -227,14 +227,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -244,14 +244,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -261,14 +261,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -278,14 +278,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -295,14 +295,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -312,14 +312,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -329,14 +329,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -346,14 +346,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -363,14 +363,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -380,14 +380,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -397,14 +397,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -414,14 +414,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_blue.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_blue.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -431,14 +431,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -448,14 +448,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -465,14 +465,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -482,14 +482,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -499,14 +499,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -516,14 +516,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -533,14 +533,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -550,14 +550,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -567,14 +567,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -584,14 +584,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -601,14 +601,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -618,14 +618,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -635,14 +635,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -652,14 +652,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -669,14 +669,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -686,14 +686,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -703,14 +703,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -720,14 +720,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -737,14 +737,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -754,14 +754,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -771,14 +771,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -788,14 +788,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -805,14 +805,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -822,14 +822,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -839,14 +839,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_yellow.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_yellow.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -856,14 +856,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -873,14 +873,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -890,14 +890,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -907,14 +907,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -924,14 +924,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -941,14 +941,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -958,14 +958,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -975,14 +975,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone_big.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone_big.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -992,14 +992,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1009,14 +1009,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1026,14 +1026,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1043,14 +1043,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1060,14 +1060,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1077,14 +1077,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1094,14 +1094,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1111,14 +1111,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1128,14 +1128,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1145,14 +1145,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1162,14 +1162,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1179,14 +1179,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1196,14 +1196,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1213,14 +1213,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1230,14 +1230,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1247,14 +1247,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1264,14 +1264,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1281,14 +1281,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1298,14 +1298,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1315,14 +1315,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1332,14 +1332,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1349,14 +1349,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1366,14 +1366,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1383,14 +1383,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1400,14 +1400,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1417,14 +1417,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1434,14 +1434,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1451,14 +1451,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1468,14 +1468,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1485,14 +1485,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1502,14 +1502,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1519,14 +1519,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1536,14 +1536,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1553,14 +1553,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1570,14 +1570,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1587,14 +1587,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1604,14 +1604,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1621,14 +1621,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1638,14 +1638,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1655,14 +1655,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1672,14 +1672,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1689,14 +1689,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1706,14 +1706,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1723,14 +1723,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1740,14 +1740,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1757,14 +1757,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1774,14 +1774,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1791,14 +1791,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1808,14 +1808,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1825,14 +1825,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1842,14 +1842,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1859,14 +1859,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1876,14 +1876,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1893,14 +1893,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1910,14 +1910,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1927,14 +1927,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1944,14 +1944,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1961,14 +1961,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1978,14 +1978,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1995,14 +1995,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2012,14 +2012,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2029,14 +2029,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2046,14 +2046,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2063,14 +2063,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2080,14 +2080,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2097,14 +2097,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2114,14 +2114,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2131,14 +2131,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2148,14 +2148,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2165,14 +2165,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -2182,14 +2182,14 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://qut_description/meshes/cone.dae</uri>
+            <uri>model://qutms_autonomous/models/qut_description/meshes/cone.dae</uri>
           </mesh>
         </geometry>
       </visual>
