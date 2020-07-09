@@ -46,6 +46,10 @@
 
   	</include>
 
+    <!-- Allow manual steering -->
+    <include file="$(find qutms_autonomous)/launch/joy_launch.launch">
+    </include>
+
     <!-- Grab a model file for a track-->
     <param name="track_name" value="$(find qutms_autonomous)/models/Winton_test_track/model.sdf"/>
     <node name="spawn_sdf" pkg="gazebo_ros" type="spawn_model" 
