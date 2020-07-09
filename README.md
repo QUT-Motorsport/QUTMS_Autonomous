@@ -4,12 +4,13 @@ This repo aims the explain and document our development of autonomus driverless 
 __WORK IN PROGRESS__ 
 
 ## How to use
-From the new_package branch grab the two folders qutms_autonomous and velodyne_gazebo_plugins. Place these into your catkin_ws/src directory.
+From the new_package branch grab the qutms_autonomous folder. Place this into your catkin_ws/src directory.
 Run these commands to install dependencies
 ```
 sudo apt install python-catkin-tools
 sudo apt install ros-melodic-hector-gazebo-plugins
 sudo apt install ros-melodic-teleop-twist-keyboard
+sudo apt install ros-melodic-joy
 ```
 
 ## Setting up your workspace
