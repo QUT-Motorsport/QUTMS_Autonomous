@@ -20,6 +20,8 @@ set( CMAKE_BUILD_TYPE Debug )
 find_package(catkin REQUIRED COMPONENTS
   roslaunch
   geometry_msgs
+  image_transport
+  cv_bridge
   roscpp
   std_msgs
   sensor_msgs
@@ -30,6 +32,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 # Depend on system install of Gazebo
 find_package(gazebo REQUIRED)
+find_package(OpenCV REQUIRED)
 
 link_directories(${GAZEBO_LIBRARY_DIRS})
 
@@ -37,6 +40,7 @@ include_directories(
   ${Boost_INCLUDE_DIR} 
   ${catkin_INCLUDE_DIRS} 
   ${GAZEBO_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 catkin_package(
@@ -72,3 +76,6 @@ target_link_libraries(IMU_Publisher ${catkin_LIBRARIES})
 
 add_executable(AKF_Node src/kalman_filter.cpp)
 target_link_libraries(AKF_Node ${catkin_LIBRARIES})
+
+add_executable(Image_Pipeline src/image_pipeline.cpp)
+target_link_libraries(Image_Pipeline ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
