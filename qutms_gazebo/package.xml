@@ -25,9 +25,5 @@
     <depend>std_msgs</depend>
     <depend>std_srvs</depend>
     <depend>tf</depend>
-    
-    <export>
-        <gazebo_ros gazebo_plugin_path="${prefix}/plugins" />
-    </export>
 
 </package>

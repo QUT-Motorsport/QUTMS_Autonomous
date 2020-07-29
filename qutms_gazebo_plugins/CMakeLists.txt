@@ -30,11 +30,3 @@ catkin_package(
 )
 
 add_subdirectory(gazebo_race_car_model)
-
-# Tests
-# These need to be run with -j1 flag because gazebo can't be run
-# in parallel.
-#if (CATKIN_ENABLE_TESTING)
-#    find_package(rostest REQUIRED)
-#    # TODO
-#endif ()
