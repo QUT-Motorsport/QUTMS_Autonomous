@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 
-  <!-- Gazebo arguments -->
-  <env name="GAZEBO_RESOURCE_PATH" value="$(find qutms_description)"/>
   <!-- Debug argument passed to Gazebo -->
   <arg name="debug" default="false"/>
 
