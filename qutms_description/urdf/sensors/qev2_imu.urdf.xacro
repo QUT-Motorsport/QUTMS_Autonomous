@@ -10,11 +10,11 @@
 		<joint name="${name}_base_mount_joint" type="fixed">
       <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
-      <child link="${name}_base_link"/>
+      <child link="${name}_base_footprint"/>
   	</joint>
 
 		<!-- IMU Base -->
-    <link name="${name}_base_link">
+    <link name="${name}_base_footprint">
 			<inertial>
         <mass value="0.385" />
 				<origin xyz="0 0 0"/>
@@ -36,9 +36,9 @@
 
 	<gazebo>
   	  <plugin name="imu_controller_${name}" filename="libhector_gazebo_ros_imu.so">
-  	    <robotNamespace>$(arg robot_namespace)</robotNamespace>
+  	    <robotNamespace>qev</robotNamespace>
   	    <updateRate>${update_rate}</updateRate>
-  	    <bodyName>${name}_base_link</bodyName>
+  	    <bodyName>${name}_base_footprint</bodyName>
   	    <topicName>${topic_name}</topicName>
   	    <accelDrift>0.005 0.005 0.005</accelDrift>
   	    <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>

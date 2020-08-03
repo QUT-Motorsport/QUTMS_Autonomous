@@ -8,11 +8,11 @@
 		<joint name="${name}_base_mount_joint" type="fixed">
   	  		<xacro:insert_block name="origin" />
   	  		<parent link="${parent}"/>
-  	  		<child link="${name}_base_link"/>
+  	  		<child link="${name}_base_footprint"/>
   		</joint>
 
 		<!-- Camera Base -->
-  		<link name="${name}_base_link">
+  		<link name="${name}_base_footprint">
 		<inertial>
   	    	<mass value="0.135" />
 			<origin xyz="0 0 0"/>
@@ -76,7 +76,7 @@
 					<cameraName>${name}</cameraName>
   	  	  			<imageTopicName>image_raw</imageTopicName>
   	  	  			<cameraInfoTopicName>camera_info</cameraInfoTopicName>
-  	  	  			<frameName>${name}_base_link</frameName>
+  	  	  			<frameName>${name}_base_footprint</frameName>
   	  	  			<hackBaseline>0.07</hackBaseline>
   	  	  			<distortionK1>0.0</distortionK1>
   	  	  			<distortionK2>0.0</distortionK2>

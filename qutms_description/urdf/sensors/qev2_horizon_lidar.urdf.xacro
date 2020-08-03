@@ -10,10 +10,10 @@
     <joint name="${name}_base_mount_joint" type="fixed">
       <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
-      <child link="${name}_base_link"/>
+      <child link="${name}base_footprint"/>
     </joint>
 
-    <link name="${name}_base_link">
+    <link name="${name}base_footprint">
       <inertial>
         <mass value="1.18"/>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -32,7 +32,7 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_base_link">
+    <gazebo reference="${name}base_footprint">
       <sensor type="ray" name="${name}_sensor">
         <pose>0 0 0 0 0 0</pose>
         <update_rate>30.0</update_rate>
@@ -65,7 +65,7 @@
         </ray>
         <plugin name="qev2_lidar_plugin" filename="libhorizon_lidar_plugin.so">
           <topicName>${name}/pointcloud</topicName>
-          <frameName>${name}_base_link</frameName>
+          <frameName>${name}_base_footprint</frameName>
         </plugin>
       </sensor>
     </gazebo>
