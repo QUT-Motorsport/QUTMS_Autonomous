@@ -29,7 +29,7 @@
 				</geometry>
 			</collision>
 		</link>
-		<gazebo reference="${name}_base_link">
+		<gazebo reference="${name}_base_footprint">
 			<sensor type="multicamera" name="${name}">
 				<update_rate>30.0</update_rate>
 				<camera name="z-left">
