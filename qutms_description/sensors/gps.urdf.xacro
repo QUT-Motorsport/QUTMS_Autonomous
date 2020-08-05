@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:macro name="qev2_gps" params="*origin parent:=base_footprint name:=gps topic_name:=gps/data update_rate:=30.0">
+	<xacro:macro name="gps" params="*origin parent:=base_footprint name:=gps topic_name:=gps/data update_rate:=30.0">
 
 		<!-- GPS Base Mount Joint -->
 		<joint name="${name}_base_mount_joint" type="fixed">
@@ -31,7 +31,7 @@
 		</link>
 
 		<gazebo>
-			<plugin name="gps_controller_${name}" filename="libhector_gazebo_ros_gps.so">
+			<plugin name="gps_plugin" filename="libhector_gazebo_ros_gps.so">
 				<robotNamespace>qev</robotNamespace>
 				<updateRate>30</updateRate>
 				<bodyName>${name}_base_footprint</bodyName>

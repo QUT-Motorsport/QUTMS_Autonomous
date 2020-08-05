@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:macro name="qev2_zed_camera" params="*origin parent:=base_footprint name:=zed_camera">
+	<xacro:macro name="zed_camera" params="*origin parent:=base_footprint name:=zed_camera">
 
 		<!-- Camera Base Mount Joint -->
 		<joint name="${name}_base_mount_joint" type="fixed">
@@ -68,7 +68,8 @@
 						<stddev>0.007</stddev>
 					</noise>
 				</camera>
-				<plugin name="qev2_camera_plugin" filename="libgazebo_ros_multicamera.so">
+				<plugin name="camera_plugin" filename="libgazebo_ros_multicamera.so">
+					<robotNamespace>qev</robotNamespace>
 					<alwaysOn>true</alwaysOn>
 					<updateRate>0.0</updateRate>
 					<cameraName>${name}</cameraName>

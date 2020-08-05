@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:macro name="qev2_imu" params="*origin parent:=base_footprint name:=imu topic_name:=imu/data update_rate:=30.0">
+	<xacro:macro name="imu" params="*origin parent:=base_footprint name:=imu topic_name:=imu/data update_rate:=30.0">
 
 		<!-- IMU Base Mount Joint -->
 		<joint name="${name}_base_mount_joint" type="fixed">
@@ -31,7 +31,7 @@
 		</link>
 
 		<gazebo>
-			<plugin name="imu_controller_${name}" filename="libhector_gazebo_ros_imu.so">
+			<plugin name="imu_plugin" filename="libhector_gazebo_ros_imu.so">
 				<robotNamespace>qev</robotNamespace>
 				<updateRate>${update_rate}</updateRate>
 				<bodyName>${name}_base_footprint</bodyName>

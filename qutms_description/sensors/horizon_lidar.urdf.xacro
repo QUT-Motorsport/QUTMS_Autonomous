@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="Horizon">
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="horizon_lidar" params=" *origin parent:=base_footprint name:=horizon_lidar">
 
-    <xacro:property name="M_PI" value="3.1415926535897931" />
-
-    <xacro:macro name="qev2_horizon_lidar" params=" *origin parent:=base_footprint name:=horizon_lidar">
+        <xacro:property name="M_PI" value="3.1415926535897931" />
 
         <joint name="${name}_base_mount_joint" type="fixed">
             <xacro:insert_block name="origin" />
@@ -61,7 +60,8 @@
                         <stddev>0.008</stddev>
                     </noise>
                 </ray>
-                <plugin name="qev2_lidar_plugin" filename="libhorizon_lidar_plugin.so">
+                <plugin name="lidar_plugin" filename="libhorizon_lidar_plugin.so">
+                    <robotNamespace>qev</robotNamespace>
                     <topicName>${name}/pointcloud</topicName>
                     <frameName>${name}_base_footprint</frameName>
                 </plugin>
