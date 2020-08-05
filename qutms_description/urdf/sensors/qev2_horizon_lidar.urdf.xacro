@@ -1,76 +1,74 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="Horizon">
 
-  <xacro:property name="M_PI" value="3.1415926535897931" />
+    <xacro:property name="M_PI" value="3.1415926535897931" />
 
-  <xacro:macro name="qev2_horizon_lidar" params=" *origin
-                                      parent:=base_footprint
-                                      name:=horizon_lidar">
-                                      
-    <joint name="${name}_base_mount_joint" type="fixed">
-      <xacro:insert_block name="origin" />
-      <parent link="${parent}"/>
-      <child link="${name}base_footprint"/>
-    </joint>
+    <xacro:macro name="qev2_horizon_lidar" params=" *origin parent:=base_footprint name:=horizon_lidar">
 
-    <link name="${name}base_footprint">
-      <inertial>
-        <mass value="1.18"/>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <inertia ixx="0.00199429833" ixy="0" ixz="0" iyy="0.00188347666" iyz="0" izz="0.00127685833"/>
-      </inertial>
-      <visual>
-        <geometry>
-          <box size="0.115 0.077 0.084"/>
-        </geometry>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.115 0.077 0.084"/>
-        </geometry>
-      </collision>
-    </link>
+        <joint name="${name}_base_mount_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}"/>
+            <child link="${name}base_footprint"/>
+        </joint>
 
-    <gazebo reference="${name}base_footprint">
-      <sensor type="ray" name="${name}_sensor">
-        <pose>0 0 0 0 0 0</pose>
-        <update_rate>30.0</update_rate>
-        <visualize>false</visualize>
-        <ray>
-          <scan>
-            <horizontal>
-              <samples>100</samples>
-              <resolution>1</resolution>
-              <min_angle>-${(M_PI/180)*(81.7/2)}</min_angle>
-              <max_angle>${(M_PI/180)*(81.7/2)}</max_angle>
-            </horizontal>
-            <vertical>
-              <samples>100</samples>
-              <resolution>1</resolution>
-              <min_angle>-${(M_PI/180)*(25.1/2)}</min_angle>
-              <max_angle>${(M_PI/180)*(25.1/2)}</max_angle>
-            </vertical>
-          </scan>
-          <range>
-            <min>1</min>
-            <max>50</max>
-            <resolution>0.01</resolution>
-          </range>
-          <noise>
-  	  	    <type>gaussian</type>
-  	  	    <mean>0.0</mean>
-  	  	    <stddev>0.008</stddev>
-  	  	  </noise>
-        </ray>
-        <plugin name="qev2_lidar_plugin" filename="libhorizon_lidar_plugin.so">
-          <topicName>${name}/pointcloud</topicName>
-          <frameName>${name}_base_footprint</frameName>
-        </plugin>
-      </sensor>
-    </gazebo>
+        <link name="${name}base_footprint">
+            <inertial>
+                <mass value="1.18"/>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <inertia ixx="0.00199429833" ixy="0" ixz="0" iyy="0.00188347666" iyz="0" izz="0.00127685833"/>
+            </inertial>
+            <visual>
+                <geometry>
+                    <box size="0.115 0.077 0.084"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.115 0.077 0.084"/>
+                </geometry>
+            </collision>
+        </link>
 
-  </xacro:macro>
+        <gazebo reference="${name}base_footprint">
+            <sensor type="ray" name="${name}_sensor">
+                <pose>0 0 0 0 0 0</pose>
+                <update_rate>30.0</update_rate>
+                <visualize>false</visualize>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>100</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-${(M_PI/180)*(81.7/2)}</min_angle>
+                            <max_angle>${(M_PI/180)*(81.7/2)}</max_angle>
+                        </horizontal>
+                        <vertical>
+                            <samples>100</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-${(M_PI/180)*(25.1/2)}</min_angle>
+                            <max_angle>${(M_PI/180)*(25.1/2)}</max_angle>
+                        </vertical>
+                    </scan>
+                    <range>
+                        <min>1</min>
+                        <max>50</max>
+                        <resolution>0.01</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.008</stddev>
+                    </noise>
+                </ray>
+                <plugin name="qev2_lidar_plugin" filename="libhorizon_lidar_plugin.so">
+                    <topicName>${name}/pointcloud</topicName>
+                    <frameName>${name}_base_footprint</frameName>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+    </xacro:macro>
 </robot>
 
 
