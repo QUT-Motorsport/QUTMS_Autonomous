@@ -48,7 +48,7 @@ VehicleModel::VehicleModel(physics::ModelPtr &_model,
   this->pub_odom_          = nh->advertise<nav_msgs::Odometry>(this->odom_topic_name_, 1);
 
   // ROS Subscribers
-  this->sub_cmd_          = nh->subscribe("/cmd_vel_out", 1, &VehicleModel::onCmd, this);
+  this->sub_cmd_          = nh->subscribe("/qev/drive_cmd", 1, &VehicleModel::onCmd, this);
 
   this->setPositionFromWorld();
 
