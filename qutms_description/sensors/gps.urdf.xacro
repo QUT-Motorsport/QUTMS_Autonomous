@@ -30,6 +30,10 @@
 			</collision>
 		</link>
 
+		<gazebo reference="${name}_base_footprint">
+			<material>Gazebo/Orange</material>
+		</gazebo>
+
 		<gazebo>
 			<plugin name="gps_plugin" filename="libhector_gazebo_ros_gps.so">
 				<robotNamespace>qev</robotNamespace>

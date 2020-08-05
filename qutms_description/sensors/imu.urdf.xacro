@@ -31,6 +31,7 @@
 		</link>
 
 		<gazebo>
+			<material>Gazebo/Orange</material>
 			<plugin name="imu_plugin" filename="libhector_gazebo_ros_imu.so">
 				<robotNamespace>qev</robotNamespace>
 				<updateRate>${update_rate}</updateRate>
