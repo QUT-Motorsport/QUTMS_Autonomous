@@ -28,6 +28,7 @@
             <linearVelocityNoise>0.0 0.0 0.0</linearVelocityNoise>
             <angularVelocityNoise>0.0 0.0 0.0</angularVelocityNoise>            <!-- X Y Z -->
             <linearAccelerationNoise>0.0 0.0 0.0</linearAccelerationNoise>
+            <robotNamespace>qev</robotNamespace>
         </plugin>
     </gazebo>
 </robot>

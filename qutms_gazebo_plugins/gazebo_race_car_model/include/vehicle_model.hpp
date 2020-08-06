@@ -115,6 +115,7 @@ protected:
   bool publish_tf_;
   std::string reference_frame_;
   std::string robot_frame_;
+  std::string robot_namespace_;
 
   std::vector<double> position_noise_;
   std::vector<double> orientation_noise_;

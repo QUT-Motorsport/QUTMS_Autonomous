@@ -45,10 +45,10 @@ VehicleModel::VehicleModel(physics::ModelPtr &_model,
   this->initVehicleParam(_sdf);
 
   // ROS Publishers
-  this->pub_odom_          = nh->advertise<nav_msgs::Odometry>(this->odom_topic_name_, 1);
+  this->pub_odom_ = nh->advertise<nav_msgs::Odometry>(this->odom_topic_name_, 1);
 
   // ROS Subscribers
-  this->sub_cmd_          = nh->subscribe("/qev/drive_cmd", 1, &VehicleModel::onCmd, this);
+  this->sub_cmd_ = nh->subscribe(this->robot_namespace_ + "/drive_cmd", 1, &VehicleModel::onCmd, this);
 
   this->setPositionFromWorld();
 
@@ -74,6 +74,13 @@ void VehicleModel::initParam(sdf::ElementPtr &_sdf) {
     this->robot_frame_ = "base_footprint";
   } else {
     this->robot_frame_ = _sdf->GetElement("robotFrame")->Get<std::string>();
+  }
+
+  if (!_sdf->HasElement("robotNamespace")) {
+    ROS_DEBUG_NAMED("gazebo_ros_race_car_model", "gazebo_ros_race_car_model plugin missing <robotNamespace>, defaults to /");
+    this->robot_frame_ = "";
+  } else {
+    this->robot_namespace_ = "/" + _sdf->GetElement("robotNamespace")->Get<std::string>();
   }
 
   if (!_sdf->HasElement("publishTransform")) {
