@@ -20,10 +20,10 @@ using namespace std;
 static const std::string OPENCV_WINDOW_LEFT = "Image_Window_Left";
 static const std::string OPENCV_WINDOW_RIGHT = "Image_Window_Right";
 
-class QEV_image {
+class QEV_Image {
 
     public:
-    QEV_image();
+    QEV_Image();
     
     void image_left_callback(const sensor_msgs::Image::ConstPtr& img_left_msg);
     void image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg);
@@ -82,21 +82,24 @@ void SigIntHandler(int sig) {
 }
 
 // Constructor
-QEV_image::QEV_image(): imi(ni) {
+QEV_Image::QEV_Image(): imi(ni) {
 
     // Set image transport options to get compressed images
-    ni.setParam("/QEV_image/image_transport", "compressed");
+    // ni.setParam("/QEV_Image/image_transport", "compressed");
     // // DEBUG: Verify the parameter is appropriately set
-    // ni.getParam("/QEV_image/image_transport", image_transport_param);
+    // ni.getParam("/QEV_Image/image_transport", image_transport_param);
     // cout << image_transport_param << endl;
+
+    // Image transport hints
+    image_transport::TransportHints hints("compressed");
 
     // Publishers here
     point_pub = ni.advertise<geometry_msgs::Point>("qev2/move_point", 10);
     lap_pub = ni.advertise<std_msgs::Int64>("qev2/lap_count", 10);
 
     // Subscribers here
-    im_left_sub = imi.subscribe("/qev2/zed_camera/left/image_raw", 10, &QEV_image::image_left_callback, this);
-    im_right_sub = imi.subscribe("/qev2/zed_camera/right/image_raw", 10, &QEV_image::image_right_callback, this);
+    im_left_sub = imi.subscribe("/qev/zed_camera/left/image_raw", 10, &QEV_Image::image_left_callback, this, hints);
+    im_right_sub = imi.subscribe("/qev/zed_camera/right/image_raw", 10, &QEV_Image::image_right_callback, this, hints);
 
     // Get a shutdown handler
     signal(SIGINT, SigIntHandler);
@@ -106,7 +109,7 @@ QEV_image::QEV_image(): imi(ni) {
     cv::namedWindow(OPENCV_WINDOW_RIGHT);
 }
 
-void QEV_image::colour_seg(void) {
+void QEV_Image::colour_seg(void) {
     // Segment the images to find yellow and blue 
     // Sanity check: we have an image
     if(im_left.empty() && im_right.empty()) {
@@ -131,7 +134,7 @@ void QEV_image::colour_seg(void) {
 
 }
 
-void QEV_image::image_display(void) {
+void QEV_Image::image_display(void) {
     // For debug purposes: displays images for checking
     // Resize images to fit screens
     cv::resize(im_thres_y_left, im_thres_y_left, cv::Size(900, 600));
@@ -147,36 +150,36 @@ void QEV_image::image_display(void) {
     cv::imshow(OPENCV_WINDOW_RIGHT, im_thres_right); 
 }
 
-void QEV_image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left_msg) {
+void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left_msg) {
     // Convert left image to an OpenCV friendly format
     cv_bridge::CvImagePtr cv_left_ptr;    
 
     // Try the conversion
     try {
-        cv_left_ptr = cv_bridge::toCvCopy(img_left_msg, sensor_msgs::image_encodings::BGR8);
+        cv_left_ptr = cv_bridge::toCvCopy(img_left_msg, sensor_msgs::image_encodings::BGR16);
     } catch (cv_bridge::Exception& exc) {
         ROS_ERROR("cv_bridge exception encountered: %s", exc.what());
         return;
     }
 
     // Save
-    QEV_image::im_left = cv_left_ptr->image;
+    QEV_Image::im_left = cv_left_ptr->image.clone();
 }
 
-void QEV_image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg) {
+void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg) {
     // Convert right image to an OpenCV friendly format
     cv_bridge::CvImagePtr cv_right_ptr;
 
     // Try conversion
     try {
-        cv_right_ptr = cv_bridge::toCvCopy(img_right_msg, sensor_msgs::image_encodings::BGR8);
+        cv_right_ptr = cv_bridge::toCvCopy(img_right_msg, sensor_msgs::image_encodings::BGR16);
     } catch (cv_bridge::Exception& exc) {
         ROS_ERROR("cv_bridge exception encountered: %s", exc.what());
         return;
     }
 
     // Save
-    QEV_image::im_right = cv_right_ptr->image;
+    QEV_Image::im_right = cv_right_ptr->image.clone();
 }
 
 int main(int argc, char **argv) {
@@ -184,7 +187,7 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "QEV_Image", ros::init_options::NoSigintHandler);
 
     // Class object goes here
-    QEV_image qev_image;
+    QEV_Image qev_image;
 
     // Rate set
     ros::Rate rate(10);
