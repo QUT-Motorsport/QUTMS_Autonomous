@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Namespace of the gazebo robot  -->
+  <arg name="namespace" default="qev"/>
+
+  <!-- The vehicle model class to use in the gazebo_ros_race_car_model -->
+  <arg name="vehicleModel" default="DynamicBicycle"/>
+  <!-- If the gazebo_ros_race_car_model should publish the ground truth tf -->
+  <arg name="publish_gt_tf" default="false"/>
+
+  <!-- Vehicle pose -->
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+
+  <!-- Config File -->
+  <arg name="config_file" default="$(find qutms_description)/qev/config.yaml"/>
+
+  <!-- Change the simulate_perception parameter based on the launch group -->
+  <param name="robot_description"
+          command="$(find xacro)/xacro '$(find qutms_description)/qev/qev.urdf.xacro'
+                                              vehicle_model:='$(arg vehicleModel)'
+                                              config_file:='$(arg config_file)'
+                                              publish_tf:=$(arg publish_gt_tf)"/>
+
+  <!-- Publish the joint states (required for the wheels) -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <remap from="/joint_states" to="/qev/joint_states" />
+    <param name="rate" value="200" />
+  </node>
+
+  <!-- Convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+    <remap from="/joint_states" to="/qev/joint_states" />
+    <param name="rate" value="200" />
+  </node>
+
+  <node name="spawn_platform" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model $(arg namespace)
+              -gazebo_namespace /gazebo
+              -x $(arg x) -y $(arg y) -z $(arg z)
+              -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+
+</launch>

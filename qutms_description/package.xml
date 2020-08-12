@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>qutms_description</name>
+    <version>0.1.0</version>
+    <description>Contains 3D models and meshes for simulation purposes.
+    </description>
+
+    <maintainer email="qutmotorsport.team@gmail.com">QUT MS Team</maintainer>
+
+    <license>TODO</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <depend>gazebo_ros</depend>
+    <depend>urdf</depend>
+    <depend>xacro</depend>
+    <depend>hector_gazebo_plugins</depend>
+    <depend>controller_manager</depend>
+    <depend>velodyne_simulator</depend>
+    <depend>effort_controllers</depend>
+    <depend>velocity_controllers</depend>
+    <depend>joint_state_controller</depend>
+    <depend>gazebo_ros_control</depend>
+    <depend>std_msgs</depend>
+    <depend>std_srvs</depend>
+    <depend>tf</depend>
+
+    <export>
+        <gazebo_ros gazebo_model_path="${prefix}"/>
+    </export>
+
+</package>
