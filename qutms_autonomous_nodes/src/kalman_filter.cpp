@@ -91,9 +91,9 @@ class Adaptive_Kalman_Filter {
 
 void SigIntHandler(int sig) {
     // Close the opened text file, and shutdown
-    ROS_INFO("Closing opened data file...");
-    outfile.close();
-    ROS_ERROR("File closed, shutting down");
+    // ROS_INFO("Closing opened data file...");
+    // outfile.close();
+    // ROS_ERROR("File closed, shutting down");
     ros::shutdown();
 }
 
@@ -158,8 +158,8 @@ Adaptive_Kalman_Filter::Adaptive_Kalman_Filter() : A(6,6), H(6,6), P(6,6), Pa(6,
     state_vel_pub = na.advertise<geometry_msgs::TwistWithCovariance>("/qev2_state_vel", 10);
 
     // Subscribers
-    imu_sub = na.subscribe("/KITTI_imu", 10, &Adaptive_Kalman_Filter::imu_callback, this);
-    gps_sub = na.subscribe("/KITTI_gps", 10, &Adaptive_Kalman_Filter::gps_callback, this);  
+    imu_sub = na.subscribe("/qev/imu/data", 10, &Adaptive_Kalman_Filter::imu_callback, this);
+    gps_sub = na.subscribe("/qev/gps/data", 10, &Adaptive_Kalman_Filter::gps_callback, this);  
 
     // Get the custom shutdown handler
     signal(SIGINT, SigIntHandler);
@@ -170,75 +170,75 @@ Adaptive_Kalman_Filter::Adaptive_Kalman_Filter() : A(6,6), H(6,6), P(6,6), Pa(6,
     auto dist = std::bind(std::normal_distribution<double>{mean, sigma},std::mt19937(std::random_device{}()));
 
     // Get the GPS file
-    sprintf(dir, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_gps.txt");
+    // sprintf(dir, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_gps.txt");
 
     // Process the text file
-    string line;
-    ifstream infile (dir);
-    if(infile.is_open()) {
-        while(getline(infile, line)) {
-            double num10, num11, num12;
-            infile >> num10 >> num11 >> num12;
-            // cout << "Got " << num1 << " " << num2 << " " << num3 << endl;
-            gps_data.push_back((num10 + dist())*d2r);
-            gps_data.push_back((num11 + dist())*d2r);
-            gps_data.push_back((num12 + dist())*d2r);
-        }
-    }
-    infile.close();
+    // string line;
+    // ifstream infile (dir);
+    // if(infile.is_open()) {
+    //     while(getline(infile, line)) {
+    //         double num10, num11, num12;
+    //         infile >> num10 >> num11 >> num12;
+    //         // cout << "Got " << num1 << " " << num2 << " " << num3 << endl;
+    //         gps_data.push_back((num10 + dist())*d2r);
+    //         gps_data.push_back((num11 + dist())*d2r);
+    //         gps_data.push_back((num12 + dist())*d2r);
+    //     }
+    // }
+    // infile.close();
 
         // Get 2 directories to a text file
-    sprintf(dira, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_accel_xyz.txt");
-    sprintf(dirb, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_brate_xyz.txt");
-    sprintf(dirc, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_att.txt");
+    // sprintf(dira, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_accel_xyz.txt");
+    // sprintf(dirb, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_brate_xyz.txt");
+    // sprintf(dirc, "/home/nick-hp-ubuntu/Documents/Text Files/KITTI_att.txt");
 
     // Process the text file for acceleration data
-    string aline;
-    ifstream ainfile (dira);
-    if(ainfile.is_open()) {
-        while(getline(ainfile, aline)) {
-            double num1, num2, num3;
-            ainfile >> num1 >> num2 >> num3;
-            // cout << "Got " << num1 << " " << num2 << " " << num3 << endl;
-            imu_accel_data.push_back(num1 + dist());
-            imu_accel_data.push_back(num2 + dist());
-            imu_accel_data.push_back(num3 + dist());
-        }
-    }
-    ainfile.close();
+    // string aline;
+    // ifstream ainfile (dira);
+    // if(ainfile.is_open()) {
+    //     while(getline(ainfile, aline)) {
+    //         double num1, num2, num3;
+    //         ainfile >> num1 >> num2 >> num3;
+    //         // cout << "Got " << num1 << " " << num2 << " " << num3 << endl;
+    //         imu_accel_data.push_back(num1 + dist());
+    //         imu_accel_data.push_back(num2 + dist());
+    //         imu_accel_data.push_back(num3 + dist());
+    //     }
+    // }
+    // ainfile.close();
 
     // Open up and process the next file
-    string rline;
-    ifstream rinfile (dirb);
-    if(rinfile.is_open()) {
-        while(getline(rinfile, rline)) {
-            double num4, num5, num6;
-            rinfile >> num4 >> num5 >> num6;
-            // cout << "Got " << num4 << " " << num5 << " " << num6 << endl;
-            imu_rate_data.push_back(num4 + dist());
-            imu_rate_data.push_back(num5 + dist());
-            imu_rate_data.push_back(num6 + dist());
-        }
-    }
-    rinfile.close();
+    // string rline;
+    // ifstream rinfile (dirb);
+    // if(rinfile.is_open()) {
+    //     while(getline(rinfile, rline)) {
+    //         double num4, num5, num6;
+    //         rinfile >> num4 >> num5 >> num6;
+    //         // cout << "Got " << num4 << " " << num5 << " " << num6 << endl;
+    //         imu_rate_data.push_back(num4 + dist());
+    //         imu_rate_data.push_back(num5 + dist());
+    //         imu_rate_data.push_back(num6 + dist());
+    //     }
+    // }
+    // rinfile.close();
 
     // Process attitude data
-    string tline;
-    ifstream tinfile (dirc);
-    if(tinfile.is_open()) {
-        while(getline(tinfile, tline)) {
-            double num7, num8, num9;
-            tinfile >> num7 >> num8 >> num9;
-            // cout << "Got " << num7 << " " << num8 << " " << num9 << endl;
-            att_data.push_back(num7 + dist());
-            att_data.push_back(num8 + dist());
-            att_data.push_back(num9 + dist());
-        }
-    }
-    tinfile.close();
+    // string tline;
+    // ifstream tinfile (dirc);
+    // if(tinfile.is_open()) {
+    //     while(getline(tinfile, tline)) {
+    //         double num7, num8, num9;
+    //         tinfile >> num7 >> num8 >> num9;
+    //         // cout << "Got " << num7 << " " << num8 << " " << num9 << endl;
+    //         att_data.push_back(num7 + dist());
+    //         att_data.push_back(num8 + dist());
+    //         att_data.push_back(num9 + dist());
+    //     }
+    // }
+    // tinfile.close();
 
     // Open a text file
-    outfile.open("/home/nick-hp-ubuntu/catkin_ws/src/qutms_autonomous_nodes/kf_results.txt");
+    // outfile.open("/home/nick-hp-ubuntu/catkin_ws/src/qutms_autonomous_nodes/kf_results.txt");
 
     // Time to get to here: 0.013s
 
@@ -435,9 +435,9 @@ void Adaptive_Kalman_Filter::imu_callback(const sensor_msgs::Imu::ConstPtr& imu_
     Adaptive_Kalman_Filter::lng_dotm = imu_msg->linear_acceleration.y;
     Adaptive_Kalman_Filter::h_dot = imu_msg->linear_acceleration.z;
     Adaptive_Kalman_Filter::psi_dotm = imu_msg->angular_velocity.z;
-    // double lat_dot = imu_msg->linear_acceleration.x;
-    // double lng_dot = imu_msg->linear_acceleration.y;
-    // double psi_dot = imu_msg->angular_velocity.z;
+    double lat_dot = imu_msg->linear_acceleration.x;
+    double lng_dot = imu_msg->linear_acceleration.y;
+    double psi_dot = imu_msg->angular_velocity.z;
 
     // Convert quaternion to rpy
     quat_2_eu(x, y, z, w);
@@ -447,6 +447,8 @@ void Adaptive_Kalman_Filter::imu_callback(const sensor_msgs::Imu::ConstPtr& imu_
 
     // Propagate position with the IMU data
     pos_ins_prop();
+
+    // cout << "IMU CALLBACK DONE" << endl;
 }
 
 void Adaptive_Kalman_Filter::gps_callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg) {
@@ -461,6 +463,8 @@ void Adaptive_Kalman_Filter::gps_callback(const sensor_msgs::NavSatFix::ConstPtr
     
     // Update the p_imu variable
     p_imu << lat, lng, h;
+
+    // cout << "GPS CALLBACK DONE" << endl;
 }
 
 int main(int argc, char **argv) {
@@ -470,38 +474,24 @@ int main(int argc, char **argv) {
     // Instantiate class
     Adaptive_Kalman_Filter AKF;
 
-    // Run as fast as the quickest publisher
-    ros::Rate rate(1);
 
+    int k = 1;
     // Get a counter
-    int f = 1;
-    int n = 3;
-    while((ros::ok()) && (f != 999)) {
+    while((ros::ok())) {
 
         // State prediction
         AKF.state_predict();
-
-        // Process any waiting callbacks
-        // ros::spinOnce();
-        AKF.info_process(n);
 
         // State update
         AKF.state_update();
 
         // Update the covariances
-        // AKF.cov_update(f);
+        // AKF.cov_update(k);
 
         // Publish the state
         AKF.state_pub();
 
-        // Increment
-        f++;
-        n = n + 3;
-
-        // Save the required information
-        AKF.info_write();
-
-        // Sleep
-        rate.sleep();
+        k++;
+        ros::spinOnce();
     }
 }
