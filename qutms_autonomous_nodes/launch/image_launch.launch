@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Image pipeline launch -->
+  <node pkg="qutms_autonomous_nodes" type="Image_Pipeline" name="qev_image">
+  <param name="_image_transport" type="string" value="compressed"/>
+  </node>
+
+</launch>

@@ -15,6 +15,7 @@
 #include <signal.h>
 
 // Image pipeline node to handle all image processing tasks
+// IMPORTANT: use associated launch file for testing
 
 using namespace std;
 static const std::string OPENCV_WINDOW_LEFT = "Image_Window_Left";
@@ -29,6 +30,8 @@ class QEV_Image {
     void image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg);
     void colour_seg(void);
     void image_display(void);
+    void im_left_save(cv::Mat im_left_in);
+    void im_right_save(cv::Mat im_right_in);
 
     private:
     ros::NodeHandle ni;
@@ -43,7 +46,7 @@ class QEV_Image {
 
 
     // OpenCV variables 
-    cv::Mat im_left, im_right, im_left_hsv, im_right_hsv, im_hsv_b, im_thres_y_left, im_thres_y_right, im_thres_b_left, im_thres_b_right;
+    cv::Mat im_left_r, im_right_r, im_left, im_right, im_left_hsv, im_right_hsv, im_hsv_b, im_thres_y_left, im_thres_y_right, im_thres_b_left, im_thres_b_right;
 
     // Image segmentation values
     // Yellow values
@@ -91,15 +94,15 @@ QEV_Image::QEV_Image(): imi(ni) {
     // cout << image_transport_param << endl;
 
     // Image transport hints
-    image_transport::TransportHints hints("compressed");
+    // image_transport::TransportHints hints("compressed");
 
     // Publishers here
-    point_pub = ni.advertise<geometry_msgs::Point>("qev2/move_point", 10);
-    lap_pub = ni.advertise<std_msgs::Int64>("qev2/lap_count", 10);
+    point_pub = ni.advertise<geometry_msgs::Point>("/qev/move_point", 10);
+    lap_pub = ni.advertise<std_msgs::Int64>("/qev/lap_count", 10);
 
     // Subscribers here
-    im_left_sub = imi.subscribe("/qev/zed_camera/left/image_raw", 10, &QEV_Image::image_left_callback, this, hints);
-    im_right_sub = imi.subscribe("/qev/zed_camera/right/image_raw", 10, &QEV_Image::image_right_callback, this, hints);
+    im_left_sub = imi.subscribe("/qev/zed_camera/left/image_raw", 10, &QEV_Image::image_left_callback, this);
+    im_right_sub = imi.subscribe("/qev/zed_camera/right/image_raw", 10, &QEV_Image::image_right_callback, this);
 
     // Get a shutdown handler
     signal(SIGINT, SigIntHandler);
@@ -107,6 +110,19 @@ QEV_Image::QEV_Image(): imi(ni) {
     // Create a window 
     cv::namedWindow(OPENCV_WINDOW_LEFT);
     cv::namedWindow(OPENCV_WINDOW_RIGHT);
+
+    // Startup the window thread
+    cv::startWindowThread();
+}
+
+void QEV_Image::im_left_save(cv::Mat im_left_in) {
+    // Save the left image
+    im_left = im_left_in;
+}
+
+void QEV_Image::im_right_save(cv::Mat im_right_in) {
+    // Save the right image
+    im_right = im_right_in;
 }
 
 void QEV_Image::colour_seg(void) {
@@ -115,6 +131,7 @@ void QEV_Image::colour_seg(void) {
     if(im_left.empty() && im_right.empty()) {
         ROS_ERROR("No data in image files");
     }
+
     cv::cvtColor(im_left, im_left_hsv, cv::COLOR_BGR2HSV);
     cv::cvtColor(im_right, im_right_hsv, cv::COLOR_BGR2HSV);
 
@@ -163,7 +180,9 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     }
 
     // Save
-    QEV_Image::im_left = cv_left_ptr->image.clone();
+    QEV_Image::im_left_r = cv_left_ptr->image;
+    im_left_save(QEV_Image::im_left_r);
+    // cv::imshow(OPENCV_WINDOW_LEFT, im_left);
 }
 
 void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg) {
@@ -179,7 +198,10 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     }
 
     // Save
-    QEV_Image::im_right = cv_right_ptr->image.clone();
+    QEV_Image::im_right_r = cv_right_ptr->image;
+    im_right_save(QEV_Image::im_right_r);
+    // cv::imshow(OPENCV_WINDOW_RIGHT, im_right);
+
 }
 
 int main(int argc, char **argv) {
@@ -190,7 +212,7 @@ int main(int argc, char **argv) {
     QEV_Image qev_image;
 
     // Rate set
-    ros::Rate rate(10);
+    ros::Rate rate(1);
 
     // Enter while loop here
     while(ros::ok()) {
@@ -200,8 +222,10 @@ int main(int argc, char **argv) {
         // Process the images
         qev_image.colour_seg();
 
-        // Display
-        qev_image.image_display();
+        // // Display
+        // qev_image.image_display();
+
+        rate.sleep();
     }
 
 }
