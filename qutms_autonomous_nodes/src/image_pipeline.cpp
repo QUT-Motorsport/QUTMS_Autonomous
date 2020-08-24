@@ -9,8 +9,8 @@
 
 #include <iostream>
 #include <opencv2/opencv.hpp>
-#include "opencv2/imgproc.hpp"
-#include "opencv2/highgui.hpp"
+// #include "opencv2/imgproc.hpp"
+// #include "opencv2/highgui.hpp"
 #include <opencv2/opencv_modules.hpp>
 #include <signal.h>
 
@@ -28,10 +28,6 @@ class QEV_Image {
     
     void image_left_callback(const sensor_msgs::Image::ConstPtr& img_left_msg);
     void image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg);
-    void colour_seg(void);
-    void image_display(void);
-    void im_left_save(cv::Mat im_left_in);
-    void im_right_save(cv::Mat im_right_in);
 
     private:
     ros::NodeHandle ni;
@@ -43,10 +39,6 @@ class QEV_Image {
     std_msgs::Int64 lap_msg;
     geometry_msgs::Point point_msg;
     string image_transport_param;
-
-
-    // OpenCV variables 
-    cv::Mat im_left_r, im_right_r, im_left, im_right, im_left_hsv, im_right_hsv, im_hsv_b, im_thres_y_left, im_thres_y_right, im_thres_b_left, im_thres_b_right;
 
     // Image segmentation values
     // Yellow values
@@ -87,15 +79,6 @@ void SigIntHandler(int sig) {
 // Constructor
 QEV_Image::QEV_Image(): imi(ni) {
 
-    // Set image transport options to get compressed images
-    // ni.setParam("/QEV_Image/image_transport", "compressed");
-    // // DEBUG: Verify the parameter is appropriately set
-    // ni.getParam("/QEV_Image/image_transport", image_transport_param);
-    // cout << image_transport_param << endl;
-
-    // Image transport hints
-    // image_transport::TransportHints hints("compressed");
-
     // Publishers here
     point_pub = ni.advertise<geometry_msgs::Point>("/qev/move_point", 10);
     lap_pub = ni.advertise<std_msgs::Int64>("/qev/lap_count", 10);
@@ -115,74 +98,50 @@ QEV_Image::QEV_Image(): imi(ni) {
     cv::startWindowThread();
 }
 
-void QEV_Image::im_left_save(cv::Mat im_left_in) {
-    // Save the left image
-    im_left = im_left_in;
-}
-
-void QEV_Image::im_right_save(cv::Mat im_right_in) {
-    // Save the right image
-    im_right = im_right_in;
-}
-
-void QEV_Image::colour_seg(void) {
-    // Segment the images to find yellow and blue 
-    // Sanity check: we have an image
-    if(im_left.empty() && im_right.empty()) {
-        ROS_ERROR("No data in image files");
-    }
-
-    cv::cvtColor(im_left, im_left_hsv, cv::COLOR_BGR2HSV);
-    cv::cvtColor(im_right, im_right_hsv, cv::COLOR_BGR2HSV);
-
-    // Threshold yellow in each image
-    cv::inRange(im_left_hsv, cv::Scalar(y_low_h,y_low_s,y_low_v), cv::Scalar(y_high_h,y_high_s,y_high_v), im_thres_y_left);
-    cv::inRange(im_right_hsv, cv::Scalar(y_low_h,y_low_s,y_low_v), cv::Scalar(y_high_h,y_high_s,y_high_v), im_thres_y_right);
-
-    // Threshold blue
-    cv::inRange(im_left_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v),im_thres_b_left);
-    cv::inRange(im_right_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v),im_thres_b_left);
-
-    // Moments
-    cv::Moments im_left_ymoments = cv::moments(im_thres_y_left);
-    cv::Moments im_right_ymoments = cv::moments(im_thres_y_right);
-    cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
-    cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
-
-}
-
-void QEV_Image::image_display(void) {
-    // For debug purposes: displays images for checking
-    // Resize images to fit screens
-    cv::resize(im_thres_y_left, im_thres_y_left, cv::Size(900, 600));
-    cv::resize(im_thres_y_right, im_thres_y_right, cv::Size(900, 600));
-    cv::resize(im_thres_b_left, im_thres_b_left, cv::Size(900, 600));
-    cv::resize(im_thres_b_right, im_thres_b_right, cv::Size(900, 600));
-
-    // // Display the images
-    cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
-    cv::Mat im_thres_right = im_thres_b_right + im_thres_y_right;
-
-    cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
-    cv::imshow(OPENCV_WINDOW_RIGHT, im_thres_right); 
-}
-
 void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left_msg) {
     // Convert left image to an OpenCV friendly format
     cv_bridge::CvImagePtr cv_left_ptr;    
 
     // Try the conversion
     try {
-        cv_left_ptr = cv_bridge::toCvCopy(img_left_msg, sensor_msgs::image_encodings::BGR16);
+        cv_left_ptr = cv_bridge::toCvCopy(img_left_msg, sensor_msgs::image_encodings::BGR8);
     } catch (cv_bridge::Exception& exc) {
         ROS_ERROR("cv_bridge exception encountered: %s", exc.what());
         return;
     }
 
     // Save
-    QEV_Image::im_left_r = cv_left_ptr->image;
-    im_left_save(QEV_Image::im_left_r);
-    // cv::imshow(OPENCV_WINDOW_LEFT, im_left);
+    cv::Mat im_left = cv_left_ptr->image;
+
+    // Sanity check
+    if (im_left.empty()) {
+        ROS_ERROR("No image");
+    }
+
+    // Go to HSV
+    cv::Mat im_left_hsv;
+    cv::cvtColor(im_left, im_left_hsv, cv::COLOR_BGR2HSV);
+
+    // Threshold yellow
+    cv::Mat im_thres_y_left, im_thres_b_left;
+    cv::inRange(im_left_hsv, cv::Scalar(y_low_h,y_low_s,y_low_v), cv::Scalar(y_high_h,y_high_s,y_high_v), im_thres_y_left);
+
+    // Threshold blue
+    cv::inRange(im_left_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v), im_thres_b_left);
+
+    // Moments
+    cv::Moments im_left_ymoments = cv::moments(im_thres_y_left);
+    cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
+
+    // // Resize
+    // cv::resize(im_thres_y_left, im_thres_y_left, cv::Size(900, 600));
+    // cv::resize(im_thres_b_left, im_thres_b_left, cv::Size(900, 600));
+
+    // Recreate an image
+    cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
+    // Display
+    cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
+
 }
 
 void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg) {
@@ -191,16 +150,44 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
 
     // Try conversion
     try {
-        cv_right_ptr = cv_bridge::toCvCopy(img_right_msg, sensor_msgs::image_encodings::BGR16);
+        cv_right_ptr = cv_bridge::toCvCopy(img_right_msg, sensor_msgs::image_encodings::BGR8);
     } catch (cv_bridge::Exception& exc) {
         ROS_ERROR("cv_bridge exception encountered: %s", exc.what());
         return;
     }
 
     // Save
-    QEV_Image::im_right_r = cv_right_ptr->image;
-    im_right_save(QEV_Image::im_right_r);
-    // cv::imshow(OPENCV_WINDOW_RIGHT, im_right);
+    cv::Mat im_right = cv_right_ptr->image;
+
+    // Sanity check
+    if(im_right.empty()) {
+        ROS_ERROR("No image");
+    }
+
+    // Go to HSV
+    cv::Mat im_right_hsv;
+    cv::cvtColor(im_right, im_right_hsv, cv::COLOR_BGR2HSV);
+
+    // Threshold yellow
+    cv::Mat im_thres_y_right, im_thres_b_right;
+    cv::inRange(im_right_hsv, cv::Scalar(y_low_h,y_low_s,y_low_v), cv::Scalar(y_high_h,y_high_s,y_high_v), im_thres_y_right);
+
+    // Threshold blue
+    cv::inRange(im_right_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v),im_thres_b_right);
+
+    // // Moments
+    // cv::Moments im_right_ymoments = cv::moments(im_thres_y_right);
+    // cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
+
+    // // Resize the image for easy viewing
+    // cv::resize(im_thres_y_right, im_thres_y_right, cv::Size(900, 600));
+    // cv::resize(im_thres_b_right, im_thres_b_right, cv::Size(900, 600));    
+
+    // Rejoin the images
+    cv::Mat im_thres_right = im_thres_b_right + im_thres_y_right;
+
+    // Display
+    cv::imshow(OPENCV_WINDOW_RIGHT, im_thres_right); 
 
 }
 
@@ -212,20 +199,16 @@ int main(int argc, char **argv) {
     QEV_Image qev_image;
 
     // Rate set
-    ros::Rate rate(1);
+    // ros::Rate rate(1);
 
-    // Enter while loop here
-    while(ros::ok()) {
-        // Spin to get some images
-        ros::spinOnce();
+    // // Enter while loop here
+    // while(ros::ok()) {
+    //     // Spin to get some images
+    //     ros::spinOnce();
 
-        // Process the images
-        qev_image.colour_seg();
+    //     rate.sleep();
+    // }
 
-        // // Display
-        // qev_image.image_display();
-
-        rate.sleep();
-    }
+    ros::spin();
 
 }
