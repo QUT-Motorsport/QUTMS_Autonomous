@@ -44,10 +44,10 @@ class QEV_Image {
     // Yellow values
     int y_low_h=8;
     int y_high_h=38;
-    int y_low_s=176;
+    int y_low_s=206;
     int y_high_s=255;
-    int y_low_v=108;
-    int y_high_v=155;
+    int y_low_v=158;
+    int y_high_v=185;
 
     int y_iLastX = -1; 
     int y_iLastY = -1;
@@ -112,12 +112,7 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
 
     // Save
     cv::Mat im_left = cv_left_ptr->image;
-
-    // Sanity check
-    if (im_left.empty()) {
-        ROS_ERROR("No image");
-    }
-
+    
     // Go to HSV
     cv::Mat im_left_hsv;
     cv::cvtColor(im_left, im_left_hsv, cv::COLOR_BGR2HSV);
@@ -133,12 +128,12 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     cv::Moments im_left_ymoments = cv::moments(im_thres_y_left);
     cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
 
-    // // Resize
-    // cv::resize(im_thres_y_left, im_thres_y_left, cv::Size(900, 600));
-    // cv::resize(im_thres_b_left, im_thres_b_left, cv::Size(900, 600));
-
     // Recreate an image
     cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
+    
+    // Reindex 
+    im_thres_left = im_thres_left(cv::Range(500, 1080), cv::Range(1000, 2540));
+
     // Display
     cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
 
@@ -159,11 +154,6 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     // Save
     cv::Mat im_right = cv_right_ptr->image;
 
-    // Sanity check
-    if(im_right.empty()) {
-        ROS_ERROR("No image");
-    }
-
     // Go to HSV
     cv::Mat im_right_hsv;
     cv::cvtColor(im_right, im_right_hsv, cv::COLOR_BGR2HSV);
@@ -175,16 +165,15 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     // Threshold blue
     cv::inRange(im_right_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v),im_thres_b_right);
 
-    // // Moments
-    // cv::Moments im_right_ymoments = cv::moments(im_thres_y_right);
-    // cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
-
-    // // Resize the image for easy viewing
-    // cv::resize(im_thres_y_right, im_thres_y_right, cv::Size(900, 600));
-    // cv::resize(im_thres_b_right, im_thres_b_right, cv::Size(900, 600));    
+    // Moments
+    cv::Moments im_right_ymoments = cv::moments(im_thres_y_right);
+    cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
 
     // Rejoin the images
     cv::Mat im_thres_right = im_thres_b_right + im_thres_y_right;
+
+    // Reindex 
+    im_thres_right = im_thres_right( cv::Range(500, 1080), cv::Range(1000, 2540));
 
     // Display
     cv::imshow(OPENCV_WINDOW_RIGHT, im_thres_right); 
