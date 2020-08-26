@@ -40,6 +40,9 @@ class QEV_Image {
     geometry_msgs::Point point_msg;
     string image_transport_param;
 
+    // Cluster point values
+    int b_left_x, b_left_y, y_left_x, y_left_y, b_right_x, b_right_y, y_right_x, y_right_y;
+
     // Image segmentation values
     // Yellow values
     int y_low_h=8;
@@ -132,7 +135,59 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
     
     // Reindex 
-    im_thres_left = im_thres_left(cv::Range(500, 1080), cv::Range(1000, 2540));
+    im_thres_left = im_thres_left(cv::Range(600, 1080), cv::Range(1020, 2580));
+
+    // Remove small objects
+    cv::erode(im_thres_left, im_thres_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)));
+    cv::dilate(im_thres_left, im_thres_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)));     
+
+    // Check for blue and yellow detections
+    int b_left_cnt = 0; 
+    int y_left_cnt = 0;
+    for(int ii = 0; ii < im_thres_left.rows; ii++) {
+        for(int jj = 0; jj < im_thres_left.cols/2; jj++) {
+            // Check half the image for blue values
+            if(im_thres_left.at<uchar>(ii,jj) > 0) {
+                b_left_cnt++;
+            }
+        }
+
+        for(int n = (im_thres_left.cols/2)+1; n < im_thres_left.cols; n++) {
+            // Check the other half for yellow values
+            if(im_thres_left.at<uchar>(ii,n) > 0) {
+                y_left_cnt++;
+            }
+        }
+    }
+
+    // Notify if no detections are present
+    if(b_left_cnt == 0) {
+        ROS_ERROR("No blue cones detected!!!");
+    }
+    
+    if(y_left_cnt == 0) {
+        ROS_ERROR("No yellow cones detected!!!");
+    }
+
+    // Grab the image moment values
+    double im_b_left_m01 = im_left_bmoments.m01;
+    double im_b_left_m10 = im_left_bmoments.m10;
+    double im_b_left_area = im_left_bmoments.m00;
+    double im_y_left_m01 = im_left_ymoments.m01;
+    double im_y_left_m10 = im_left_ymoments.m10;
+    double im_y_left_area = im_left_ymoments.m00;
+
+    // Get only the significant moments and calculate cluster positions
+    // DEBUG
+    // cout << "m00 for blue and yellow are: " << im_b_left_area << " " << im_y_left_area << endl;
+    if(im_b_left_area > 100000 && im_y_left_area > 100000) {
+        // Calculate cluster points
+        b_left_x = im_b_left_m10/im_b_left_area;
+        b_left_y = im_b_left_m01/im_b_left_area;
+        y_left_x = im_y_left_m10/im_y_left_area;
+        y_left_y = im_y_left_m01/im_y_left_area;
+    }
+    // ROS_INFO("Calculated left point pairs are: (%d, %d), (%d, %d)", b_left_x, b_left_y, y_left_x, y_left_y);
 
     // Display
     cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
@@ -164,7 +219,7 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
 
     // Threshold blue
     cv::inRange(im_right_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v),im_thres_b_right);
-
+    
     // Moments
     cv::Moments im_right_ymoments = cv::moments(im_thres_y_right);
     cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
@@ -173,7 +228,59 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     cv::Mat im_thres_right = im_thres_b_right + im_thres_y_right;
 
     // Reindex 
-    im_thres_right = im_thres_right( cv::Range(500, 1080), cv::Range(1000, 2540));
+    im_thres_right = im_thres_right(cv::Range(600, 1080), cv::Range(1020, 2580));
+
+    // Remove small objects
+    cv::erode(im_thres_right, im_thres_right, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)));
+    cv::dilate(im_thres_right, im_thres_right, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5))); 
+
+    // Check for blue and yellow detections
+    int b_right_cnt = 0; 
+    int y_right_cnt = 0;
+    for(int ii = 0; ii < im_thres_right.rows; ii++) {
+        for(int jj = 0; jj < im_thres_right.cols/2; jj++) {
+            // Check half the image for blue values
+            if(im_thres_right.at<uchar>(ii,jj) > 0) {
+                b_right_cnt++;
+            }
+        }
+        
+        for(int n = (im_thres_right.cols/2)+1; n < im_thres_right.cols; n++) {
+            // Check the other half for yellow values
+            if(im_thres_right.at<uchar>(ii,n) > 0) {
+                y_right_cnt++;
+            }
+        }
+    }
+
+    // Notify if no detections are present
+    if(b_right_cnt == 0) {
+        ROS_ERROR("No blue cones detected!!!");
+    }
+    
+    if(y_right_cnt == 0) {
+        ROS_ERROR("No yellow cones detected!!!");
+    }
+    
+    // Grab the image moment values
+    double im_b_right_m01 = im_right_bmoments.m01;
+    double im_b_right_m10 = im_right_bmoments.m10;
+    double im_b_right_area = im_right_bmoments.m00;
+    double im_y_right_m01 = im_right_ymoments.m01;
+    double im_y_right_m10 = im_right_ymoments.m10;
+    double im_y_right_area = im_right_ymoments.m00;
+
+    // Get only the significant moments and calculate cluster positions
+    // DEBUG
+    // cout << "m00 for blue and yellow are: " << im_b_right_area << " " << im_y_right_area << endl;
+    if(im_b_right_area > 100000 && im_y_right_area > 100000) {
+        // Calculate cluster points
+        b_right_x = im_b_right_m10/im_b_right_area;
+        b_right_y = im_b_right_m01/im_b_right_area;
+        y_right_x = im_y_right_m10/im_y_right_area;
+        y_right_y = im_y_right_m01/im_y_right_area;
+    }
+    // ROS_INFO("Calculated right point pairs are: (%d, %d), (%d, %d)", b_right_x, b_right_y, y_right_x, y_right_y);
 
     // Display
     cv::imshow(OPENCV_WINDOW_RIGHT, im_thres_right); 
@@ -190,7 +297,7 @@ int main(int argc, char **argv) {
     // Rate set
     // ros::Rate rate(1);
 
-    // // Enter while loop here
+    // // Enter while loop hereim_left_moments
     // while(ros::ok()) {
     //     // Spin to get some images
     //     ros::spinOnce();
