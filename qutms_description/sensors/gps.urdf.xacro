@@ -39,7 +39,7 @@
 				<robotNamespace>qev</robotNamespace>
 				<updateRate>30</updateRate>
 				<bodyName>${name}_base_footprint</bodyName>
-				<frameId>${name}_base_footprint</frameId>
+				<frameId>base_footprint</frameId>
 				<topicName>${topic_name}</topicName>
 				<velocityTopicName>gps/vel</velocityTopicName>
 				<referenceLatitude>49.9</referenceLatitude>
