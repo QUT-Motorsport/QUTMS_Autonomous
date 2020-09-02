@@ -72,3 +72,6 @@ target_link_libraries(IMU_Publisher ${catkin_LIBRARIES})
 
 add_executable(AKF_Node src/kalman_filter.cpp)
 target_link_libraries(AKF_Node ${catkin_LIBRARIES})
+
+add_executable(Model_Controller src/model_controller.cpp)
+target_link_libraries(Model_Controller ${catkin_LIBRARIES})
