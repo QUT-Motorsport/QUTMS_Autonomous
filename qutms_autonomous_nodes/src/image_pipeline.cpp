@@ -43,9 +43,10 @@ class QEV_Image {
 
     // Cluster point values
     int b_left_x, b_left_y, y_left_x, y_left_y, b_right_x, b_right_y, y_right_x, y_right_y;
+    int lap_num = 0;
     double im_left_x, im_right_x, im_left_y, im_right_y, left_p_dist, right_p_dist, steer_gain;
 
-    bool no_b_left, no_y_left, no_b_right, no_y_right;
+    bool no_b_left, no_y_left, no_b_right, no_y_right, no_orng;
 
     // Image segmentation values
     // Yellow values
@@ -174,14 +175,12 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
 
     // Notify if no detections are present
     if(b_left_cnt == 0) {
-        ROS_ERROR("No blue cones detected!!!");
         no_b_left = true;
     } else {
         no_b_left = false;
     }
     
     if(y_left_cnt == 0) {
-        ROS_ERROR("No yellow cones detected!!!");
         no_y_right = true;
     } else {
         no_y_left = false;
@@ -208,16 +207,16 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
 
     // ROS_INFO("Calculated left point pairs are: (%d, %d), (%d, %d)", b_left_x, b_left_y, y_left_x, y_left_y);
 
-    // Assign the found points new values to differentiate
-    im_thres_left.at<uchar>(cv::Point(b_left_x,b_left_y)) = 255;
-    im_thres_left.at<uchar>(cv::Point(y_left_x,y_left_y)) = 255;    
+    // // Assign the found points new values to differentiate
+    // im_thres_left.at<uchar>(cv::Point(b_left_x,b_left_y)) = 255;
+    // im_thres_left.at<uchar>(cv::Point(y_left_x,y_left_y)) = 255;    
 
     // Get the midpoint
     im_left_x = round((b_left_x+y_left_x)/2);
     im_left_y = round((b_left_y+y_left_y)/2);
 
-    // Show on image
-    im_thres_left.at<uchar>(cv::Point(im_left_x, im_left_y)) = 255;
+    // // Show on image
+    // im_thres_left.at<uchar>(cv::Point(im_left_x, im_left_y)) = 255;
 
     // Get point distance from centre
     left_p_dist = im_thres_left.cols/2 - im_left_x;
@@ -293,17 +292,24 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
 
     // Notify if no detections are present
     if(b_right_cnt == 0) {
-        ROS_ERROR("No blue cones detected!!!");
         no_b_right = true;
     } else {
         no_b_right = false;
     }
     
     if(y_right_cnt == 0) {
-        ROS_ERROR("No yellow cones detected!!!");
         no_y_right = true;
     } else {
         no_y_right = false;
+    }
+
+    // If a small number of detections is present, we have probably finished a lap
+    if ((b_right_cnt < 200) && (!no_b_right)) {
+        if((y_right_cnt < 200) && (!no_y_right)) {
+            no_orng = true;
+        }
+    } else {
+        no_orng = false;
     }
     
     // Grab the image moment values
@@ -327,16 +333,16 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
 
     // ROS_INFO("Calculated right point pairs are: (%d, %d), (%d, %d)", b_right_x, b_right_y, y_right_x, y_right_y);
 
-    // Assign the found points new values to differentiate
-    im_thres_right.at<uchar>(cv::Point(b_right_x,b_right_y)) = 255;
-    im_thres_right.at<uchar>(cv::Point(y_right_x,y_right_y)) = 255;    
+    // // Assign the found points new values to differentiate
+    // im_thres_right.at<uchar>(cv::Point(b_right_x,b_right_y)) = 255;
+    // im_thres_right.at<uchar>(cv::Point(y_right_x,y_right_y)) = 255;    
 
     // Get the midpoint
     im_right_x = round((b_right_x+y_right_x)/2);
     im_right_y = round((b_right_y+y_right_y)/2);
 
-    // Show on image
-    im_thres_right.at<uchar>(cv::Point(im_right_x, im_right_y)) = 255;
+    // // Show on image
+    // im_thres_right.at<uchar>(cv::Point(im_right_x, im_right_y)) = 255;
 
     // Get distance from image centre
     right_p_dist = im_thres_right.cols/2 - im_right_x;
@@ -352,27 +358,40 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
 void QEV_Image::pos_gain(void) {
     // Get the average of the two produced positions and convert to a gain value
     // DEBUG: Function can access the values properly
-    ROS_INFO("Offset values are: %2.3f, %2.3f", left_p_dist, right_p_dist);
+    // ROS_INFO("Offset values are: %2.3f, %2.3f", left_p_dist, right_p_dist);
     double x_off = (left_p_dist + right_p_dist)/2;
 
     // Get the gain
-    steer_gain = x_off/100;
+    steer_gain = x_off/1000;
 
     // Check: no blue cones
     if((no_b_left) && (no_b_right)) {
         // Turn left until a cone is found
         steer_gain = 1;
+        ROS_INFO("Commanding left");
     }
 
     // Check: no yellow cones
     if((no_y_left) && (no_y_right)) {
         // Turn right until a cone is found
         steer_gain = -1;
+        ROS_INFO("Commanding right");
+    }
+
+    // Check: orange cones
+    if(no_orng) {
+        // Update the lap number
+        ROS_INFO("Lap completed");
+        lap_num++;
     }
     
     // Publish
     gain_msg.data = steer_gain;
     point_pub.publish(gain_msg);
+
+    // Also publish lap number
+    lap_msg.data = lap_num;
+    lap_pub.publish(lap_msg);
 }
 
 int main(int argc, char **argv) {
@@ -383,7 +402,7 @@ int main(int argc, char **argv) {
     QEV_Image qev_image;
 
     // Rate set
-    ros::Rate rate(5);
+    ros::Rate rate(10);
 
     // Enter while loop here
     while(ros::ok()) {
