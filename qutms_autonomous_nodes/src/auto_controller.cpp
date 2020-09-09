@@ -1,0 +1,120 @@
+#include <ros/ros.h>
+#include <std_msgs/Int64.h>
+#include <std_msgs/Float64.h>
+#include <ackermann_msgs/AckermannDriveStamped.h>
+
+// Controller for the autonomous QEV2 vehicle (in sim)
+
+class QEV_Auto_Control {
+
+    public:
+    QEV_Auto_Control();
+
+    void gain_handle(void);
+    void gain_callback(const std_msgs::Float64ConstPtr gain_msg);
+    void lap_callback(const std_msgs::Int64ConstPtr lap_msg);
+
+    private:
+    ros::NodeHandle ng;
+    ros::Publisher drive_pub;
+    ros::Subscriber lap_sub;
+    ros::Subscriber gain_sub;
+    ackermann_msgs::AckermannDriveStamped ack_msg;
+
+    double steering_gain, steer_val, accel_val, speed_val;
+    int lap_num;
+
+    // Storage for mission name
+    std::string mission_name;
+
+};
+
+QEV_Auto_Control::QEV_Auto_Control() {
+    // Setup publisher and subscribers
+    drive_pub = ng.advertise<ackermann_msgs::AckermannDriveStamped>("/qev/drive_cmd", 5);
+
+    gain_sub = ng.subscribe("/qev/move_point", 10, &QEV_Auto_Control::gain_callback, this);
+    lap_sub = ng.subscribe("/qev/lap_count", 10, &QEV_Auto_Control::lap_callback, this);
+
+    // Set default values here
+    accel_val = 0.1; // Maximum of 10m/s/s
+    speed_val = 0.1; // Maximum of 2m/s
+    steer_val = M_PI_2; // Maximum steering angle
+
+    // Grab the mission name
+    if(ng.getParam("/mission_name", mission_name)) {
+        ng.getParam("/mission_name", mission_name);
+    } else {
+        ROS_ERROR("Unable to retrieve mission name");
+    }
+    std::cout << "Mission name is" << mission_name << std::endl;
+
+}
+
+void QEV_Auto_Control::gain_handle(void) {
+
+    // If the gain value is small, set it to 0
+    if (steering_gain < 0.05) {
+        steering_gain = 0;
+    }
+    // Apply the calculated gain to the steering angle value
+    ack_msg.drive.steering_angle = steering_gain*steer_val;
+    
+    if(lap_num == 0) {
+        // Set acceleration and speed
+        ack_msg.drive.acceleration = accel_val;
+        ack_msg.drive.speed = speed_val;
+    }
+
+    // If we are doing acceleration, decelerate when we reach the finish line
+    if((mission_name == "acceleration") && (lap_num >= 1)) {
+        ack_msg.drive.acceleration = -accel_val;
+        ack_msg.drive.speed = 0;
+        ack_msg.drive.jerk = 0;
+    }
+    
+    if((mission_name == "trackdrive") && (lap_num >= 10)) {
+        ack_msg.drive.acceleration = -accel_val;
+        ack_msg.drive.speed = 0;
+        ack_msg.drive.jerk = 0;
+    }
+
+    // Header stuff
+    ack_msg.header.stamp = ros::Time::now();
+
+    // Publish
+    drive_pub.publish(ack_msg);
+
+}
+
+void QEV_Auto_Control::gain_callback(const std_msgs::Float64ConstPtr gain_msg) {
+    // Assign the gain value
+    QEV_Auto_Control::steering_gain = gain_msg->data;
+}
+
+void QEV_Auto_Control::lap_callback(const std_msgs::Int64ConstPtr lap_msg) {
+    // Update the lap counter
+    QEV_Auto_Control::lap_num = lap_msg->data;
+}
+
+int main(int argc, char **argv) {
+    // Initialise
+    ros::init(argc, argv, "Auto_Controller");
+
+    // Class initialise
+    QEV_Auto_Control auto_control;
+
+    // Rate set
+    ros::Rate rate(30); // 5Hz
+
+    while(ros::ok()) {
+        // Spin once
+        ros::spinOnce();
+
+        // Publish the gain value
+        auto_control.gain_handle();
+
+        // Sleep
+        rate.sleep();
+    }
+}

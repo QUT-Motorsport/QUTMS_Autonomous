@@ -1,0 +1,4828 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='winton_track'>
+
+
+        <include>
+            <pose>1.075892 1.623994 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_1</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-4.177449 0.970227 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_2</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>5.955039 1.742391 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_3</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-8.822406 -0.137959 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_4</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>10.692701 2.390072 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_5</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-13.385421 -1.735029 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_6</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>15.292121 4.627375 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_7</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-17.941205 -3.782978 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_8</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>18.865431 7.870925 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_9</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-22.399384 -6.043546 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_10</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>22.961712 10.518006 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_11</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-26.938810 -8.177601 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_12</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>27.805698 12.119576 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_13</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-31.554802 -9.976696 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_14</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>32.786642 12.280776 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_15</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-36.407944 -11.395148 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_16</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>37.533012 11.118641 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_17</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-41.326891 -12.238795 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_18</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>42.261428 9.768191 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_19</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>47.121422 9.187577 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_20</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-46.242076 -12.790561 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_21</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>51.956506 10.129196 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_22</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-51.076433 -13.270217 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_23</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>56.301467 12.815484 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_24</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-55.907862 -14.024118 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_25</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>59.597763 16.538440 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_26</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-60.720501 -15.010446 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_27</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>62.471233 20.421779 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_28</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-65.510199 -16.218258 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_29</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>66.096604 23.485152 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_30</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-70.287840 -17.676248 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_31</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>70.808407 25.392859 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_32</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-34.612811 63.717366 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_33</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-30.250353 66.180299 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_34</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-39.020348 61.485437 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_35</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-25.976339 68.837207 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_36</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-43.440630 59.418770 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_37</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-47.917011 57.373383 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_38</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-21.949950 71.748471 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_39</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-74.987989 -19.211908 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_40</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-52.550764 55.300437 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_41</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-18.196372 74.816690 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_42</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-57.075957 53.387553 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_43</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>75.781652 25.956711 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_44</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-14.203054 77.537852 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_45</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-3.588113 78.654420 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_46</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-8.431027 78.857118 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_47</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>1.271071 79.481493 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_48</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-61.737072 51.531854 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_49</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-11.401596 78.638666 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_50</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-79.657208 -20.807004 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_51</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>5.862401 81.412916 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_52</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-66.460219 49.935564 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_53</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>80.675021 25.323102 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_54</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>9.982886 84.341964 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_55</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-71.257789 48.707000 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_56</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-84.318216 -22.567163 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_57</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>85.401864 24.814399 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_58</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>13.133222 88.173760 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_59</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-76.073947 47.852375 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_60</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-88.860553 -24.797102 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_61</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>90.173030 26.201094 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_62</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>16.079633 91.922479 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_63</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-80.729513 46.575236 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_64</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-92.852750 -27.560906 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_65</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-85.228709 44.199820 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_66</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>19.984642 94.804368 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_67</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>94.290852 28.726654 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_68</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-89.010403 40.981837 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_69</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>24.867423 96.434713 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_70</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-92.299732 37.416667 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_71</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-97.462133 -29.803327 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_72</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>29.867374 96.646023 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_73</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>98.906696 30.811746 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_74</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-95.920107 34.244446 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_75</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>34.732740 96.643499 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_76</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-100.522874 31.894055 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_77</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>39.416725 97.572612 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_78</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-102.345803 -30.009716 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_79</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>103.752764 31.322277 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_80</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>44.064755 99.596251 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_81</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-105.506948 31.160673 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_82</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-107.172211 -30.186449 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_83</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>108.512144 31.463281 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_84</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>48.204691 102.464444 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_85</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-110.233971 32.373812 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_86</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-111.932596 -31.758005 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_87</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>113.197789 32.861634 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_88</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>51.852742 105.840072 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_89</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-114.310342 35.161326 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_90</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-115.778957 -34.907582 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_91</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-118.955095 -6.536992 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_92</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-119.743574 -11.318142 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_93</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-120.602832 -1.588448 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_94</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>117.381210 35.299422 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_95</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>55.487804 109.113674 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_96</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-120.765491 15.058856 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_97</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-121.517369 -15.779026 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_98</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-120.441366 19.962663 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_99</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-118.481639 37.275632 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_100</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.318076 2.653084 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_101</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-122.289583 10.396304 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_102</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-120.601859 -22.008657 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_103</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-120.663964 -26.904899 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_104</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-121.134552 24.824538 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_105</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-121.469398 -18.845359 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_106</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-118.370758 -38.897760 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_107</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.787829 6.633042 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_108</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>59.754184 111.653518 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_109</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>121.864385 37.178694 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_110</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-122.189131 29.663065 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_111</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.015971 -31.146462 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_112</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-122.235293 35.402515 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_113</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-122.712710 32.695896 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_114</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-122.791758 -40.772077 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_115</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>64.478596 113.032143 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_116</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-125.606620 -35.297505 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_117</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>126.743891 37.798011 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_118</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-125.611007 -38.837146 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_119</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>69.179318 114.005381 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_120</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>131.435025 38.182042 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_121</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>73.858356 116.049314 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_122</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>135.985948 40.291024 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_123</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>77.697020 119.031783 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_124</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>139.790859 43.286296 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_125</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>81.531174 121.855535 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_126</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>144.329096 45.670815 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_127</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>86.303956 123.765576 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_128</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>91.111671 124.597939 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_129</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>149.281356 46.179340 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_130</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>95.877755 126.162829 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_131</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>154.177935 45.554194 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_132</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>99.811623 129.039256 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_133</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>158.896462 45.587497 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_134</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>103.576810 131.993378 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_135</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>163.577227 47.525948 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_136</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>108.415292 133.702139 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_137</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>167.345596 50.535081 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_138</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>113.221675 134.108046 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_139</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>171.234035 53.281875 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_140</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>117.977095 135.630361 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_141</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>175.918251 55.076544 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_142</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>121.890476 138.739433 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_143</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>180.778548 55.906550 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_144</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>124.912445 142.512968 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_145</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>185.694019 56.318089 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_146</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>128.889812 145.378655 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_147</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>133.729078 146.301248 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_148</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>190.639977 56.669018 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_149</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>138.644299 146.571144 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_150</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>195.520954 57.130598 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_151</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>143.501854 147.111958 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_152</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>200.362097 57.769126 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_153</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>148.171489 148.285205 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_154</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>205.197336 58.533071 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_155</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>152.694124 150.424337 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_156</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>210.001860 59.498005 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_157</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>156.572485 153.552177 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_158</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>214.735946 60.700188 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_159</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>159.615094 157.424835 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_160</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>219.368457 62.198510 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_161</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>162.762466 160.990375 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_162</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>224.047105 64.161395 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_163</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>167.255781 163.426590 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_164</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>228.518232 66.583108 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_165</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>172.206259 163.856570 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_166</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>177.083695 163.744886 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_167</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>232.686319 69.440624 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_168</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>181.828498 164.552372 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_169</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>236.468774 72.444414 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_170</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>186.459209 166.409536 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_171</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>240.571901 74.988370 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_172</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>190.593335 169.096989 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_173</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>245.441547 76.376471 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_174</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>194.227359 172.370985 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_175</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>250.258240 75.681700 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_176</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>197.487037 176.000878 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_177</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>254.825976 73.907639 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_178</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>201.033576 179.254582 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_179</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>259.483254 73.666682 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_180</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>205.638504 181.498219 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_181</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>263.902561 76.156179 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_182</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>210.567411 181.951891 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_183</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>266.958395 79.970345 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_184</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>215.318953 181.931251 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_185</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>270.244294 83.322912 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_186</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>220.065598 183.343673 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_187</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>275.036508 85.177200 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_188</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>224.005642 186.369959 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_189</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>279.975765 84.946532 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_190</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>227.250939 190.058784 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_191</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>284.729513 83.662868 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_192</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>231.080608 193.138248 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_193</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>289.404378 83.017133 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_194</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>294.166112 84.493608 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_195</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>235.939046 194.139580 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_196</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>240.741827 194.254027 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_197</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>297.727662 87.924964 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_198</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>245.529014 195.909112 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_199</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>300.902409 91.694025 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_200</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>249.142953 199.241593 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_201</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>304.545379 94.857675 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_202</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>308.687904 97.510983 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_203</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>252.381075 202.708801 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_204</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>312.919051 100.344579 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_205</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>257.134747 204.340863 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_206</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>262.006886 203.933250 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_207</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>316.407529 103.941163 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_208</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>266.804056 203.891919 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_209</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>318.814022 108.215535 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_210</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>271.628219 204.626665 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_211</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>319.959789 112.914637 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_212</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>319.939358 117.735233 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_213</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>318.961751 122.544564 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_214</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>317.908318 127.436133 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_215</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>276.573039 205.256559 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_216</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>317.790723 132.454013 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_217</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>319.028591 137.225132 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_218</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>313.329493 147.482119 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_219</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>312.496505 152.430127 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_220</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>281.527755 204.925665 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_221</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>316.763795 144.008897 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_222</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>319.566145 141.114919 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_223</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>313.782014 157.076223 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_224</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>307.626392 165.919917 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_225</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>310.947662 162.370244 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_226</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>306.819932 170.840037 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_227</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>286.175831 203.363410 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_228</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>313.413704 160.271703 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_229</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>290.313508 200.737521 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_230</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>308.210453 175.553254 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_231</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>293.783515 197.338290 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_232</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>299.265106 188.527664 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_233</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>296.697199 192.895335 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_234</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>302.530557 184.730130 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_235</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>295.383989 195.213512 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_236</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>306.255216 181.720286 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_237</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>308.317248 178.961952 0.15 0 0 0</pose>
+            <uri>model://models/blue_cone</uri>
+            <name>blue_cone_238</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>0.852576 -1.558825 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_1</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-4.347070 -2.296602 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_2</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>5.713659 -1.431657 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_3</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-9.028835 -3.501829 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_4</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>10.451580 -0.924277 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_5</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-13.577269 -5.201442 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_6</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>15.214171 0.812150 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_7</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-18.050681 -7.324351 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_8</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>19.136569 3.810849 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_9</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>22.806558 6.857299 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_10</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-22.465647 -9.575141 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_11</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>27.513876 8.812544 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_12</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-26.965364 -11.595940 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_13</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>32.497448 9.121654 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_14</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-31.621352 -13.297136 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_15</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>37.266396 7.878061 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_16</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-36.505693 -14.613479 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_17</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>42.020144 6.594397 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_18</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-41.460692 -15.411192 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_19</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>46.881996 6.018679 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_20</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-46.367817 -15.941708 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_21</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>51.619415 6.665718 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_22</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-51.211172 -16.445084 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_23</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>56.196340 8.791179 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_24</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-56.054560 -17.230515 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_25</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>60.027596 12.043838 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_26</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-60.817075 -18.225681 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_27</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>63.067867 15.970859 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_28</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-65.582016 -19.509207 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_29</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>66.095990 19.581632 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_30</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>70.466808 22.006177 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_31</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-70.362408 -20.974450 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_32</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-35.357924 66.887704 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_33</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-39.658360 64.644056 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_34</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-31.050102 69.371360 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_35</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-75.072920 -22.537428 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_36</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>75.433241 22.782453 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_37</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-44.289866 62.475030 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_38</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-26.849999 72.056304 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_39</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-48.594437 60.506162 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_40</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-22.868150 75.037938 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_41</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-53.125716 58.477027 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_42</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-19.075562 78.144836 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_43</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-57.592188 56.557068 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_44</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>80.333000 22.165692 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_45</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-79.754271 -24.164510 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_46</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-14.799857 80.750442 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_47</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-3.774358 81.828953 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_48</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-62.254036 54.680386 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_49</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>1.056643 82.722708 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_50</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-8.613298 82.042128 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_51</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-11.761355 81.778699 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_52</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>5.656460 84.966976 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_53</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-66.985918 53.061068 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_54</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>85.155921 21.628320 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_55</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-84.339374 -25.992125 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_56</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>9.353334 88.324085 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_57</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-71.792841 51.807844 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_58</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>89.906330 22.606811 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_59</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-76.608999 50.953220 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_60</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-88.802946 -28.508802 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_61</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>12.191188 92.327884 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_62</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-81.384880 49.695077 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_63</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>94.308364 24.976686 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_64</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>15.640488 95.725424 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_65</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-92.743999 -31.292006 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_66</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-85.963753 47.473290 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_67</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>19.890079 98.279015 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_68</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-89.910857 44.478477 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_69</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>98.699695 27.395758 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_70</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-97.573440 -33.077076 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_71</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-93.342611 40.967330 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_72</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>24.740357 99.624280 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_73</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-96.722781 37.597045 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_74</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>29.678866 99.814587 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_75</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>34.483564 99.793103 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_76</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>103.568503 28.157831 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_77</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-101.074442 35.071193 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_78</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-102.475523 -33.171352 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_79</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>39.147728 100.810945 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_80</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-106.039050 34.410278 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_81</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>108.415475 28.247797 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_82</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>43.698828 103.050568 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_83</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-107.221567 -33.418182 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_84</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>47.645611 106.152454 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_85</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-110.492081 36.204778 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_86</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>113.103592 29.359271 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_87</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-111.932315 -35.564512 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_88</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>51.207528 109.560753 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_89</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-114.498244 39.177383 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_90</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>117.456274 31.651030 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_91</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-114.941134 -39.449987 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_92</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-122.191074 -6.762509 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_93</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.329398 -11.455332 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_94</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-124.242134 -1.878132 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_95</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>55.000502 112.654463 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_96</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-117.974034 -42.940737 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_97</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-118.939746 40.579332 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_98</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>121.957853 33.914134 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_99</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.919874 15.506681 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_100</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.649336 20.323862 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_101</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-125.533650 10.878147 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_102</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-124.800582 -15.977524 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_103</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.679682 -23.087203 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_104</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-126.782141 2.608996 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_105</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-124.574670 -19.432207 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_106</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-124.470818 25.127449 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_107</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-124.524206 -27.740141 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_108</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-126.987979 6.884322 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_109</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>59.601752 114.978159 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_110</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-123.689952 38.839715 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_111</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-125.493633 29.953928 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_112</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-122.772808 -44.105695 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_113</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>126.826597 34.632477 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_114</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-127.464706 -31.811958 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_115</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-125.760033 34.707395 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_116</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>64.462343 116.231889 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_117</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-126.938504 -42.258587 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_118</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-129.119654 -36.264447 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_119</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>131.609670 34.976928 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_120</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>69.151563 117.315787 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_121</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-128.821082 -39.532787 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_122</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>73.614597 119.724671 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_123</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>136.290315 36.710599 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_124</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>77.321622 122.810549 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_125</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>140.205541 39.599582 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_126</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>81.462248 125.385085 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_127</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>144.375306 42.317424 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_128</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>86.250989 127.009511 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_129</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>149.252540 43.001759 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_130</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>90.923109 127.766364 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_131</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>154.147642 42.372718 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_132</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>95.661794 129.757712 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_133</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>158.967542 42.391314 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_134</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>99.432535 132.872898 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_135</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>163.745679 43.951828 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_136</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>103.506602 135.549357 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_137</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>167.826560 46.823225 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_138</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>108.338342 136.882850 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_139</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>113.091765 137.290114 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_140</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>171.616853 49.824042 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_141</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>117.808003 139.271912 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_142</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>176.200480 51.873097 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_143</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>121.142066 142.873590 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_144</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>181.089676 52.779291 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_145</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>124.332653 146.369262 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_146</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>186.006044 53.193191 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_147</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>128.861532 148.694725 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_148</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>190.952789 53.546198 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_149</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>133.756662 149.475583 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_150</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>195.836919 54.016089 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_151</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>138.671095 149.743400 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_152</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>200.673113 54.641570 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_153</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>143.540697 150.315975 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_154</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>148.263159 151.704699 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_155</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>205.505701 55.398527 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_156</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>152.694182 154.274592 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_157</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>210.303984 56.347009 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_158</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>156.062775 157.916649 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_159</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>215.025539 57.516154 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_160</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>159.051820 161.756148 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_161</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>219.704989 58.997241 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_162</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>162.625174 164.785777 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_163</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>224.317191 60.841471 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_164</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>167.364632 166.741325 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_165</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>228.808362 63.104066 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_166</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>172.333747 167.012321 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_167</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>233.024896 65.782777 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_168</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>177.221527 166.927908 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_169</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>236.912927 68.799997 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_170</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>181.917493 167.888609 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_171</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>240.878193 71.574017 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_172</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>186.424724 170.036474 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_173</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>245.778540 73.176419 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_174</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>190.385427 173.026128 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_175</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>250.555518 72.235961 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_176</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>193.786508 176.548910 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_177</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>255.099499 70.540257 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_178</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>197.092056 180.107929 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_179</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>259.780196 70.473826 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_180</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>200.979156 182.965074 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_181</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>264.478636 72.515199 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_182</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>205.705520 184.783223 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_183</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>267.994942 75.994275 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_184</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>210.645539 185.118494 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_185</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>270.925543 79.748991 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_186</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>215.474939 185.162135 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_187</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>275.505432 82.006222 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_188</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>220.100763 187.117039 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_189</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>280.415760 81.595083 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_190</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>223.580683 190.648808 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_191</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>285.169508 80.311418 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_192</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>226.902329 194.148245 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_193</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>289.921364 79.868658 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_194</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>231.287920 196.666574 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_195</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>294.647926 81.125205 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_196</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>236.178866 197.309517 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_197</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>298.613959 84.059362 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_198</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>240.905498 197.505170 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_199</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>301.678354 87.816804 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_200</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>245.414142 199.853829 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_201</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>305.055302 91.241787 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_202</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>248.588903 203.515932 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_203</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>309.041318 94.061413 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_204</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>252.427018 206.450763 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_205</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>313.379927 96.747295 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_206</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>257.279558 207.542286 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_207</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>317.245141 100.040551 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_208</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>262.138870 207.100855 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_209</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>320.252905 104.033378 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_210</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>266.998216 207.082461 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_211</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>322.286475 108.502680 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_212</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>271.958389 207.893813 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_213</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>323.174676 113.246003 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_214</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>323.064434 118.100666 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_215</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>322.149126 122.939842 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_216</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>276.920614 208.428611 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_217</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>321.075293 127.839149 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_218</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>321.053279 132.820774 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_219</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>281.866157 208.073534 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_220</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>322.438075 137.536162 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_221</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>316.308191 148.931298 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_222</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>316.096542 153.738399 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_223</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>319.861672 145.690838 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_224</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>286.568517 206.654390 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_225</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>322.643107 141.980091 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_226</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>310.656976 167.243187 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_227</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>310.418850 172.041782 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_228</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>314.160080 163.931210 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_229</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>317.189850 158.243495 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_230</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>290.853549 204.276003 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_231</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>316.390018 161.492178 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_232</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>294.594346 201.167722 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_233</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>301.671015 190.641041 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_234</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>311.673085 176.646265 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_235</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>299.084793 195.101412 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_236</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>304.941177 186.855929 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_237</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>297.053550 198.346242 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_238</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>308.670089 183.857298 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_239</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>311.043719 180.610490 0.15 0 0 0</pose>
+            <uri>model://models/yellow_cone</uri>
+            <name>yellow_cone_240</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>0.300000 1.550806 0.15 0 0 0</pose>
+            <uri>model://models/big_cone</uri>
+            <name>big_cone_1</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>0.300000 -1.550806 0.15 0 0 0</pose>
+            <uri>model://models/big_cone</uri>
+            <name>big_cone_2</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-0.300000 1.550806 0.15 0 0 0</pose>
+            <uri>model://models/big_cone</uri>
+            <name>big_cone_3</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+
+        <include>
+            <pose>-0.300000 -1.550806 0.15 0 0 0</pose>
+            <uri>model://models/big_cone</uri>
+            <name>big_cone_4</name>
+
+            <covariance x="0.01" y="0.01" xy="0.0"/>
+
+        </include>
+
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+    </model>
+</sdf>

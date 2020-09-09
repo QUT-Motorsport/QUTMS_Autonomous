@@ -6,4 +6,7 @@
   <param name="_image_transport" type="string" value="compressed"/>
   </node>
 
+  <!-- Controller launch -->
+  <node pkg="qutms_autonomous_nodes" type="Auto_Controller" name="qev_controller" output="screen"/>
+
 </launch>

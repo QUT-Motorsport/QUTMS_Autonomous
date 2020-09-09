@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="qev">
+
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <!-- ***************** -->
+    <!-- Config parameters -->
+    <!-- ***************** -->
+
+    <!--  Load the config file  -->
+    <xacro:property name="config" value="${load_yaml('$(arg config_file)')}"/>
+
+    <!-- ***************** -->
+    <!-- Imported elements -->
+    <!-- ***************** -->
+
+    <!--  Import the wheels  -->
+    <xacro:include filename="$(find qutms_description)/urdf/wheels.urdf.xacro"/>
+
+    <!-- Import base element with the chassis -->
+    <xacro:include filename="$(find qutms_description)/urdf/car_base.urdf.xacro"/>
+
+    <!--  Include the plugins  -->
+    <xacro:include filename="$(find qutms_description)/urdf/plugins.gazebo.xacro"/>
+
+    <!-- GPS -->
+    <xacro:include filename="$(find qutms_description)/sensors/gps.urdf.xacro" />
+    <!-- IMU -->
+    <xacro:include filename="$(find qutms_description)/sensors/imu.urdf.xacro" />
+    <!-- LIDAR -->
+    <xacro:include filename="$(find qutms_description)/sensors/horizon_lidar.urdf.xacro"/>
+    <!-- Camera -->
+    <xacro:include filename="$(find qutms_description)/sensors/zed_camera.urdf.xacro" />
+
+    <!-- ************** -->
+    <!-- Robot Elements -->
+    <!-- ************** -->
+
+    <!-- Chassis of the car -->
+    <xacro:car_base chassis_length="2.165" chassis_width="0.735" chassis_height="0.63"/>
+
+    <!-- Wheels -->
+    <xacro:wheels chassis_width="2" wheelbase="2.0"/>
+
+    <!-- GPS -->
+    <xacro:gps parent="base_footprint">
+        <origin xyz="0 0 0.345" rpy="0 0 0" />
+    </xacro:gps>
+
+    <!-- IMU -->
+    <xacro:imu parent="base_footprint">
+        <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
+    </xacro:imu>
+
+    <!-- LiDAR -->
+    <xacro:horizon_lidar parent="base_footprint">
+        <origin xyz="1.17 0 -0.24" rpy="0 0 0" />
+    </xacro:horizon_lidar>
+
+    <!-- Camera -->
+    <xacro:zed_camera parent="base_footprint">
+        <origin xyz="-0.4 0 0.9" rpy="0 0 0" />
+    </xacro:zed_camera>
+
+</robot>
