@@ -46,7 +46,7 @@ class QEV_Image {
     int lap_num = 0;
     double im_left_x, im_right_x, im_left_y, im_right_y, left_p_dist, right_p_dist, steer_gain;
 
-    bool no_b_left, no_y_left, no_b_right, no_y_right;
+    bool no_b_left, no_y_left, no_b_right, no_y_right, no_orng;
 
     // Image segmentation values
     // Yellow values
@@ -148,21 +148,31 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     cv::Moments im_left_ymoments = cv::moments(im_thres_y_left);
     cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
 
-    // Recreate an image
-    cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
-
     // Check for blue and yellow detections
     int b_left_cnt = 0; 
-    for(int ii = 0; ii < im_thres_left.rows; ii++) {
-        for(int jj = 0; jj < im_thres_left.cols/2; jj++) {
+    int y_left_cnt = 0;
+    for(int ii = 0; ii < im_thres_y_left.rows; ii++) {
+        for(int jj = 0; jj < im_thres_b_left.cols; jj++) {
             // Check half the image for blue values
-            if(im_thres_left.at<uchar>(ii,jj) > 0) {
+            if(im_thres_b_left.at<uchar>(ii,jj) > 0) {
                 b_left_cnt++;
+            }
+        }
+
+        for(int n = 0; n < im_thres_y_left.cols; n++) {
+            // Check the other half for yellow values
+            if(im_thres_y_left.at<uchar>(ii,n) > 0) {
+                y_left_cnt++;
             }
         }
     }
 
-    ROS_INFO("Number of nonzero blue elements: %d", b_left_cnt);
+
+    // Recreate an image
+    cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
+
+    // ROS_INFO("Number of nonzero blue elements: %d", b_left_cnt);
+    // ROS_INFO("Number of nonzero yellow elements: %d", y_left_cnt);
 
     // Notify if no detections are present
     if(b_left_cnt == 0) {
@@ -170,10 +180,11 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     } else {
         no_b_left = false;
     }
-
-    if (b_left_cnt <= 500) {
-        // Detect orange cones
-        ROS_INFO("Orange cones found!!");
+    
+    if(y_left_cnt == 0) {
+        no_y_right = true;
+    } else {
+        no_y_left = false;
     }
 
     // Grab the image moment values
@@ -255,32 +266,51 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     cv::Moments im_right_ymoments = cv::moments(im_thres_y_right);
     cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
 
-    // Rejoin the images
-    cv::Mat im_thres_right = im_thres_b_right + im_thres_y_right;
-
     // Check for blue and yellow detections
+    int b_right_cnt = 0; 
     int y_right_cnt = 0;
-    for(int ii = 0; ii < im_thres_right.rows; ii++) {
-        for(int n = (im_thres_right.cols/2)+1; n < im_thres_right.cols; n++) {
+    for(int ii = 0; ii < im_thres_y_right.rows; ii++) {
+        for(int jj = 0; jj < im_thres_b_right.cols; jj++) {
+            // Check half the image for blue values
+            if(im_thres_b_right.at<uchar>(ii,jj) > 0) {
+                b_right_cnt++;
+            }
+        }
+        
+        for(int n = 0; n < im_thres_y_right.cols; n++) {
             // Check the other half for yellow values
-            if(im_thres_right.at<uchar>(ii,n) > 0) {
+            if(im_thres_y_right.at<uchar>(ii,n) > 0) {
                 y_right_cnt++;
             }
         }
     }
 
-    ROS_INFO("Number of nonzero yellow elements: %d", y_right_cnt);
+    // Rejoin the images
+    cv::Mat im_thres_right = im_thres_b_right + im_thres_y_right;
 
-    // Notify if no detections are present    
+    // ROS_INFO("Number of nonzero blue elements: %d", b_right_cnt);
+    // ROS_INFO("Number of nonzero blue elements: %d", y_right_cnt);
+
+    // Notify if no detections are present
+    if(b_right_cnt == 0) {
+        no_b_right = true;
+    } else {
+        no_b_right = false;
+    }
+    
     if(y_right_cnt == 0) {
         no_y_right = true;
     } else {
         no_y_right = false;
     }
 
-    if (y_right_cnt <= 500) {
-        // Detect orange cones
-        ROS_INFO("Orange cones found!!");
+    // If a small number of detections is present, we have probably finished a lap
+    if ((b_right_cnt < 200) && (!no_b_right)) {
+        if((y_right_cnt < 200) && (!no_y_right)) {
+            no_orng = true;
+        }
+    } else {
+        no_orng = false;
     }
     
     // Grab the image moment values
@@ -336,21 +366,21 @@ void QEV_Image::pos_gain(void) {
     steer_gain = x_off/1000;
 
     // Check: no blue cones
-    if(no_b_left) {
-        // Turn right until a cone is found
+    if((no_b_left) && (no_b_right)) {
+        // Turn left until a cone is found
         steer_gain = 1;
         ROS_INFO("Commanding left");
     }
 
     // Check: no yellow cones
-    if(no_y_right) {
-        // Turn left until a cone is found
+    if((no_y_left) && (no_y_right)) {
+        // Turn right until a cone is found
         steer_gain = -1;
         ROS_INFO("Commanding right");
     }
 
     // Check: orange cones
-    if((no_b_left) && (no_y_right)) {
+    if(no_orng) {
         // Update the lap number
         ROS_INFO("Lap completed");
         lap_num++;
@@ -373,7 +403,7 @@ int main(int argc, char **argv) {
     QEV_Image qev_image;
 
     // Rate set
-    ros::Rate rate(30);
+    ros::Rate rate(10);
 
     // Enter while loop here
     while(ros::ok()) {
