@@ -21,53 +21,66 @@ using namespace std;
 char dir[300];
 string got;
 
+vector<double> vector_sort(vector<double> vec_in) {
+    // Sorts a vector using a nearest neighbour approach
+    vector<double> vec_out;
+    
+    // Calculate point distances, find minimum, and append minimum to new vector
+    while(!vec_in.empty()) {
+        int ii = 1;
+        vector<double> vdists;
+        for (int a = 0; a < vec_in.size(); a++) {
+            // Calculate distances
+            double dist;
+            dist = abs(vec_in[ii] - vec_in[0]);
+            vdists.push_back(dist);
+            ii++;
+        }
+        // Find the minimum
+        auto min = *min_element(vdists.begin(), vdists.end());
+        vector<double>::iterator vind = find(vdists.begin(), vdists.end(), min);
+        int vpos = distance(vdists.begin(), vind);
 
-vector<double> get_points(vector<double> x_points, vector<double> y_points, int itr) {
-    // Sorts 4 points 
-
-    vector<double> points;
-    // Sanity check
-    if(x_points.size() != y_points.size()) {
-        ROS_ERROR("Vectors aren't the same size!");
+        // Append to the new array, and delete from the old one
+        vec_out.push_back(vec_in[vpos]);
+        vec_in.erase(vec_in.begin() + vpos);
     }
 
-    // If we are close to the end of the vector, wrap the iterator
-    if (itr == x_points.size() - 2) { // If we are 2 away from the end 
-        points.push_back(x_points[itr]);
-        points.push_back(y_points[itr]);
-        points.push_back(x_points[itr + 1]);
-        points.push_back(y_points[itr + 1]);
-        points.push_back(x_points[itr + 2]);
-        points.push_back(y_points[itr + 2]);
-        points.push_back(x_points[0]); // Go back to the beginning
-        points.push_back(y_points[0]);
+    return vec_out;
+}
 
-    } else if (itr == x_points.size() - 1) { // If we are one away
-        points.push_back(x_points[itr]);
-        points.push_back(y_points[itr]);
-        points.push_back(x_points[itr + 1]);
-        points.push_back(y_points[itr + 1]);
-        points.push_back(x_points[0]);
-        points.push_back(y_points[0]);
-        points.push_back(x_points[1]);
-        points.push_back(y_points[1]);
-    } else if (itr == x_points.size()) { // If we have reached the maximum size
-        points.push_back(x_points[itr]);
-        points.push_back(y_points[itr]);
-        points.push_back(x_points[0]);
-        points.push_back(y_points[0]);
-        points.push_back(x_points[1]);
-        points.push_back(y_points[1]);
-        points.push_back(x_points[2]);
-        points.push_back(y_points[2]);
+void vector_dist_sort(vector<double> avec_in, vector<double> bvec_in, vector<double> cvec_in, vector<double> dvec_in, vector<double> &avec_out, vector<double> &bvec_out) {
+    // Uses Euclidean distance to sort two vectors containing individual x and y coordinates with two others containing the same
+    // The input arguments should be (x, y, x, y)
+    // The last two arguments are vectors to be sorted
+    
+    // Check: vectors to be sorted are the same size
+    if((avec_in.size() != cvec_in.size()) && (bvec_in.size() != dvec_in.size())) {
+        ROS_ERROR("Input vectors not the same size!");
+        return;
     } else {
-        for(int i = 0; i <= 3; i++) { // All other cases
-            points.push_back(x_points[itr + i]);
-            points.push_back(y_points[itr + i]);
+        vector<double> vecdists;
+        for (int a = 0; a < avec_in.size(); a++) {
+            // Distances
+            vecdists.clear();
+            for (int b = 0; b < cvec_in.size(); b++) {
+                double vecdist = sqrt((avec_in[a] - cvec_in[b])*(avec_in[a] - cvec_in[b]) + (bvec_in[a] - dvec_in[b])*(bvec_in[a] - dvec_in[b]));
+                vecdists.push_back(vecdist);
+            }
+
+            // Find minimum
+            auto min = *min_element(vecdists.begin(), vecdists.end());
+            vector<double>::iterator vind = find(vecdists.begin(), vecdists.end(), min);
+            int vpos = distance(vecdists.begin(), vind);        
+
+            // Push values to output vectors and delete old ones
+            avec_out.push_back(cvec_in[vpos]);
+            bvec_out.push_back(dvec_in[vpos]);
+
+            cvec_in.erase(cvec_in.begin() + vpos);
+            dvec_in.erase(dvec_in.begin() + vpos);
         }
     }
-    return points;
-    
 }
 
 int main(int argc, char** argv) {
@@ -155,51 +168,43 @@ int main(int argc, char** argv) {
     nav_msgs::Path path_msg;
     geometry_msgs::PoseStamped path_pose;
 
+    // Remove the orange cone values from the vectors
+    for (int ii = 0; ii < 13; ii++) {
+        xg.pop_back();
+        yg.pop_back();
+    }
+
     // Split everything up into blue and yellow poses
     vector<double> xb, yb, xy, yy;
     if (xg.size() == yg.size()) {
-        for (int i = 0; i <= 22; i++) {
+        while ((!xg.empty()) && (!yg.empty())) {
             xb.push_back(xg[0]);
             xg.erase(xg.begin());
             yb.push_back(yg[0]);
             yg.erase(yg.begin());
 
-            xy.push_back(xg[23-i]);
-            xg.erase(xg.begin()+(23-i));
-            yy.push_back(yg[23-i]);
-            yg.erase(yg.begin()+(23-i));
+            xy.push_back(xg[xg.size()/2-1]);
+            xg.erase(xg.begin()+(xg.size()/2-1));
+            yy.push_back(yg[xg.size()/2-1]);
+            yg.erase(yg.begin()+(xg.size()/2-1));
         }
     }
 
-    // Sort the lists
+    // Nearest neighbour ordering
+    // Check: lists are the same size
+    if((xb.size() != yb.size()) && (yb.size() != xy.size()) && (xy.size() != yy.size())) {
+        ROS_ERROR("Coordinate lists are not the same size!!");
+    }
+
+    vector<double> xbl, ybl, xyl, yyl;
+    xbl = vector_sort(xb);
+    ybl = vector_sort(yb);
+    xyl = vector_sort(xy);
+    yyl = vector_sort(yy);
+
+    // Sort the lists again
     vector<double> xyd, yyd;
-    vector<double>::iterator cindex;
-    int cpos;
-    while((!xy.empty()) && (!yy.empty())) {
-        // Euclidean distances
-        vector<double> cdists;
-        for(int ii = 0; ii < xb.size(); ii++) {
-            cdists.clear();
-            for(int jj = 0; jj < xy.size(); jj++) {
-                double cdist = sqrt(((xb[ii] - xy[jj])*(xb[ii] - xy[jj])) + ((yb[ii] - yy[jj])*(yb[ii] - yy[jj])));
-                cdists.push_back(cdist);
-                // ROS_INFO("Calculated distance as %0.4f", cdist);
-            }
-        }
-
-        // Find the minimum
-        auto min = *min_element(cdists.begin(), cdists.end());
-        cindex = find(cdists.begin(), cdists.end(), min);
-        cpos = distance(cdists.begin(), cindex);
-        ROS_INFO("Found distance at element %d", cpos);
-
-        // Push these values into the path, and remove those values
-        xyd.push_back(xy[cpos]);
-        yyd.push_back(yy[cpos]);
-
-        xy.erase(xy.begin() + cpos);
-        yy.erase(yy.begin() + cpos);        
-    }
+    vector_dist_sort(xbl, ybl, xyl, yyl, xyd, yyd);
 
     ROS_INFO("Getting midpoints");
     vector<double> xp, yp;
@@ -230,50 +235,62 @@ int main(int argc, char** argv) {
 
     // Add a pose
     ROS_INFO("Adding poses to Path message");
-    // Add the first pose
-    path_pose.pose.position.x = xp[0];
-    path_pose.pose.position.y = yp[0];
-    path_pose.pose.position.z = 0;
-    path_pose.pose.orientation.w = 0;
-    path_pose.pose.orientation.x = 0;
-    path_pose.pose.orientation.y = 0;
-    path_pose.pose.orientation.z = 0;        
-    path_msg.poses.push_back(path_pose);
+    // // Add the first pose
+    // path_pose.pose.position.x = xp[0];
+    // path_pose.pose.position.y = yp[0];
+    // path_pose.pose.position.z = 0;
+    // path_pose.pose.orientation.w = 0;
+    // path_pose.pose.orientation.x = 0;
+    // path_pose.pose.orientation.y = 0;
+    // path_pose.pose.orientation.z = 0;        
+    // path_msg.poses.push_back(path_pose);
 
-    // Remove it from the vector
-    xp.erase(xp.begin());
-    yp.erase(yp.begin());
-    vector<double>::iterator index;
-    int pos;
+    // // Remove it from the vector
+    // xp.erase(xp.begin());
+    // yp.erase(yp.begin());
+    // vector<double>::iterator index;
+    // int pos;
     
-    // Get distances from last path point to all other points, get minimum distance, add corresponding elements and remove
-    while((!xp.empty()) && (!yp.empty())) {
-        // Euclidean distances
-        vector<double> dists;
-        for(int ii = 0; ii < xp.size(); ii++) {
-            double dist = sqrt(((path_pose.pose.position.x - xp[ii])*(path_pose.pose.position.x - xp[ii])) + ((path_pose.pose.position.y - yp[ii])*(path_pose.pose.position.y - yp[ii])));
-            dists.push_back(dist);
-            ROS_INFO("Calculated distance for elements %d to be %0.4f", ii, dist);
-        }
+    // // Get distances from last path point to all other points, get minimum distance, add corresponding elements and remove
+    // while((!xp.empty()) && (!yp.empty())) {
+    //     // Euclidean distances
+    //     vector<double> dists;
+    //     for(int ii = 0; ii < xp.size(); ii++) {
+    //         double dist = sqrt(((path_pose.pose.position.x - xp[ii])*(path_pose.pose.position.x - xp[ii])) + ((path_pose.pose.position.y - yp[ii])*(path_pose.pose.position.y - yp[ii])));
+    //         dists.push_back(dist);
+    //         ROS_INFO("Calculated distance for elements %d to be %0.4f", ii, dist);
+    //     }
 
-        // Find the minimum
-        auto min = *min_element(dists.begin(), dists.end());
-        index = find(dists.begin(), dists.end(), min);
-        pos = distance(dists.begin(), index);
-        ROS_INFO("Found distance at element %d", pos);
+    //     // Find the minimum
+    //     auto min = *min_element(dists.begin(), dists.end());
+    //     index = find(dists.begin(), dists.end(), min);
+    //     pos = distance(dists.begin(), index);
+    //     ROS_INFO("Found distance at elements %d", pos);
 
-        // Push these values into the path, and remove those values
-        path_pose.pose.position.x = xp[pos];
-        path_pose.pose.position.y = yp[pos];
+    //     // Push these values into the path, and remove those values
+    //     path_pose.pose.position.x = xp[pos];
+    //     path_pose.pose.position.y = yp[pos];
+    //     path_pose.pose.position.z = 0;
+    //     path_pose.pose.orientation.w = 0;
+    //     path_pose.pose.orientation.x = 0;
+    //     path_pose.pose.orientation.y = 0;
+    //     path_pose.pose.orientation.z = 0;        
+    //     path_msg.poses.push_back(path_pose);
+
+    //     xp.erase(xp.begin() + pos);
+    //     yp.erase(yp.begin() + pos);        
+    // }
+
+    for (int ii = 0; ii < xp.size(); ii++) {
+        // Pack the values to a pose, and add the pose to the path message
+        path_pose.pose.position.x = xp[ii];
+        path_pose.pose.position.y = yp[ii];
         path_pose.pose.position.z = 0;
         path_pose.pose.orientation.w = 0;
         path_pose.pose.orientation.x = 0;
         path_pose.pose.orientation.y = 0;
         path_pose.pose.orientation.z = 0;        
         path_msg.poses.push_back(path_pose);
-
-        xp.erase(xp.begin() + pos);
-        yp.erase(yp.begin() + pos);        
     }
 
     ROS_INFO("Entering main loop");
