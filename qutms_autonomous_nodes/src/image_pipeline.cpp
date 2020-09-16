@@ -72,6 +72,17 @@ class QEV_Image {
     int b_iLastX = -1; 
     int b_iLastY = -1;
 
+    // Orange potential values
+    int o_low_h = 10;
+    int o_high_h = 25;
+    int o_low_s = 100;
+    int o_high_s = 255;
+    int o_low_v = 20;
+    int o_high_v = 255;
+
+    int o_iLastX = -1;
+    int o_iLastY = -1;
+
     // Image resizing values
     int im_size_top = 600;
     int im_size_bottom = 1080;
@@ -132,7 +143,7 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     cv::cvtColor(im_left, im_left_hsv, cv::COLOR_BGR2HSV);
 
     // Threshold yellow
-    cv::Mat im_thres_y_left, im_thres_b_left;
+    cv::Mat im_thres_y_left, im_thres_b_left, im_thres_o_left;
     cv::inRange(im_left_hsv, cv::Scalar(y_low_h,y_low_s,y_low_v), cv::Scalar(y_high_h,y_high_s,y_high_v), im_thres_y_left);
 
     // Threshold blue
@@ -149,8 +160,7 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
 
     // Check for blue and yellow detections
-    int b_left_cnt = 0; 
-    int y_left_cnt = 0;
+    int b_left_cnt, y_left_cnt;
     for(int ii = 0; ii < im_thres_y_left.rows; ii++) {
         for(int jj = 0; jj < im_thres_b_left.cols; jj++) {
             // Check half the image for blue values
@@ -222,11 +232,11 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     // Get point distance from centre
     left_p_dist = im_thres_left.cols/2 - im_left_x;
 
-    // Resize 
-    im_thres_left = im_thres_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
+    // // Resize 
+    // im_thres_left = im_thres_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
 
-    // Display
-    cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
+    // // Display
+    // cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
 
 }
 
@@ -250,7 +260,7 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     cv::cvtColor(im_right, im_right_hsv, cv::COLOR_BGR2HSV);
 
     // Threshold yellow
-    cv::Mat im_thres_y_right, im_thres_b_right;
+    cv::Mat im_thres_y_right, im_thres_b_right, im_thres_o_right;
     cv::inRange(im_right_hsv, cv::Scalar(y_low_h,y_low_s,y_low_v), cv::Scalar(y_high_h,y_high_s,y_high_v), im_thres_y_right);
 
     // Threshold blue
@@ -267,8 +277,7 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
 
     // Check for blue and yellow detections
-    int b_right_cnt = 0; 
-    int y_right_cnt = 0;
+    int b_right_cnt, y_right_cnt;
     for(int ii = 0; ii < im_thres_y_right.rows; ii++) {
         for(int jj = 0; jj < im_thres_b_right.cols; jj++) {
             // Check half the image for blue values
@@ -348,11 +357,11 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     // Get distance from image centre
     right_p_dist = im_thres_right.cols/2 - im_right_x;
 
-    // Resize
-    im_thres_right = im_thres_right(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
+    // // Resize
+    // im_thres_right = im_thres_right(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
 
-    // Display
-    cv::imshow(OPENCV_WINDOW_RIGHT, im_thres_right); 
+    // // Display
+    // cv::imshow(OPENCV_WINDOW_RIGHT, im_thres_right); 
 
 }
 
@@ -403,7 +412,7 @@ int main(int argc, char **argv) {
     QEV_Image qev_image;
 
     // Rate set
-    ros::Rate rate(10);
+    ros::Rate rate(15);
 
     // Enter while loop here
     while(ros::ok()) {
