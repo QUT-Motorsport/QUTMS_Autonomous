@@ -74,10 +74,10 @@ class QEV_Image {
 
     // Orange potential values
     int o_low_h = 10;
-    int o_high_h = 25;
-    int o_low_s = 100;
+    int o_high_h = 55;
+    int o_low_s = 70;
     int o_high_s = 255;
-    int o_low_v = 20;
+    int o_low_v = 10;
     int o_high_v = 255;
 
     int o_iLastX = -1;
@@ -149,9 +149,6 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     // Threshold blue
     cv::inRange(im_left_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v), im_thres_b_left);
 
-    // Threshold orange
-    cv::inRange(im_left_hsv, cv::Scalar(o_low_h,o_low_s,o_low_v), cv::Scalar(o_high_h, o_high_s, o_high_v), im_thres_o_left);
-
     // Remove small objects
     cv::erode(im_thres_y_left, im_thres_y_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));
     cv::dilate(im_thres_y_left, im_thres_y_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));     
@@ -163,7 +160,7 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
 
     // Check for colour detections
-    int b_left_cnt, y_left_cnt, o_left_cnt;
+    int b_left_cnt, y_left_cnt;
     for(int ii = 0; ii < im_thres_y_left.rows; ii++) {
         for(int jj = 0; jj < im_thres_b_left.cols; jj++) {
             // Check for blue values
@@ -178,22 +175,13 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
                 y_left_cnt++;
             }
         }
-
-        for(int a = 0; a < im_thres_o_left.cols; a++) {
-            // Check for orange values
-            if(im_thres_o_left.at<uchar>(ii,a) > 0) {
-                o_left_cnt++;
-            }
-        }
     }
-
 
     // Recreate an image
     cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
 
     // ROS_INFO("Number of nonzero blue elements: %d", b_left_cnt);
     // ROS_INFO("Number of nonzero yellow elements: %d", y_left_cnt);
-    ROS_INFO("Number of orange elements: %d", o_left_cnt);
 
     // Notify if no detections are present
     if(b_left_cnt == 0) {
@@ -206,12 +194,6 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
         no_y_left = true;
     } else {
         no_y_left = false;
-    }
-
-    if(o_left_cnt == 0) {
-        no_o_left = true;
-    } else {
-        no_o_left = false;
     }
 
     // Grab the image moment values
@@ -250,10 +232,10 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     left_p_dist = im_thres_left.cols/2 - im_left_x;
 
     // Resize 
-    im_thres_o_left = im_thres_o_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
+    im_thres_left = im_thres_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
 
     // Display
-    cv::imshow(OPENCV_WINDOW_LEFT, im_thres_o_left);
+    cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
 
 }
 
@@ -276,43 +258,13 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     cv::Mat im_right_hsv;
     cv::cvtColor(im_right, im_right_hsv, cv::COLOR_BGR2HSV);
 
-    // Threshold yellow
-    cv::Mat im_thres_y_right, im_thres_b_right, im_thres_o_right;
-    cv::inRange(im_right_hsv, cv::Scalar(y_low_h,y_low_s,y_low_v), cv::Scalar(y_high_h,y_high_s,y_high_v), im_thres_y_right);
-
-    // Threshold blue
-    cv::inRange(im_right_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v),im_thres_b_right);
-
     // Threshold orange
+    cv::Mat im_thres_o_right;
     cv::inRange(im_right_hsv, cv::Scalar(o_low_h,o_low_s,o_low_v), cv::Scalar(o_high_h, o_high_s, o_high_v),im_thres_o_right);
 
-    // Remove small objects
-    cv::erode(im_thres_y_right, im_thres_y_right, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));
-    cv::dilate(im_thres_y_right, im_thres_y_right, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12))); 
-    cv::erode(im_thres_b_right, im_thres_b_right, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));
-    cv::dilate(im_thres_b_right, im_thres_b_right, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));     
-    
-    // Moments
-    cv::Moments im_right_ymoments = cv::moments(im_thres_y_right);
-    cv::Moments im_right_bmoments = cv::moments(im_thres_b_right);
-
     // Check for colour detections
-    int b_right_cnt, y_right_cnt, o_right_cnt;
-    for(int ii = 0; ii < im_thres_y_right.rows; ii++) {
-        for(int jj = 0; jj < im_thres_b_right.cols; jj++) {
-            // Check half the image for blue values
-            if(im_thres_b_right.at<uchar>(ii,jj) > 0) {
-                b_right_cnt++;
-            }
-        }
-        
-        for(int n = 0; n < im_thres_y_right.cols; n++) {
-            // Check the other half for yellow values
-            if(im_thres_y_right.at<uchar>(ii,n) > 0) {
-                y_right_cnt++;
-            }
-        }
-
+    int o_right_cnt;
+    for(int ii = 0; ii < im_thres_o_right.rows; ii++) {
         for(int a = 0; a < im_thres_o_right.cols; a++) {
             // Check for orange values
             if(im_thres_o_right.at<uchar>(ii,a) > 0) {
@@ -321,66 +273,14 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
         }   
     }
 
-    // Rejoin the images
-    cv::Mat im_thres_right = im_thres_b_right + im_thres_y_right;
-
-    // ROS_INFO("Number of nonzero blue elements: %d", b_right_cnt);
-    // ROS_INFO("Number of nonzero blue elements: %d", y_right_cnt);
     ROS_INFO("Number of orange elements: %d", o_right_cnt);
 
     // Notify if no detections are present
-    if(b_right_cnt == 0) {
-        no_b_right = true;
-    } else {
-        no_b_right = false;
-    }
-    
-    if(y_right_cnt == 0) {
-        no_y_right = true;
-    } else {
-        no_y_right = false;
-    }
-
     if(o_right_cnt == 0) {
         no_o_right = true;
     } else {
         no_o_right = false;
     }    
-    
-    // Grab the image moment values
-    double im_b_right_m01 = im_right_bmoments.m01;
-    double im_b_right_m10 = im_right_bmoments.m10;
-    double im_b_right_area = im_right_bmoments.m00;
-    double im_y_right_m01 = im_right_ymoments.m01;
-    double im_y_right_m10 = im_right_ymoments.m10;
-    double im_y_right_area = im_right_ymoments.m00;
-
-    // Get only the significant moments and calculate cluster positions
-    // DEBUG
-    // cout << "m00 for blue and yellow are: " << im_b_right_area << " " << im_y_right_area << endl;
-    if(im_b_right_area > 100000 && im_y_right_area > 100000) {
-        // Calculate cluster points
-        b_right_x = im_b_right_m10/im_b_right_area;
-        b_right_y = im_b_right_m01/im_b_right_area;
-        y_right_x = im_y_right_m10/im_y_right_area;
-        y_right_y = im_y_right_m01/im_y_right_area;
-    }
-
-    // ROS_INFO("Calculated right point pairs are: (%d, %d), (%d, %d)", b_right_x, b_right_y, y_right_x, y_right_y);
-
-    // // Assign the found points new values to differentiate
-    // im_thres_right.at<uchar>(cv::Point(b_right_x,b_right_y)) = 255;
-    // im_thres_right.at<uchar>(cv::Point(y_right_x,y_right_y)) = 255;    
-
-    // Get the midpoint
-    im_right_x = round((b_right_x+y_right_x)/2);
-    im_right_y = round((b_right_y+y_right_y)/2);
-
-    // // Show on image
-    // im_thres_right.at<uchar>(cv::Point(im_right_x, im_right_y)) = 255;
-
-    // Get distance from image centre
-    right_p_dist = im_thres_right.cols/2 - im_right_x;
 
     // Resize
     im_thres_o_right = im_thres_o_right(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
@@ -394,27 +294,27 @@ void QEV_Image::pos_gain(void) {
     // Get the average of the two produced positions and convert to a gain value
     // DEBUG: Function can access the values properly
     // ROS_INFO("Offset values are: %2.3f, %2.3f", left_p_dist, right_p_dist);
-    double x_off = (left_p_dist + right_p_dist)/2;
+    // double x_off = (left_p_dist + right_p_dist)/2;
 
     // Get the gain
-    steer_gain = x_off/1000;
+    steer_gain = left_p_dist/1000;
 
     // Check: no blue cones
-    if((no_b_left) && (no_b_right)) {
+    if(no_b_left) {
         // Turn left until a cone is found
         steer_gain = 1;
         ROS_INFO("Commanding left");
     }
 
     // Check: no yellow cones
-    if((no_y_left) && (no_y_right)) {
+    if(no_y_left) {
         // Turn right until a cone is found
         steer_gain = -1;
         ROS_INFO("Commanding right");
     }
 
     // Check: orange cones
-    if((no_o_left) && (no_o_right)) {
+    if(no_o_right) {
         // Update the lap number
         ROS_INFO("Lap completed");
         lap_num++;
@@ -437,7 +337,7 @@ int main(int argc, char **argv) {
     QEV_Image qev_image;
 
     // Rate set
-    ros::Rate rate(15);
+    ros::Rate rate(10);
 
     // Enter while loop here
     while(ros::ok()) {
