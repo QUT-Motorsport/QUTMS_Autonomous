@@ -43,10 +43,10 @@ class QEV_Image {
 
     // Cluster point values
     int b_left_x, b_left_y, y_left_x, y_left_y, b_right_x, b_right_y, y_right_x, y_right_y;
-    int lap_num = 0;
+    int lap_num = -1;
     double im_left_x, im_right_x, im_left_y, im_right_y, left_p_dist, right_p_dist, steer_gain;
 
-    bool no_b_left, no_y_left, no_b_right, no_y_right, no_o_left, no_o_right;
+    bool no_b_left, no_y_left, no_o_right;
 
     // Image segmentation values
     // Yellow values
@@ -155,33 +155,27 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     cv::erode(im_thres_b_left, im_thres_b_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));
     cv::dilate(im_thres_b_left, im_thres_b_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12))); 
 
-    // Moments
-    cv::Moments im_left_ymoments = cv::moments(im_thres_y_left);
-    cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
-
     // Check for colour detections
     int b_left_cnt, y_left_cnt;
     for(int ii = 0; ii < im_thres_y_left.rows; ii++) {
-        for(int jj = 0; jj < im_thres_b_left.cols; jj++) {
+        for(int jj = 0; jj < im_thres_y_left.cols; jj++) {
             // Check for blue values
-            if(im_thres_b_left.at<uchar>(ii,jj) > 0) {
+            if(im_thres_b_left.at<uchar>(ii,jj) != 0) {
                 b_left_cnt++;
             }
-        }
 
-        for(int n = 0; n < im_thres_y_left.cols; n++) {
             // Check for yellow values
-            if(im_thres_y_left.at<uchar>(ii,n) > 0) {
+            if(im_thres_y_left.at<uchar>(ii,jj) != 0) {
                 y_left_cnt++;
             }
         }
     }
 
-    // Recreate an image
+    // Recreate the image
     cv::Mat im_thres_left = im_thres_b_left + im_thres_y_left;
 
-    // ROS_INFO("Number of nonzero blue elements: %d", b_left_cnt);
-    // ROS_INFO("Number of nonzero yellow elements: %d", y_left_cnt);
+    ROS_INFO("Number of nonzero blue elements: %d", b_left_cnt);
+    ROS_INFO("Number of nonzero yellow elements: %d", y_left_cnt);
 
     // Notify if no detections are present
     if(b_left_cnt == 0) {
@@ -196,40 +190,48 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
         no_y_left = false;
     }
 
-    // Grab the image moment values
-    double im_b_left_m01 = im_left_bmoments.m01;
-    double im_b_left_m10 = im_left_bmoments.m10;
-    double im_b_left_area = im_left_bmoments.m00;
-    double im_y_left_m01 = im_left_ymoments.m01;
-    double im_y_left_m10 = im_left_ymoments.m10;
-    double im_y_left_area = im_left_ymoments.m00;
+    // If detections are present, then process the image
+    if((!no_b_left) && (!no_y_left)) {
 
-    // Get only the significant moments and calculate cluster positions
-    // DEBUG
-    // cout << "m00 for blue and yellow are: " << im_b_left_area << " " << im_y_left_area << endl;
-    if(im_b_left_area > 100000 && im_y_left_area > 100000) {
-        // Calculate cluster points
-        b_left_x = im_b_left_m10/im_b_left_area;
-        b_left_y = im_b_left_m01/im_b_left_area;
-        y_left_x = im_y_left_m10/im_y_left_area;
-        y_left_y = im_y_left_m01/im_y_left_area;
+        // Moments
+        cv::Moments im_left_ymoments = cv::moments(im_thres_y_left);
+        cv::Moments im_left_bmoments = cv::moments(im_thres_b_left);
+
+        // Grab the image moment values
+        double im_b_left_m01 = im_left_bmoments.m01;
+        double im_b_left_m10 = im_left_bmoments.m10;
+        double im_b_left_area = im_left_bmoments.m00;
+        double im_y_left_m01 = im_left_ymoments.m01;
+        double im_y_left_m10 = im_left_ymoments.m10;
+        double im_y_left_area = im_left_ymoments.m00;
+
+        // Get only the significant moments and calculate cluster positions
+        // DEBUG
+        // cout << "m00 for blue and yellow are: " << im_b_left_area << " " << im_y_left_area << endl;
+        if(im_b_left_area > 100000 && im_y_left_area > 100000) {
+            // Calculate cluster points
+            b_left_x = im_b_left_m10/im_b_left_area;
+            b_left_y = im_b_left_m01/im_b_left_area;
+            y_left_x = im_y_left_m10/im_y_left_area;
+            y_left_y = im_y_left_m01/im_y_left_area;
+        }
+
+        // ROS_INFO("Calculated left point pairs are: (%d, %d), (%d, %d)", b_left_x, b_left_y, y_left_x, y_left_y);
+
+        // // Assign the found points new values to differentiate
+        // im_thres_left.at<uchar>(cv::Point(b_left_x,b_left_y)) = 255;
+        // im_thres_left.at<uchar>(cv::Point(y_left_x,y_left_y)) = 255;    
+
+        // Get the midpoint
+        im_left_x = round((b_left_x+y_left_x)/2);
+        im_left_y = round((b_left_y+y_left_y)/2);
+
+        // // Show on image
+        // im_thres_left.at<uchar>(cv::Point(im_left_x, im_left_y)) = 255;
+
+        // Get point distance from centre
+        left_p_dist = im_thres_left.cols/2 - im_left_x;
     }
-
-    // ROS_INFO("Calculated left point pairs are: (%d, %d), (%d, %d)", b_left_x, b_left_y, y_left_x, y_left_y);
-
-    // // Assign the found points new values to differentiate
-    // im_thres_left.at<uchar>(cv::Point(b_left_x,b_left_y)) = 255;
-    // im_thres_left.at<uchar>(cv::Point(y_left_x,y_left_y)) = 255;    
-
-    // Get the midpoint
-    im_left_x = round((b_left_x+y_left_x)/2);
-    im_left_y = round((b_left_y+y_left_y)/2);
-
-    // // Show on image
-    // im_thres_left.at<uchar>(cv::Point(im_left_x, im_left_y)) = 255;
-
-    // Get point distance from centre
-    left_p_dist = im_thres_left.cols/2 - im_left_x;
 
     // Resize 
     im_thres_left = im_thres_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
@@ -273,13 +275,17 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
         }   
     }
 
-    ROS_INFO("Number of orange elements: %d", o_right_cnt);
+    // ROS_INFO("Number of orange elements: %d", o_right_cnt);
 
     // Notify if no detections are present
-    if(o_right_cnt == 0) {
+    if((o_right_cnt <= 200) && (o_right_cnt != 0)) {
         no_o_right = true;
-    } else {
+        ROS_INFO("Orange elements detected");
+    } 
+    
+    if(o_right_cnt > 200) {
         no_o_right = false;
+        // ROS_INFO("No orange detected");
     }    
 
     // Resize
@@ -300,17 +306,21 @@ void QEV_Image::pos_gain(void) {
     steer_gain = left_p_dist/1000;
 
     // Check: no blue cones
-    if(no_b_left) {
-        // Turn left until a cone is found
-        steer_gain = 1;
-        ROS_INFO("Commanding left");
+    if(!no_o_right) {
+        if(no_b_left) {
+            // Turn left until a cone is found
+            steer_gain = 1;
+            ROS_INFO("Commanding left");
+        }
     }
 
     // Check: no yellow cones
-    if(no_y_left) {
-        // Turn right until a cone is found
-        steer_gain = -1;
-        ROS_INFO("Commanding right");
+    if(!no_o_right) {
+        if(no_y_left) {
+            // Turn right until a cone is found
+            steer_gain = -1;
+            ROS_INFO("Commanding right");
+        }
     }
 
     // Check: orange cones
@@ -337,7 +347,7 @@ int main(int argc, char **argv) {
     QEV_Image qev_image;
 
     // Rate set
-    ros::Rate rate(10);
+    ros::Rate rate(15);
 
     // Enter while loop here
     while(ros::ok()) {

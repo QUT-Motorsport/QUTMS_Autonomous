@@ -37,17 +37,15 @@ QEV_Auto_Control::QEV_Auto_Control() {
     lap_sub = ng.subscribe("/qev/lap_count", 10, &QEV_Auto_Control::lap_callback, this);
 
     // Set default values here
-    accel_val = 0.1; // Maximum of 10m/s/s
-    speed_val = 0.1; // Maximum of 2m/s
     steer_val = M_PI_2; // Maximum steering angle
 
     // Grab the mission name
     if(ng.getParam("/mission_name", mission_name)) {
         ng.getParam("/mission_name", mission_name);
+        std::cout << "Mission name is " << mission_name << std::endl;
     } else {
         ROS_ERROR("Unable to retrieve mission name");
     }
-    std::cout << "Mission name is" << mission_name << std::endl;
 
 }
 
@@ -59,24 +57,28 @@ void QEV_Auto_Control::gain_handle(void) {
     }
     // Apply the calculated gain to the steering angle value
     ack_msg.drive.steering_angle = steering_gain*steer_val;
-    
-    if(lap_num == 0) {
-        // Set acceleration and speed
-        ack_msg.drive.acceleration = accel_val;
-        ack_msg.drive.speed = speed_val;
-    }
 
     // If we are doing acceleration, decelerate when we reach the finish line
-    if((mission_name == "acceleration") && (lap_num >= 1)) {
-        ack_msg.drive.acceleration = -accel_val;
-        ack_msg.drive.speed = 0;
-        ack_msg.drive.jerk = 0;
+    if(mission_name == "acceleration") {
+        if (lap_num < 1) {
+            ack_msg.drive.acceleration = 20;
+            ack_msg.drive.speed = 8;
+        } else {
+            ack_msg.drive.acceleration = -20;
+            ack_msg.drive.speed = 0;
+            ack_msg.drive.jerk = 0;
+        }
     }
     
-    if((mission_name == "trackdrive") && (lap_num >= 10)) {
-        ack_msg.drive.acceleration = -accel_val;
-        ack_msg.drive.speed = 0;
-        ack_msg.drive.jerk = 0;
+    if(mission_name == "trackdrive") {
+        if (lap_num < 10) {
+            ack_msg.drive.acceleration = 0.2;
+            ack_msg.drive.speed = 0.1;
+        } else {
+            ack_msg.drive.acceleration = -20;
+            ack_msg.drive.speed = 0;
+            ack_msg.drive.jerk = 0;            
+        }
     }
 
     // Header stuff
@@ -105,7 +107,7 @@ int main(int argc, char **argv) {
     QEV_Auto_Control auto_control;
 
     // Rate set
-    ros::Rate rate(30); // 5Hz
+    ros::Rate rate(15); // 5Hz
 
     while(ros::ok()) {
         // Spin once
