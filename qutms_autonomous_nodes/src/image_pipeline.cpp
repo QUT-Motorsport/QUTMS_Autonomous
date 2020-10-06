@@ -28,7 +28,7 @@ class QEV_Image {
     
     void image_left_callback(const sensor_msgs::Image::ConstPtr& img_left_msg);
     void image_right_callback(const sensor_msgs::Image::ConstPtr& img_right_msg);
-    void pos_gain(void);
+    // void pos_gain(void);
 
     private:
     ros::NodeHandle ni;
@@ -42,9 +42,9 @@ class QEV_Image {
     string image_transport_param;
 
     // Cluster point values
-    int b_left_x, b_left_y, y_left_x, y_left_y, b_right_x, b_right_y, y_right_x, y_right_y;
+    int b_left_x, b_left_y, y_left_x, y_left_y;
     int lap_num = -1;
-    double im_left_x, im_right_x, im_left_y, im_right_y, left_p_dist, right_p_dist, steer_gain;
+    double im_left_x, im_left_y, left_p_dist, steer_gain;
 
     bool no_b_left, no_y_left, no_o_right;
 
@@ -180,18 +180,26 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     // Notify if no detections are present
     if(b_left_cnt == 0) {
         no_b_left = true;
+        // Turn left until a cone is found
+        steer_gain = 1;
+        ROS_INFO("Commanding left");
     } else {
         no_b_left = false;
+        steer_gain = 0;
     }
     
     if(y_left_cnt == 0) {
         no_y_left = true;
+        // Turn right until a cone is found
+        steer_gain = -1;
+        ROS_INFO("Commanding right");
     } else {
         no_y_left = false;
+        steer_gain = 0;
     }
 
     // If detections are present, then process the image
-    if((!no_b_left) && (!no_y_left)) {
+    if((!no_b_left) || (!no_y_left)) {
 
         // Moments
         cv::Moments im_left_ymoments = cv::moments(im_thres_y_left);
@@ -231,6 +239,13 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
 
         // Get point distance from centre
         left_p_dist = im_thres_left.cols/2 - im_left_x;
+
+        // Get the gain
+        steer_gain = left_p_dist/1000;
+
+        // Publish
+        gain_msg.data = steer_gain;
+        point_pub.publish(gain_msg);
     }
 
     // Resize 
@@ -279,14 +294,19 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
 
     // Notify if no detections are present
     if((o_right_cnt <= 200) && (o_right_cnt != 0)) {
-        no_o_right = true;
         ROS_INFO("Orange elements detected");
+        // Update the lap number
+        ROS_INFO("Lap completed");
+        lap_num++;
     } 
     
     if(o_right_cnt > 200) {
-        no_o_right = false;
         // ROS_INFO("No orange detected");
     }    
+
+    // Publish 
+    lap_msg.data = lap_num;
+    lap_pub.publish(lap_msg);
 
     // Resize
     im_thres_o_right = im_thres_o_right(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
@@ -296,48 +316,6 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
 
 }
 
-void QEV_Image::pos_gain(void) {
-    // Get the average of the two produced positions and convert to a gain value
-    // DEBUG: Function can access the values properly
-    // ROS_INFO("Offset values are: %2.3f, %2.3f", left_p_dist, right_p_dist);
-    // double x_off = (left_p_dist + right_p_dist)/2;
-
-    // Get the gain
-    steer_gain = left_p_dist/1000;
-
-    // Check: no blue cones
-    if(!no_o_right) {
-        if(no_b_left) {
-            // Turn left until a cone is found
-            steer_gain = 1;
-            ROS_INFO("Commanding left");
-        }
-    }
-
-    // Check: no yellow cones
-    if(!no_o_right) {
-        if(no_y_left) {
-            // Turn right until a cone is found
-            steer_gain = -1;
-            ROS_INFO("Commanding right");
-        }
-    }
-
-    // Check: orange cones
-    if(no_o_right) {
-        // Update the lap number
-        ROS_INFO("Lap completed");
-        lap_num++;
-    }
-    
-    // Publish
-    gain_msg.data = steer_gain;
-    point_pub.publish(gain_msg);
-
-    // Also publish lap number
-    lap_msg.data = lap_num;
-    lap_pub.publish(lap_msg);
-}
 
 int main(int argc, char **argv) {
     // Node init
@@ -346,21 +324,21 @@ int main(int argc, char **argv) {
     // Class object goes here
     QEV_Image qev_image;
 
-    // Rate set
-    ros::Rate rate(15);
+    // // Rate set
+    // ros::Rate rate(15);
 
-    // Enter while loop here
-    while(ros::ok()) {
-        // Spin to get and process images
-        ros::spinOnce();
+    // // Enter while loop here
+    // while(ros::ok()) {
+    //     // Spin to get and process images
+    //     ros::spinOnce();
 
-        // Get the gain value
-        qev_image.pos_gain();
+    //     // Get the gain value
+    //     qev_image.pos_gain();
 
-        // Sleep
-        rate.sleep();
-    }
+    //     // Sleep
+    //     rate.sleep();
+    // }
 
-    // ros::spin();
+    ros::spin();
 
 }
