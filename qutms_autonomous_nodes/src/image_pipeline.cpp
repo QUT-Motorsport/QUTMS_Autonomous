@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <std_msgs/Int64.h>
-#include <std_msgs/Float64.h>
+#include <std_msgs/Float32.h>
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/CompressedImage.h>
@@ -38,7 +38,7 @@ class QEV_Image {
     ros::Publisher point_pub;
     ros::Publisher lap_pub; // Might be replaced with a param server function
     std_msgs::Int64 lap_msg;
-    std_msgs::Float64 gain_msg;
+    std_msgs::Float32 gain_msg;
     string image_transport_param;
 
     // Cluster point values
@@ -105,12 +105,12 @@ void SigIntHandler(int sig) {
 QEV_Image::QEV_Image(): imi(ni) {
 
     // Publishers here
-    point_pub = ni.advertise<std_msgs::Float64>("/qev/move_point", 10);
+    point_pub = ni.advertise<std_msgs::Float32>("/qev/move_point", 10);
     lap_pub = ni.advertise<std_msgs::Int64>("/qev/lap_count", 10);
 
     // Subscribers here
-    im_left_sub = imi.subscribe("/qev/zed_camera/left/image_raw", 10, &QEV_Image::image_left_callback, this);
-    im_right_sub = imi.subscribe("/qev/zed_camera/right/image_raw", 10, &QEV_Image::image_right_callback, this);
+    im_left_sub = imi.subscribe("/qev/zed_camera/left/image_raw", 5, &QEV_Image::image_left_callback, this);
+    im_right_sub = imi.subscribe("/qev/zed_camera/right/image_raw", 5, &QEV_Image::image_right_callback, this);
 
     // Get a shutdown handler
     signal(SIGINT, SigIntHandler);
@@ -149,6 +149,11 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     // Threshold blue
     cv::inRange(im_left_hsv, cv::Scalar(b_low_h,b_low_s,b_low_v), cv::Scalar(b_high_h, b_high_s, b_high_v), im_thres_b_left);
 
+    // Resize 
+    im_thres_y_left = im_thres_y_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
+    // Resize 
+    im_thres_b_left = im_thres_b_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
+
     // Remove small objects
     cv::erode(im_thres_y_left, im_thres_y_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));
     cv::dilate(im_thres_y_left, im_thres_y_left, cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(12, 12)));     
@@ -160,12 +165,12 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     for(int ii = 0; ii < im_thres_y_left.rows; ii++) {
         for(int jj = 0; jj < im_thres_y_left.cols; jj++) {
             // Check for blue values
-            if(im_thres_b_left.at<uchar>(ii,jj) != 0) {
+            if(im_thres_b_left.at<uchar>(ii,jj) == 255) {
                 b_left_cnt++;
             }
 
             // Check for yellow values
-            if(im_thres_y_left.at<uchar>(ii,jj) != 0) {
+            if(im_thres_y_left.at<uchar>(ii,jj) == 255) {
                 y_left_cnt++;
             }
         }
@@ -182,7 +187,7 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
         no_b_left = true;
         // Turn left until a cone is found
         steer_gain = 1;
-        ROS_INFO("Commanding left");
+        ROS_INFO("No blue cones, commanding left");
     } else {
         no_b_left = false;
         steer_gain = 0;
@@ -192,7 +197,7 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
         no_y_left = true;
         // Turn right until a cone is found
         steer_gain = -1;
-        ROS_INFO("Commanding right");
+        ROS_INFO("No yellow cones, commanding right");
     } else {
         no_y_left = false;
         steer_gain = 0;
@@ -235,21 +240,22 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
         im_left_y = round((b_left_y+y_left_y)/2);
 
         // // Show on image
-        // im_thres_left.at<uchar>(cv::Point(im_left_x, im_left_y)) = 255;
+        im_thres_left.at<uchar>(cv::Point(im_left_x, im_left_y)) = 255;
 
         // Get point distance from centre
         left_p_dist = im_thres_left.cols/2 - im_left_x;
 
-        // Get the gain
-        steer_gain = left_p_dist/1000;
-
-        // Publish
-        gain_msg.data = steer_gain;
-        point_pub.publish(gain_msg);
     }
 
-    // Resize 
-    im_thres_left = im_thres_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
+    // Get the gain
+    steer_gain = left_p_dist/1000;
+
+    // Publish
+    gain_msg.data = steer_gain;
+    point_pub.publish(gain_msg);
+
+    // // Resize 
+    // im_thres_left = im_thres_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
 
     // Display
     cv::imshow(OPENCV_WINDOW_LEFT, im_thres_left);
@@ -284,7 +290,7 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     for(int ii = 0; ii < im_thres_o_right.rows; ii++) {
         for(int a = 0; a < im_thres_o_right.cols; a++) {
             // Check for orange values
-            if(im_thres_o_right.at<uchar>(ii,a) > 0) {
+            if(im_thres_o_right.at<uchar>(ii,a) == 255) {
                 o_right_cnt++;
             }     
         }   

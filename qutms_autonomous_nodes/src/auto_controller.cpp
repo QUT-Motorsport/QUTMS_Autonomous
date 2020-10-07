@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <std_msgs/Int64.h>
-#include <std_msgs/Float64.h>
+#include <std_msgs/Float32.h>
 #include <ackermann_msgs/AckermannDriveStamped.h>
 
 // Controller for the autonomous QEV2 vehicle (in sim)
@@ -11,7 +11,7 @@ class QEV_Auto_Control {
     QEV_Auto_Control();
 
     void gain_handle(void);
-    void gain_callback(const std_msgs::Float64ConstPtr gain_msg);
+    void gain_callback(const std_msgs::Float32ConstPtr gain_msg);
     void lap_callback(const std_msgs::Int64ConstPtr lap_msg);
 
     private:
@@ -64,7 +64,8 @@ void QEV_Auto_Control::gain_handle(void) {
             ack_msg.drive.acceleration = 20;
             ack_msg.drive.speed = 8;
         } else {
-            ack_msg.drive.acceleration = -20;
+            ROS_INFO("Mission finished, stopping...");
+            ack_msg.drive.acceleration = -30;
             ack_msg.drive.speed = 0;
             ack_msg.drive.jerk = 0;
         }
@@ -73,8 +74,9 @@ void QEV_Auto_Control::gain_handle(void) {
     if(mission_name == "trackdrive") {
         if (lap_num < 10) {
             ack_msg.drive.acceleration = 0.2;
-            ack_msg.drive.speed = 0.1;
+            ack_msg.drive.speed = 0.05;
         } else {
+            ROS_INFO("Mission finished, stopping...");
             ack_msg.drive.acceleration = -20;
             ack_msg.drive.speed = 0;
             ack_msg.drive.jerk = 0;            
@@ -89,7 +91,7 @@ void QEV_Auto_Control::gain_handle(void) {
 
 }
 
-void QEV_Auto_Control::gain_callback(const std_msgs::Float64ConstPtr gain_msg) {
+void QEV_Auto_Control::gain_callback(const std_msgs::Float32ConstPtr gain_msg) {
     // Assign the gain value
     QEV_Auto_Control::steering_gain = gain_msg->data;
 }
@@ -107,7 +109,7 @@ int main(int argc, char **argv) {
     QEV_Auto_Control auto_control;
 
     // Rate set
-    ros::Rate rate(15); // 5Hz
+    ros::Rate rate(30); // 5Hz
 
     while(ros::ok()) {
         // Spin once
