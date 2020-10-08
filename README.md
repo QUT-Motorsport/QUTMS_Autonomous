@@ -10,7 +10,7 @@ Run these commands to install dependencies
 sudo apt install python-catkin-tools
 sudo apt install ros-melodic-hector-gazebo-plugins
 sudo apt install ros-melodic-teleop-twist-keyboard
-sudo apt install ackermann-msgs
+sudo apt install ros-melodic-ackermann-msgs
 sudo apt install ros-melodic-joy
 ```
 
