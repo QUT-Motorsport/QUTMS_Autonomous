@@ -21,6 +21,6 @@ catkin clean --yes
 ```
 If all goes well then run
 ```
-catkin build qutms_autonomous
+catkin build
 ```
 Use catkin build to make executables from now on
