@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 #include <std_msgs/Int64.h>
 #include <std_msgs/Float32.h>
+#include <std_msgs/Bool.h>
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/CompressedImage.h>
@@ -37,8 +38,12 @@ class QEV_Image {
     image_transport::Subscriber im_right_sub;
     ros::Publisher point_pub;
     ros::Publisher lap_pub; // Might be replaced with a param server function
+    ros::Publisher blue_pub;
+    ros::Publisher yllw_pub;
     std_msgs::Int64 lap_msg;
     std_msgs::Float32 gain_msg;
+    std_msgs::Bool blue_msg;
+    std_msgs::Bool yllw_msg;
     string image_transport_param;
 
     // Cluster point values
@@ -107,10 +112,12 @@ QEV_Image::QEV_Image(): imi(ni) {
     // Publishers here
     point_pub = ni.advertise<std_msgs::Float32>("/qev/move_point", 10);
     lap_pub = ni.advertise<std_msgs::Int64>("/qev/lap_count", 10);
+    blue_pub = ni.advertise<std_msgs::Bool>("/qev/blue_count", 10);
+    yllw_pub = ni.advertise<std_msgs::Bool>("/qev/yellow_count", 10);
 
     // Subscribers here
-    im_left_sub = imi.subscribe("/qev/zed_camera/left/image_raw", 5, &QEV_Image::image_left_callback, this);
-    im_right_sub = imi.subscribe("/qev/zed_camera/right/image_raw", 5, &QEV_Image::image_right_callback, this);
+    im_left_sub = imi.subscribe("/qev/zed_camera/left/image_raw", 1, &QEV_Image::image_left_callback, this);
+    im_right_sub = imi.subscribe("/qev/zed_camera/right/image_raw", 1, &QEV_Image::image_right_callback, this);
 
     // Get a shutdown handler
     signal(SIGINT, SigIntHandler);
@@ -162,6 +169,8 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
 
     // Check for colour detections
     int b_left_cnt, y_left_cnt;
+    b_left_cnt = 0;
+    y_left_cnt = 0;
     for(int ii = 0; ii < im_thres_y_left.rows; ii++) {
         for(int jj = 0; jj < im_thres_y_left.cols; jj++) {
             // Check for blue values
@@ -183,25 +192,31 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     ROS_INFO("Number of nonzero yellow elements: %d", y_left_cnt);
 
     // Notify if no detections are present
-    if(b_left_cnt == 0) {
-        no_b_left = true;
-        // Turn left until a cone is found
-        steer_gain = 1;
-        ROS_INFO("No blue cones, commanding left");
-    } else {
-        no_b_left = false;
-        steer_gain = 0;
+    if(y_left_cnt > 0) {
+        if(b_left_cnt == 0) {
+            no_b_left = true;
+            // Turn left until a cone is found
+            // steer_gain = 1;
+            ROS_INFO("No blue cones, commanding left");
+        } else {
+            no_b_left = false;
+            // steer_gain = 0;
+        }
     }
-    
-    if(y_left_cnt == 0) {
-        no_y_left = true;
-        // Turn right until a cone is found
-        steer_gain = -1;
-        ROS_INFO("No yellow cones, commanding right");
-    } else {
-        no_y_left = false;
-        steer_gain = 0;
+    blue_msg.data = no_b_left;
+
+    if(b_left_cnt > 0) {  
+        if(y_left_cnt == 0) {
+            no_y_left = true;
+            // Turn right until a cone is found
+            // steer_gain = -1;
+            ROS_INFO("No yellow cones, commanding right");
+        } else {
+            no_y_left = false;
+            // steer_gain = 0;
+        }
     }
+    yllw_msg.data = no_y_left;
 
     // If detections are present, then process the image
     if((!no_b_left) || (!no_y_left)) {
@@ -250,9 +265,11 @@ void QEV_Image::image_left_callback(const sensor_msgs::Image::ConstPtr& img_left
     // Get the gain
     steer_gain = left_p_dist/1000;
 
-    // Publish
+    // Publish messages
     gain_msg.data = steer_gain;
     point_pub.publish(gain_msg);
+    blue_pub.publish(blue_msg);
+    yllw_pub.publish(yllw_msg);
 
     // // Resize 
     // im_thres_left = im_thres_left(cv::Range(im_size_top, im_size_bottom), cv::Range(im_size_left, im_size_right));
@@ -299,7 +316,7 @@ void QEV_Image::image_right_callback(const sensor_msgs::Image::ConstPtr& img_rig
     // ROS_INFO("Number of orange elements: %d", o_right_cnt);
 
     // Notify if no detections are present
-    if((o_right_cnt <= 200) && (o_right_cnt != 0)) {
+    if((o_right_cnt <= 150) && (o_right_cnt != 0)) {
         ROS_INFO("Orange elements detected");
         // Update the lap number
         ROS_INFO("Lap completed");
