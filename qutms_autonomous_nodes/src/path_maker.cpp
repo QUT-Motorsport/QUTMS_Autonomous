@@ -24,6 +24,8 @@ class Skidpad_Mapper {
 
     void create_map(void);
     void make_points(void);
+    void make_path(void);
+    void path_pub(void);
 
     private:
     ros::NodeHandle np;
@@ -33,7 +35,7 @@ class Skidpad_Mapper {
 
     // Parameters
     double track_radius_inner, track_radius_outer, cone_res, track_enter, track_exit, track_mid, track_circle_sep;
-    vector<double> x_points, y_points, f_points;
+    vector<double> x_points, y_points, xf_points, yf_points;
 };
 
 // Constructor
@@ -80,7 +82,64 @@ void Skidpad_Mapper::create_map(void)  {
 }
 
 void Skidpad_Mapper::make_points(void) {
-    // Generates all midpoints 
-    double pnt = 
+    // Sanity check: we have an equal number of points in both vectors
+    if(x_points.size() != y_points.size()) {
+        ROS_ERROR("Unequal number of points!");
+    } else {
+        // Use two points at a time to calculate midpoints
+        for (int ii = 0; ii <= x_points.size(); ii = ii+2) {
+            double xf = (x_points[ii] + x_points[ii+1])/2;
+            double yf = (y_points[ii] + y_points[ii+1])/2;
+
+            // Append
+            xf_points.push_back(xf);
+            yf_points.push_back(yf);
+        }
+    }
+}
+
+void Skidpad_Mapper::make_path(void) {
+    // Uses created points to generate the Path message to be sent 
+    geometry_msgs::PoseStamped pose;
+
+    // Make a pose then push it to the Path
+    for(int ii = 0; ii <= xf_points.size(); ii++) {
+        pose.pose.position.x = xf_points[ii];
+        pose.pose.position.y = yf_points[ii];
+        pose.pose.position.z = 0.15;
+
+        track_path.poses.push_back(pose);
+    }
+}
+
+void Skidpad_Mapper::path_pub(void) {
+    // Publishes the path message
+    path_publisher.publish(track_path);
+}
+
+int main(int argc, char **argv) {
+    // Init
+    ros::init(argc, argv, "Skidpad_Map");
+
+    // Class 
+    Skidpad_Mapper skidpad_map;
+
+    // Rate set
+    ros::Rate rate(5);
+
+    // Create the map 
+    skidpad_map.create_map();
+
+    // Create the message
+    skidpad_map.make_points();
+    skidpad_map.make_path();
+
+    // Publish it 
+    while(ros::ok()) {
+        skidpad_map.path_pub();
+
+        rate.sleep();
+    }
+    
 }
 
