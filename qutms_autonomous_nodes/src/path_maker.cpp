@@ -66,7 +66,7 @@ void Skidpad_Mapper::create_map(void)  {
         // Whilst we have lines to process, process them
         while(getline(tinfile, line)) {
             double xtxt, ytxt;
-            tinfile >> xtxt, ytxt;
+            tinfile >> xtxt >> ytxt;
             // cout << "Got " << xtxt << " " << ytxt << endl;
             // Save to vectors
             x_points.push_back(xtxt);
@@ -91,6 +91,9 @@ void Skidpad_Mapper::make_points(void) {
             double xf = (x_points[ii] + x_points[ii+1])/2;
             double yf = (y_points[ii] + y_points[ii+1])/2;
 
+            // Debug
+            // ROS_INFO("Got point %2.4f, %2.4f", xf, yf);
+
             // Append
             xf_points.push_back(xf);
             yf_points.push_back(yf);
@@ -103,16 +106,21 @@ void Skidpad_Mapper::make_path(void) {
     geometry_msgs::PoseStamped pose;
 
     // Make a pose then push it to the Path
-    for(int ii = 0; ii <= xf_points.size(); ii++) {
+    for(int ii = 0; ii <= xf_points.size()-3; ii++) {
         pose.pose.position.x = xf_points[ii];
         pose.pose.position.y = yf_points[ii];
         pose.pose.position.z = 0.15;
 
         track_path.poses.push_back(pose);
     }
+
+    // Add other information
+    track_path.header.frame_id = "map";
 }
 
 void Skidpad_Mapper::path_pub(void) {
+    track_path.header.stamp = ros::Time::now();
+
     // Publishes the path message
     path_publisher.publish(track_path);
 }
@@ -133,6 +141,8 @@ int main(int argc, char **argv) {
     // Create the message
     skidpad_map.make_points();
     skidpad_map.make_path();
+
+    ROS_INFO("Publishing path...");
 
     // Publish it 
     while(ros::ok()) {
