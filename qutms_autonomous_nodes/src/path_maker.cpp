@@ -3,6 +3,7 @@
 #include <std_msgs/Header.h>
 #include <nav_msgs/Path.h>
 #include <geometry_msgs/PoseStamped.h>
+#include <tf2/LinearMath/Quaternion.h>
 
 // C++ includes
 #include <math.h>
@@ -35,7 +36,7 @@ class Skidpad_Mapper {
 
     // Parameters
     double track_radius_inner, track_radius_outer, cone_res, track_enter, track_exit, track_mid, track_circle_sep;
-    vector<double> x_points, y_points, xf_points, yf_points;
+    vector<double> x_points, y_points, xf_points, yf_points, phi_f_points;
 };
 
 // Constructor
@@ -66,7 +67,7 @@ void Skidpad_Mapper::create_map(void)  {
         // Whilst we have lines to process, process them
         while(getline(tinfile, line)) {
             double xtxt, ytxt;
-            tinfile >> xtxt >> ytxt;
+            tinfile >> xtxt, ytxt;
             // cout << "Got " << xtxt << " " << ytxt << endl;
             // Save to vectors
             x_points.push_back(xtxt);
@@ -91,14 +92,28 @@ void Skidpad_Mapper::make_points(void) {
             double xf = (x_points[ii] + x_points[ii+1])/2;
             double yf = (y_points[ii] + y_points[ii+1])/2;
 
-            // Debug
-            // ROS_INFO("Got point %2.4f, %2.4f", xf, yf);
-
             // Append
             xf_points.push_back(xf);
             yf_points.push_back(yf);
         }
     }
+
+    // Get heading values
+    for (int ii = 0; ii <= xf_points.size(); ii++) {
+        // First heading value is 0, all others are angles between points
+        if (ii == 0) {
+            double phi_f = 0;
+
+            // Append
+            phi_f_points.push_back(phi_f);
+
+        } else {
+            double phi_f = atan2((yf_points[ii] - yf_points[ii-1]),(xf_points[ii] - xf_points[ii-1]));
+
+            // Append
+            phi_f_points.push_back(phi_f);
+        }
+    } 
 }
 
 void Skidpad_Mapper::make_path(void) {
@@ -106,21 +121,24 @@ void Skidpad_Mapper::make_path(void) {
     geometry_msgs::PoseStamped pose;
 
     // Make a pose then push it to the Path
-    for(int ii = 0; ii <= xf_points.size()-3; ii++) {
+    for(int ii = 0; ii <= xf_points.size(); ii++) {
         pose.pose.position.x = xf_points[ii];
         pose.pose.position.y = yf_points[ii];
         pose.pose.position.z = 0.15;
 
+        // Convert from RPY to Quaternion
+        tf2::Quaternion quat;
+        quat.setRPY(0, 0, phi_f_points[ii]);
+        pose.pose.orientation.w = quat.getW();
+        pose.pose.orientation.x = quat.getX();
+        pose.pose.orientation.y = quat.getY();
+        pose.pose.orientation.z = quat.getZ();
+
         track_path.poses.push_back(pose);
     }
-
-    // Add other information
-    track_path.header.frame_id = "map";
 }
 
 void Skidpad_Mapper::path_pub(void) {
-    track_path.header.stamp = ros::Time::now();
-
     // Publishes the path message
     path_publisher.publish(track_path);
 }
@@ -141,8 +159,6 @@ int main(int argc, char **argv) {
     // Create the message
     skidpad_map.make_points();
     skidpad_map.make_path();
-
-    ROS_INFO("Publishing path...");
 
     // Publish it 
     while(ros::ok()) {
