@@ -12,7 +12,23 @@ OpenCV<br><br>
 cv_bridge<br><br>
 
 ## How to use 
-
+Assuming all requirements work and are build correctly<br><br>
+Open two terminals and cd into your workspace
+```
+cd dev_ws
+```
+Install the workspace on each
+```
+. install/setup.bash
+```
+Run the Subsriber node
+```
+ros2 run yoloController detectCones 
+```
+Run the Publisher node
+```
+ros2 run yoloController testConesTopic 
+```
 ## Update 11/07/2021
 There are two nodes that are being used 'detectCones.py' and 'yoloTester.py'.
 Where 'detectCones.py' is the subscriber node and 'yoloTester.py' is the publisher. 
