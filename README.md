@@ -16,5 +16,5 @@ cv_bridge<br><br>
 ## Update 11/07/2021
 There are two nodes that are being used 'detectCones.py' and 'yoloTester.py'.
 Where 'detectCones.py' is the subscriber node and 'yoloTester.py' is the publisher. 
-Currently the two nodes work with the publisher node sending up a test image which included in the 'yoloController' folder as 'testImage' and its directory is hard-coded. The two nodes are also talking on the topic 'Image' as the simulator topics or functionality hasnt been done yet. 
+Currently the two nodes work with the publisher node sending up a test image which included in the 'yoloController' folder as 'testImage' and its directory is hard-coded. The two nodes are also talking on the topic 'Image' as the simulator topics or functionality hasnt been done yet. The yoloV5 detection model is also included in the file a 'bestOne.pt' and its path is also hard-coded. 
 
